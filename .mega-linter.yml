@@ -6,13 +6,14 @@ APPLY_FIXES: all # all, none, or list of linter keys
 # ENABLE: # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
 # ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
 DISABLE:
-  - C
-  - CPP
+  - C # To enable if you decide to follow Google Style Guide
+  - CPP # To enable if you decide to follow Google Style Guide
   - COPYPASTE
   - XML
 DISABLE_LINTERS:
   - SPELL_MISSPELL
 SHOW_ELAPSED_TIME: true
+GITHUB_STATUS_REPORTER: false
 FILEIO_REPORTER: false
 # DISABLE_ERRORS: true # Uncomment if you want MegaLinter to detect errors but not block CI to pass
 VALIDATE_ALL_CODEBASE: false # When set to false, only new or edited files will be parsed for validation.
@@ -23,7 +24,7 @@ BASH_SHELLCHECK_DISABLE_ERRORS_IF_LESS_THAN: 1000
 GIT_GIT_DIFF_DISABLE_ERRORS: true
 HTML_HTMLHINT_DISABLE_ERRORS: true
 PERL_PERLCRITIC_DISABLE_ERRORS: true
-LATEX_CHKTEX_DISABLE_ERRORS_IF_LESS_THAN: 2
+LATEX_CHKTEX_DISABLE_ERRORS_IF_LESS_THAN: 20
 MARKDOWN_MARKDOWN_LINK_CHECK_DISABLE_ERRORS_IF_LESS_THAN: 6
 PYTHON_PYLINT_DISABLE_ERRORS_IF_LESS_THAN: 3363
 PYTHON_MYPY_DISABLE_ERRORS_IF_LESS_THAN: 2
