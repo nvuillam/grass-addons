@@ -5,8 +5,9 @@ DEFAULT_BRANCH: grass8 #Temporary override of default branch
 APPLY_FIXES: all # all, none, or list of linter keys
 # ENABLE: # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
 # ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
-# DISABLE:
-  # - COPYPASTE # Uncomment to disable checks of excessive copy-pastes
+DISABLE:
+  - COPYPASTE
+  - XML
   # - SPELL # Uncomment to disable checks of spelling mistakes
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
@@ -14,3 +15,11 @@ FILEIO_REPORTER: false
 VALIDATE_ALL_CODEBASE: false # When set to false, only new or edited files will be parsed for validation.
 PYTHON_PYLINT_ARGUMENTS: -j 0 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the number of processors available to use.
 COPYPASTE_JSCPD_DISABLE_ERRORS_IF_LESS_THAN: 1561 # Avoid adding new technical debt. Reduce this when the number of detections will lower.
+ACTION_ACTIONLINT_DISABLE_ERRORS: true
+BASH_SHELLCHECK_DISABLE_ERRORS_IF_LESS_THAN: 1000
+HTML_HTMLHINT_DISABLE_ERRORS: true
+PERL_PERLCRITIC_DISABLE_ERRORS: true
+LATEX_CHKTEX_DISABLE_ERRORS_IF_LESS_THAN: 0
+PYTHON_PYLINT_DISABLE_ERRORS_IF_LESS_THAN: 3355
+PYTHON_MYPY_FILTER_REGEX_EXCLUDE: "(wx\\.wms)"
+PYTHON_BANDIT_DISABLE_ERRORS_IF_LESS_THAN: 486
