@@ -15,3 +15,4 @@ VALIDATE_ALL_CODEBASE: false # When set to false, only new or edited files will 
 PYTHON_PYLINT_ARGUMENTS: -j 0 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the number of processors available to use.
 PYTHON_PYLINT_CLI_LINT_MODE: project
 CPP_CPPLINT_CLI_LINT_MODE: project
+COPYPASTE_JSCPD_DISABLE_ERRORS_IF_LESS_THAN: 1561 # Avoid adding new technical debt. Reduce this when the number of detections will lower.
