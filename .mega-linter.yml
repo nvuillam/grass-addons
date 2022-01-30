@@ -1,23 +1,26 @@
 # Configuration file for MegaLinter
 # See all available variables at https://megalinter.github.io/configuration/ and in linters documentation
 
-DEFAULT_BRANCH: grass8 #Temporary override of default branch
+DEFAULT_BRANCH: grass8 # Temporary override of default branch
 APPLY_FIXES: all # all, none, or list of linter keys
-# ENABLE: # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
-# ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
+
+# Linters activation / deactivation
 DISABLE:
-  - C # To enable if you decide to follow Google Style Guide
-  - CPP # To enable if you decide to follow Google Style Guide
-  - COPYPASTE
-  - XML
+  - C # Remove this lint to enable if you decide to follow Google Style Guide
+  - CPP # Remove this line to enable if you decide to follow Google Style Guide
+  - COPYPASTE # There are too many copy pastes, disable if you decide to correct them, or configure .jscpd.json to ignore folders/files
+  - XML # Seems that there are lot of XML issues, solve them before if you want to enable XML linter
 DISABLE_LINTERS:
-  - SPELL_MISSPELL
+  - SPELL_CSPELL # You should activate it from time to time to fix spelling mistakes, but not always as it takes 5mn to run
+  - SPELL_MISSPELL # Would probably mess with code by renaming stuff
+
+# Generic run config
 SHOW_ELAPSED_TIME: true
 GITHUB_STATUS_REPORTER: false
 FILEIO_REPORTER: false
-# DISABLE_ERRORS: true # Uncomment if you want MegaLinter to detect errors but not block CI to pass
-VALIDATE_ALL_CODEBASE: false # When set to false, only new or edited files will be parsed for validation.
 PYTHON_PYLINT_ARGUMENTS: -j 0 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the number of processors available to use.
+
+# Conditions to set results as warning
 COPYPASTE_JSCPD_DISABLE_ERRORS_IF_LESS_THAN: 1561 # Avoid adding new technical debt. Reduce this when the number of detections will lower.
 ACTION_ACTIONLINT_DISABLE_ERRORS: true
 BASH_SHELLCHECK_DISABLE_ERRORS_IF_LESS_THAN: 1000
