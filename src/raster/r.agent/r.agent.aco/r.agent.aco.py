@@ -219,10 +219,9 @@ COPYRIGHT:    (C) 2011 by Michael Lustenberger and the GRASS Development Team
 #%end
 
 import sys
-from sys import exit, maxsize
-from math import sqrt
-from math import exp
+from math import exp, sqrt
 from random import randint
+from sys import exit, maxsize
 
 try:
     from grass.script import core as grass
@@ -232,7 +231,7 @@ except ImportError:
 from grass.pygrass.utils import set_path
 
 set_path("r.agent", "libagent", "..")
-from libagent import error, grassland, anthill
+from libagent import anthill, error, grassland
 
 
 def setmaps(site, cost, wastecosts, inphero, outphero, wastephero):

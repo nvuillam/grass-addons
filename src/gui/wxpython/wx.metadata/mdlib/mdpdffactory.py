@@ -19,23 +19,12 @@ import sys
 import tempfile
 
 from core.gcmd import GWarning
-
 from grass.pygrass.modules.interface.env import G_debug
 from grass.script import core as grass
 from grass.script.utils import get_lib_path
 
 from . import globalvar
-from .mdpdftheme import (
-    CENTER,
-    DefaultTheme,
-    H1,
-    H4,
-    LEFT,
-    Pdf,
-    T1,
-    T2,
-    T3,
-)
+from .mdpdftheme import CENTER, H1, H4, LEFT, T1, T2, T3, DefaultTheme, Pdf
 
 
 class MyTheme(DefaultTheme):
@@ -58,12 +47,7 @@ class PdfCreator(object):
         try:
             global Image, PageBreak, Paragraph, Table
 
-            from reportlab.platypus import (
-                Image,
-                PageBreak,
-                Paragraph,
-                Table,
-            )
+            from reportlab.platypus import Image, PageBreak, Paragraph, Table
         except ModuleNotFoundError as e:
             msg = e.msg
             sys.exit(

@@ -5,30 +5,25 @@ Created on Wed Nov  6 15:08:38 2013
 @author: pietro
 """
 from __future__ import absolute_import, division, print_function
-import time
-import random as rnd
-from gettext import lgettext as _
-import sys
-import pickle as pk
 
-import numpy as np
+import pickle as pk
+import random as rnd
+import sys
+import time
+from gettext import lgettext as _
+
 import matplotlib  # required by windows
+import numpy as np
 
 matplotlib.use("wxAGG")  # required by windows
 import matplotlib.pyplot as plt
-
-
 from sklearn import metrics as metrics
-from sklearn.metrics import (
-    precision_recall_curve as prc,
-    roc_curve,
-    auc,
-    confusion_matrix,
-)
-from sklearn.cross_validation import StratifiedKFold
+from sklearn.cross_validation import StratifiedKFold, cross_val_score
 from sklearn.grid_search import GridSearchCV
+from sklearn.metrics import auc, confusion_matrix
+from sklearn.metrics import precision_recall_curve as prc
+from sklearn.metrics import roc_curve
 from sklearn.svm import SVC
-from sklearn.cross_validation import cross_val_score
 
 # from grass.pygrass.messages import get_msgr
 

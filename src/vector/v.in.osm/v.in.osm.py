@@ -53,12 +53,13 @@ This program is free software under the GNU General Public License
 #% label: List available OGR layers in data source and exit
 #%end
 
+import atexit
 import os
 import sys
-import atexit
-from grass.script.utils import try_rmdir
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
+from grass.script.utils import try_rmdir
 
 
 class OsmImporter:

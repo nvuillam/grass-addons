@@ -2,37 +2,37 @@
 @author Nikos Alexandris
 """
 
-from __future__ import division
-from __future__ import absolute_import
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
 
 import math
+
 import grass.script as grass
 from grass.pygrass.modules.shortcuts import general as g
 from grass.pygrass.modules.shortcuts import raster as r
 from grass.pygrass.modules.shortcuts import vector as v
+
 from .colors import MOBILITY_COLORS
 from .constants import (
-    EQUATION,
-    HIGHEST_RECREATION_CATEGORY,
-    SUITABILITY_SCORES_LABELS,
     COMMA,
     CSV_EXTENSION,
+    EQUATION,
+    HIGHEST_RECREATION_CATEGORY,
     METHODS,
+    SUITABILITY_SCORES_LABELS,
 )
 from .grassy_utilities import (
-    temporary_filename,
-    remove_map_at_exit,
-    remove_files_at_exit,
-    string_to_file,
     get_raster_statistics,
-    update_vector,
     raster_to_vector,
+    remove_files_at_exit,
+    remove_map_at_exit,
+    string_to_file,
+    temporary_filename,
+    update_vector,
 )
 from .utilities import (
+    dictionary_to_csv,
     merge_two_dictionaries,
     nested_dictionary_to_csv,
-    dictionary_to_csv,
 )
 
 

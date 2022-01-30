@@ -1,38 +1,38 @@
 #!/bin/sh
-# 
+#
 #set -x
 ########################################################################
-# 
+#
 # MODULE:       r.model.eval
 # AUTHOR(S):    Paulo van Breugel <paulo AT ecodiv.org>
-# PURPOSE:      To evaluate how well a modeled distribution predicts an 
-#               observed distribution. 
+# PURPOSE:      To evaluate how well a modeled distribution predicts an
+#               observed distribution.
 #
 # NOTES:        The observed distribution of e.g., a species, land
 #               cover unit or vegetation unit should be a binary map
 #               with 1 (present) and 0 (absent). The values of the
-#               modeled distribution can be any map that represents a 
-#               probability distribution in space. This could be based 
+#               modeled distribution can be any map that represents a
+#               probability distribution in space. This could be based
 #               on X, but it doesn't need to be. You can also, for example,
 #               evaluate how well the modeled distribution of a species X
 #               predicts the distribution of species Y or of land cover
 #               type Y.
 #
 # Disclaimer:   Only limited testing has been done. Use at own risk
-#   
+#
 # COPYRIGHT: (C) 2014 Paulo van Breugel
 #            http://ecodiv.org
 #            http://pvanb.wordpress.com/
-# 
-#            This program is free software under the GNU General Public 
-#            License (>=v2). Read the file COPYING that comes with GRASS 
-#            for details. 
-# 
+#
+#            This program is free software under the GNU General Public
+#            License (>=v2). Read the file COPYING that comes with GRASS
+#            for details.
+#
 ########################################################################
 #
-#%Module 
+#%Module
 #% description: Computes evaluation statistics of an environmental distribution model, based on a layer with observed and a layer with predicted values
-#%End 
+#%End
 
 #%option
 #% key: obs
@@ -137,33 +137,31 @@
 #=======================================================================
 
 ## Check if in GRASS
-if  [ -z "$GISBASE" ] ; then
-    echo "You must be in GRASS GIS to run this program." 1>&2
-    exit 1
+if [ -z "$GISBASE" ]; then
+	echo "You must be in GRASS GIS to run this program." 1>&2
+	exit 1
 fi
 
 ## check for awk
-if [ ! -x "$(which awk)" ] ; then
-    g.message -e "<awk> required, please install <awk> or <gawk> first"
-    exit 1
+if [ ! -x "$(which awk)" ]; then
+	g.message -e "<awk> required, please install <awk> or <gawk> first"
+	exit 1
 fi
 
 ## To parse the code into interactive menu
-if [ "$1" != "@ARGS_PARSED@" ] ; then
-    exec g.parser "$0" "$@"
+if [ "$1" != "@ARGS_PARSED@" ]; then
+	exec g.parser "$0" "$@"
 fi
 
 ## set environment so that awk works properly in all languages ##
 unset LC_ALL
 export LC_NUMERIC=C
 
-
 ## what to do in case of user break:
-exitprocedure()
-{
-    echo "User break!"
-    cleanup
-    exit 1
+exitprocedure() {
+	echo "User break!"
+	cleanup
+	exit 1
 }
 
 ## shell check for user break (signal list: trap -l)
@@ -174,7 +172,7 @@ trap "exitprocedure" 2 3 15
 #=======================================================================
 
 ##fix this path
-if [ -z "$PROCESSDIR" ] ; then
+if [ -z "$PROCESSDIR" ]; then
 	PROCESSDIR="$HOME"
 fi
 
@@ -184,19 +182,19 @@ fi
 
 oIFS=$IFS
 IFS=,
-arrIN=${GIS_OPT_OBS} `echo $nvar | awk 'BEGIN{FS="@"}{print $1}'`
-g.findfile element=cell file=${arrIN} > /dev/null
-if [ $? -gt 0 ] ; then 
-    g.message -e 'The output map '${arrIN}' does not exists'
-exit 1
+arrIN=${GIS_OPT_OBS} $(echo $nvar | awk 'BEGIN{FS="@"}{print $1}')
+g.findfile element=cell file=${arrIN} >/dev/null
+if [ $? -gt 0 ]; then
+	g.message -e 'The output map '${arrIN}' does not exists'
+	exit 1
 fi
 unset arrIN
 
-arrIN=${GIS_OPT_MOD} `echo $nvar | awk 'BEGIN{FS="@"}{print $1}'`
-g.findfile element=cell file=${arrIN} > /dev/null
-if [ $? -gt 0 ] ; then 
-    g.message -e 'The output map '${arrIN}' does not exists'
-exit 1
+arrIN=${GIS_OPT_MOD} $(echo $nvar | awk 'BEGIN{FS="@"}{print $1}')
+g.findfile element=cell file=${arrIN} >/dev/null
+if [ $? -gt 0 ]; then
+	g.message -e 'The output map '${arrIN}' does not exists'
+	exit 1
 fi
 IFS=$oIFS
 unset arrIN
@@ -205,8 +203,8 @@ unset arrIN
 ## Creating the R script
 #=======================================================================
 
-writeScript(){ 
-cat > $1 << "EOF"
+writeScript() {
+	cat >$1 <<"EOF"
 
 options(echo = TRUE)
 library(rgrass7)
@@ -451,13 +449,12 @@ EOF
 
 # RGrass script generation
 # --------------------------
-RGRASSSCRIPT="`g.tempfile pid=$$`"
-if [ $? -ne 0 ] || [ -z "$RGRASSSCRIPT" ] ; then
+RGRASSSCRIPT="$(g.tempfile pid=$$)"
+if [ $? -ne 0 ] || [ -z "$RGRASSSCRIPT" ]; then
 	g.message -e 'ERROR: unable to create temporary file for RGrass script' 1>&2
-    exit 1
+	exit 1
 fi
 writeScript "$RGRASSSCRIPT"
-
 
 #=======================================================================
 ## RGrass call
@@ -469,10 +466,10 @@ g.message message='-----'
 g.message message=''
 
 #using R to create MESS layers
-R CMD BATCH --slave "$RGRASSSCRIPT" ${GIS_OPT_FSTATS}_log.txt;
+R CMD BATCH --slave "$RGRASSSCRIPT" ${GIS_OPT_FSTATS}_log.txt
 
-if  [ "$GIS_FLAG_L" -eq 0 ] ; then
-    rm ${GIS_OPT_FSTATS}_log.txt
+if [ "$GIS_FLAG_L" -eq 0 ]; then
+	rm ${GIS_OPT_FSTATS}_log.txt
 fi
 
 head -11 ${GIS_OPT_FSTATS}_summary.txt
@@ -481,4 +478,3 @@ g.message message='-----'
 g.message "Don't forget to check out the output files"
 
 #=======================================================================
-

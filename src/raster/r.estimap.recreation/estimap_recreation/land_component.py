@@ -2,37 +2,28 @@
 @author Nikos Alexandris
 """
 
-from .constants import (
-    SUITABILITY_SCORES,
-    URBAN_ATLAS_TO_MAES_NOMENCLATURE,
-)
-from .colors import (
-    SCORE_COLORS,
-)
-from .messages import (
-    FATAL_MESSAGE_LAND_USE_DATATYPE,
-    USING_SUITABILITY_SCORES_FROM_FILE,
-    USING_SUITABILITY_SCORES_FROM_INTERNAL_RULES,
-    USING_SUITABILITY_SCORES_FROM_STRING,
-    ATTEMPT_TO_USE_LAND_USE_FOR_AREAL_STATISTICS,
-    USING_LAND_COVER_RECLASSIFICATION_RULES_FROM_FILE,
-    USING_INTERNAL_LAND_COVER_RECLASSIFICATION_RULES,
-    USING_LAND_COVER_RECLASSIFICATION_RULES_FROM_STRING,
-    DERIVING_LAND_SUITABILITY,
-)
-from .names import (
-    LAND_COMPONENT_NAME,
-)
+from .colors import SCORE_COLORS
+from .components import append_map_to_component
+from .constants import SUITABILITY_SCORES, URBAN_ATLAS_TO_MAES_NOMENCLATURE
 from .grassy_utilities import (
     grass,
     recode_map,
     remove_files_at_exit,
-    temporary_filename,
     string_to_file,
+    temporary_filename,
 )
-from .components import (
-    append_map_to_component,
+from .messages import (
+    ATTEMPT_TO_USE_LAND_USE_FOR_AREAL_STATISTICS,
+    DERIVING_LAND_SUITABILITY,
+    FATAL_MESSAGE_LAND_USE_DATATYPE,
+    USING_INTERNAL_LAND_COVER_RECLASSIFICATION_RULES,
+    USING_LAND_COVER_RECLASSIFICATION_RULES_FROM_FILE,
+    USING_LAND_COVER_RECLASSIFICATION_RULES_FROM_STRING,
+    USING_SUITABILITY_SCORES_FROM_FILE,
+    USING_SUITABILITY_SCORES_FROM_INTERNAL_RULES,
+    USING_SUITABILITY_SCORES_FROM_STRING,
 )
+from .names import LAND_COMPONENT_NAME
 
 
 def build_land_component(

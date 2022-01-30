@@ -1,13 +1,14 @@
-import subprocess
 import shlex
 import shutil
-from .utilities import (
-    exec_grass,
-    construct_r_estimap_command,
-    generate_univar_md5sum,
-    generate_csv_md5sum,
-)
+import subprocess
+
 from . import GRASSDB
+from .utilities import (
+    construct_r_estimap_command,
+    exec_grass,
+    generate_csv_md5sum,
+    generate_univar_md5sum,
+)
 
 
 def estimap_test_runner(test_case):

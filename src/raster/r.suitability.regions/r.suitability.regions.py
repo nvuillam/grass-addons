@@ -163,9 +163,10 @@
 #% guisection: Optional
 #%end
 
-import sys
 import atexit
+import sys
 import uuid
+
 import grass.script as gs
 
 CLEAN_LAY = []

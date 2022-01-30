@@ -53,19 +53,16 @@
 #%end
 
 import os
+import shutil
 import sys
 
 import grass.script as grass
-
 from hdfsgrass.hdfs_grass_lib import (
-    GrassMapBuilderEsriToEsri,
-    GrassHdfs,
     ConnectionManager,
+    GrassHdfs,
+    GrassMapBuilderEsriToEsri,
 )
 from hdfsgrass.hdfs_grass_util import get_tmp_folder
-
-
-import shutil
 
 
 def main():

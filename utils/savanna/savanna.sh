@@ -30,7 +30,7 @@ export prefix="savanna_"$unique_prefix_suffix
 # Some standard naming for temp files.
 export tiling_grid_suffix="_tiling_grid"
 
-# Create working directory.   
+# Create working directory.
 # Should use mktemp -d
 export working_tmp=$savanna_tmp/$prefix
 mkdir $working_tmp
@@ -58,7 +58,7 @@ tiling_grid=$init_mapset$tiling_grid_suffix,\
 gregion=\"$gregion\",\
 mask=$mask,\
 areas_file=$working_tmp/areas.txt \
-$savanna_path/$savanna_init_job_file" | sort > $working_tmp/${prefix}_sge_init.sh
+$savanna_path/$savanna_init_job_file" | sort >$working_tmp/${prefix}_sge_init.sh
 
 # Submit the initialization script to grid engine.
 echo 'Submitting tiling script to gridengine...'
@@ -70,10 +70,9 @@ sh $working_tmp/${prefix}_sge_init.sh
 # areas=108
 numdigits=$(expr length $areas)
 
-for tile in $(seq 1 $areas)
-do
-tile_unique_id=$(printf "%0"$numdigits"d\n" $tile)
-echo "qsub -N ${prefix}_tiling_$tile_unique_id -o $working_tmp -e $working_tmp \
+for tile in $(seq 1 $areas); do
+	tile_unique_id=$(printf "%0"$numdigits"d\n" $tile)
+	echo "qsub -N ${prefix}_tiling_$tile_unique_id -o $working_tmp -e $working_tmp \
 -hold_jid ${prefix}_init \
 -v \
 tile=$tile,\
@@ -90,7 +89,7 @@ additional_searchpaths=$additional_searchpaths,\
 gregion=\"$gregion\",\
 command=\"$command\" \
 $savanna_path/$savanna_tiling_job_file"
-done > $working_tmp"/"$prefix"_sge_tiling.sh"
+done >$working_tmp"/"$prefix"_sge_tiling.sh"
 
 sh $working_tmp"/"$prefix"_sge_tiling.sh"
 
@@ -117,14 +116,13 @@ tile_mapset=$prefix\_$tile_unique_id,\
 tiling_grid=$init_mapset$tiling_grid_suffix,\
 outputs=\"${outputs[*]}\",\
 gregion=\"$gregion\" \
-$savanna_path/$savanna_copy_job_file" > $working_tmp"/"$prefix"_sge_copy.sh"
+$savanna_path/$savanna_copy_job_file" >$working_tmp"/"$prefix"_sge_copy.sh"
 
-for tile in $(seq 2 $areas)
-do
-let tile_prev=$tile-1
-tile_unique_id_prev=$(printf "%0"$numdigits"d\n" $tile_prev)
-tile_unique_id=$(printf "%0"$numdigits"d\n" $tile)
-echo "qsub -N ${prefix}_copy_$tile_unique_id -o $working_tmp -e $working_tmp \
+for tile in $(seq 2 $areas); do
+	let tile_prev=$tile-1
+	tile_unique_id_prev=$(printf "%0"$numdigits"d\n" $tile_prev)
+	tile_unique_id=$(printf "%0"$numdigits"d\n" $tile)
+	echo "qsub -N ${prefix}_copy_$tile_unique_id -o $working_tmp -e $working_tmp \
 -hold_jid ${prefix}_copy_$tile_unique_id_prev \
 -v \
 tile=$tile,\
@@ -141,31 +139,19 @@ tiling_grid=$init_mapset$tiling_grid_suffix,\
 outputs=\"${outputs[*]}\",\
 gregion=\"$gregion\" \
 $savanna_path/$savanna_copy_job_file"
-done >> $working_tmp"/"$prefix"_sge_copy.sh"
+done >>$working_tmp"/"$prefix"_sge_copy.sh"
 
 sh $working_tmp"/"$prefix"_sge_copy.sh"
-
 
 ### Step 4: Mosaic all the files together.
 # Note: this seems to interrupt itself with concurrent mapset access, so
 #  I am going to restrict it based on the previous tile.
 
 echo qsub -N ${prefix}_mosaic -o $working_tmp -e $working_tmp \
--hold_jid ${prefix}_copy_"*" \
--v \
-savanna_path=$savanna_path,\
-savanna_mosaic_job_file=$savanna_mosaic_job_file,\
-savanna_mosaic_grass_file=$savanna_mosaic_grass_file,\
-grassdata_directory=$grassdata_directory,\
-base_location=$base_location,\
-init_mapset=$init_mapset,\
-prefix=$prefix,\
-tiling_grid=$init_mapset$tiling_grid_suffix,\
-gregion=\"$gregion\",\
-outputs=\"${outputs[*]}\",\
-numdigits=$numdigits,\
-areas_file=$working_tmp/areas.txt \
-$savanna_path/$savanna_mosaic_job_file | sort > $working_tmp/$prefix\_sge\_mosaic.sh
+	-hold_jid ${prefix}_copy_"*" \
+	-v \
+	savanna_path=$savanna_path,savanna_mosaic_job_file=$savanna_mosaic_job_file,savanna_mosaic_grass_file=$savanna_mosaic_grass_file,grassdata_directory=$grassdata_directory,base_location=$base_location,init_mapset=$init_mapset,prefix=$prefix,tiling_grid=$init_mapset$tiling_grid_suffix,gregion=\"$gregion\",outputs=\"${outputs[*]}\",numdigits=$numdigits,areas_file=$working_tmp/areas.txt \
+	$savanna_path/$savanna_mosaic_job_file | sort >$working_tmp/$prefix\_sge\_mosaic.sh
 
 echo 'Submitting mosaic script to gridengine...'
 sh $working_tmp/$prefix\_sge\_mosaic.sh

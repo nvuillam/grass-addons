@@ -70,12 +70,12 @@ and v.in.ascii for import.
 #% guisection: Points
 #%end
 
-import os
-import sys
-import csv
-import re
-import tempfile
 import atexit
+import csv
+import os
+import re
+import sys
+import tempfile
 
 import grass.script as gs
 

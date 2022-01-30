@@ -93,6 +93,7 @@
 
 import os
 import sys
+
 import numpy as np
 
 if "GISBASE" not in os.environ:

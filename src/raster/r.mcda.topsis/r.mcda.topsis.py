@@ -52,8 +52,9 @@
 
 
 import sys
-import grass.script as gscript
 from time import time
+
+import grass.script as gscript
 
 
 def standardizedNormalizedMatrix(attributes, weights):  # step1 and step2

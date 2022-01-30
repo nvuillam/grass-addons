@@ -1,8 +1,8 @@
 import grass.script as grass
 
 try:
-    from owslib.wfs import WebFeatureService
     from owslib.util import ServiceException
+    from owslib.wfs import WebFeatureService
 except:
     grass.fatal(
         _(

@@ -19,10 +19,8 @@ This program is free software under the GNU General Public License
 """
 
 import wx
-
-from core.settings import UserSettings
 from core.gcmd import GError
-
+from core.settings import UserSettings
 from grass.script import core as grass
 
 

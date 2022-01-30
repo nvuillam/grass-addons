@@ -34,9 +34,10 @@
 #%option G_OPT_R_OUTPUT
 #%end
 
-import sys
-import os
 import atexit
+import os
+import sys
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 

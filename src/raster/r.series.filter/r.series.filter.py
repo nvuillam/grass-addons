@@ -117,12 +117,11 @@ if "GISBASE" not in os.environ:
     sys.exit(1)
 
 import grass.script as grass
-from grass.pygrass import raster
-from grass.pygrass.raster.buffer import Buffer
-from grass.exceptions import OpenError
-from grass.pygrass.gis.region import Region
-
 import numpy as np
+from grass.exceptions import OpenError
+from grass.pygrass import raster
+from grass.pygrass.gis.region import Region
+from grass.pygrass.raster.buffer import Buffer
 
 # lazy import scipy at the end of the file
 

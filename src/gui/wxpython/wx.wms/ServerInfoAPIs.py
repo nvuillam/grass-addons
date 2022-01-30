@@ -22,8 +22,9 @@ for details.
 @author: Maris Nartiss (maris.nartiss gmail.com)
 @author Sudeep Singh Walia (Indian Institute of Technology, Kharagpur , sudeep495@gmail.com)
 """
-from BeautifulSoup import BeautifulSoup, Tag, BeautifulStoneSoup
 import os.path
+
+from BeautifulSoup import BeautifulSoup, BeautifulStoneSoup, Tag
 
 # PY2/PY3 compat
 if sys.version_info.major >= 3:

@@ -62,10 +62,10 @@
 
 import grass.script as grass
 import grass.temporal as tgis
-from grass.pygrass.utils import copy as gcopy
-from grass.pygrass.messages import Messenger
-from grass.pygrass.vector import Vector
 from grass.exceptions import CalledModuleError
+from grass.pygrass.messages import Messenger
+from grass.pygrass.utils import copy as gcopy
+from grass.pygrass.vector import Vector
 
 
 class Sample(object):

@@ -1,37 +1,36 @@
+import ctypes
 import os
-import sys
 import re
+import sys
 from bisect import bisect
 
 import wx
+from core import globalvar
+from core.debug import Debug
+from core.gcmd import GError, GMessage, RunCommand
+from core.settings import GetDisplayVectSettings, UserSettings
+from core.utils import GetLayerNameFromCmd, GetValidLayerName
+from grass.lib import gis as gis
+from grass.lib import raster as grast
+from grass.script import core as grass
+from gui_core.dialogs import ElementDialog
+from gui_core.forms import GUI
+from gui_core.gselect import (
+    ElementSelect,
+    GdalSelect,
+    LocationSelect,
+    MapsetSelect,
+    OgrTypeSelect,
+    Select,
+)
+from gui_core.widgets import EVT_SYMBOL_SELECTION_CHANGED, GListCtrl, SingleSymbolPanel
 
 # import wx.lib.filebrowsebutton as filebrowse
 # import wx.lib.mixins.listctrl as listmix
 # from wx.lib.newevent import NewEvent
 
-from gui_core.dialogs import ElementDialog
 
-from grass.script import core as grass
-from grass.lib import gis as gis
-from grass.lib import raster as grast
 
-from core import globalvar
-from core.gcmd import GError, RunCommand, GMessage
-from gui_core.gselect import (
-    ElementSelect,
-    LocationSelect,
-    MapsetSelect,
-    Select,
-    OgrTypeSelect,
-    GdalSelect,
-    MapsetSelect,
-)
-from gui_core.forms import GUI
-from gui_core.widgets import SingleSymbolPanel, EVT_SYMBOL_SELECTION_CHANGED, GListCtrl
-from core.utils import GetLayerNameFromCmd, GetValidLayerName
-from core.settings import UserSettings, GetDisplayVectSettings
-from core.debug import Debug
-import ctypes
 
 
 class NewRasterDialog(ElementDialog):

@@ -60,9 +60,10 @@
 #% description: Maximum memory to be used in MB
 #%end
 
-import sys
-import os
 import atexit
+import os
+import sys
+
 import grass.script as gscript
 from grass.exceptions import CalledModuleError
 

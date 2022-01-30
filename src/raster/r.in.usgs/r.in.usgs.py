@@ -136,20 +136,20 @@
 #% required: output_name, -i
 #%end
 
-import sys
-import os
-import zipfile
-import grass.script as gscript
-from six.moves.urllib.request import urlopen
-from six.moves.urllib.error import URLError, HTTPError
-from six.moves.urllib.parse import quote_plus
-from multiprocessing import Process, Manager
-import json
 import atexit
+import json
+import os
+import sys
+import zipfile
+from multiprocessing import Manager, Process
 from pathlib import Path
 
+import grass.script as gscript
 import grass.script as gs
 from grass.exceptions import CalledModuleError
+from six.moves.urllib.error import HTTPError, URLError
+from six.moves.urllib.parse import quote_plus
+from six.moves.urllib.request import urlopen
 
 cleanup_list = []
 

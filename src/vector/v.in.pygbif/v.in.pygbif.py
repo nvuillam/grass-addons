@@ -178,13 +178,12 @@ COPYRIGHT: (C) 2016 by the GRASS Development Team
 #%end
 
 
-import sys
-
 # import os
 import math
+import sys
+
 import grass.script as grass
-from grass.pygrass.vector import Vector
-from grass.pygrass.vector import VectorTopo
+from grass.pygrass.vector import Vector, VectorTopo
 from grass.pygrass.vector.geometry import Point
 
 
@@ -209,8 +208,8 @@ def main():
     from dateutil.parser import parse
 
     try:
-        from osgeo import ogr, osr
         from osgeo import __version__ as gdal_version
+        from osgeo import ogr, osr
     except ImportError:
         grass.fatal(
             _(
@@ -220,8 +219,7 @@ def main():
             )
         )
     try:
-        from pygbif import occurrences
-        from pygbif import species
+        from pygbif import occurrences, species
     except ImportError:
         grass.fatal(
             _(

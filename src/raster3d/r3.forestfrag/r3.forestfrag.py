@@ -117,14 +117,14 @@
 #%end
 
 
+import atexit
 import sys
 import uuid
-import atexit
+
 import grass.script as gs
 
 # neutral naming for better compatibility with 2D version
 from grass.script.raster3d import mapcalc3d as mapcalc
-
 
 COLORS_SAMBALE = """\
 0 255:255:0

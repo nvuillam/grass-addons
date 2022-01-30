@@ -175,14 +175,16 @@
 # General
 # =======================================================================
 
+import imp
+import math
+
 # import libraries
 import os
 import sys
-import math
+
 import grass.script as grass
 from grass.pygrass.modules import Module
 from grass.script.utils import parse_key_val
-import imp
 
 try:
     imp.find_module("PIL")

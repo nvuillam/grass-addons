@@ -21,7 +21,6 @@ import math
 import os
 
 import numpy as np
-
 from grass.pygrass.messages import get_msgr
 from grass.pygrass.vector import VectorTopo
 from grass.script import core as gcore

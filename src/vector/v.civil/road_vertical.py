@@ -10,11 +10,12 @@ Created on Wed Jul 23 20:36:10 2014
 #
 import math
 
+# from grass.pygrass.vector.geometry import Point
+from grass.pygrass.vector.geometry import Line
+
 # from grass.pygrass.vector import VectorTopo
 # import road_base as Base
 
-# from grass.pygrass.vector.geometry import Point
-from grass.pygrass.vector.geometry import Line
 
 
 class Parabola(object):

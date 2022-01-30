@@ -2,25 +2,20 @@
 @author Nikos Alexandris
 """
 
-from __future__ import division
-from __future__ import absolute_import
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
 
 import atexit
 import os
 
 import grass.script as grass
 from grass.exceptions import CalledModuleError
+from grass.pygrass.modules.shortcuts import database as db
 from grass.pygrass.modules.shortcuts import general as g
 from grass.pygrass.modules.shortcuts import raster as r
 from grass.pygrass.modules.shortcuts import vector as v
-from grass.pygrass.modules.shortcuts import database as db
 
 from .colors import SCORE_COLORS
-from .constants import (
-    CITATION_RECREATION_POTENTIAL,
-    EQUATION,
-)
+from .constants import CITATION_RECREATION_POTENTIAL, EQUATION
 
 
 def run(cmd, **kwargs):

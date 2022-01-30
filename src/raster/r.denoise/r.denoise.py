@@ -66,8 +66,8 @@
 #% required : no
 #%end
 
-import os
 import atexit
+import os
 
 try:
     from itertools import izip as zip

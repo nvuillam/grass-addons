@@ -6,12 +6,13 @@
 """
 
 import os
+
 from constants import (
-    MATRIX_PROPERTIES,
     CENTER_CELL,
+    FILTER_TEMPLATE,
+    MATRIX_PROPERTIES,
     MODULATOR,
     MODULATOR_2,
-    FILTER_TEMPLATE,
 )
 
 

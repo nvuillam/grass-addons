@@ -118,17 +118,20 @@ proj = "".join(
 )
 
 
-import os
 import atexit
-import numpy as np
+import os
 import subprocess
+
+import numpy as np
 from six.moves.urllib import request as urllib2
 
 try:
     from http.cookiejar import CookieJar
 except ImportError:
     from cookielib import CookieJar
+
 import time
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 

@@ -100,8 +100,9 @@
 #% description: Example: income < 1000 and population >= 10000
 #%end
 
-import sys
 import os
+import sys
+
 import grass.script as grass
 from grass.pygrass.modules.shortcuts import vector as v
 

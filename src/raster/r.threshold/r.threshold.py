@@ -38,12 +38,13 @@
 #%end
 
 from __future__ import print_function
+
+import math
 import os
 import sys
-import math
-import numpy as np
 
 import grass.script as grass
+import numpy as np
 
 
 def main():

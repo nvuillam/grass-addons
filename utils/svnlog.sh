@@ -26,7 +26,7 @@ get_prefix=0
 revs=""
 for i; do
 	if [ "$i" = "-h" -o "$i" = "--help" ]; then
-		cat<<EOT
+		cat <<EOT
 Usage: svnlog.sh [OPTION]... [REVISION]...
 
 Options:
@@ -43,7 +43,7 @@ EOT
 		continue
 	fi
 	if [ $get_user -eq 1 ]; then
-		user=`echo $i | sed 's/^/^(/; s/,/|/g; s/$/)$/'`
+		user=$(echo $i | sed 's/^/^(/; s/,/|/g; s/$/)$/')
 		get_user=0
 		continue
 	fi
@@ -56,12 +56,12 @@ EOT
 		continue
 	fi
 	if [ $get_prefix -eq 1 ]; then
-		prefix=`echo $i`
+		prefix=$(echo $i)
 		get_prefix=0
 		continue
 	fi
 	# remove any non-numeric characters
-	r=`echo $i | sed 's/[^0-9]//g'`
+	r=$(echo $i | sed 's/[^0-9]//g')
 	if [ "$r" = "" ]; then
 		continue
 	fi
@@ -75,11 +75,11 @@ fi
 
 # retreive and combine log messages
 svn log $revs |
-awk \
-	--assign user="$user" \
-	--assign compact=$compact \
-	--assign prefix="$prefix" \
-'BEGIN{
+	awk \
+		--assign user="$user" \
+		--assign compact=$compact \
+		--assign prefix="$prefix" \
+		'BEGIN{
 	any = 0
 }
 /^------------------------------------------------------------------------$/{

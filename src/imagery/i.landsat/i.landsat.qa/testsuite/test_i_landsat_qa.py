@@ -19,6 +19,7 @@ i.landsat.qa --overwrite --verbose water="Yes" \
 """
 
 import os
+
 from grass.gunittest.case import TestCase
 from grass.gunittest.gmodules import SimpleModule
 

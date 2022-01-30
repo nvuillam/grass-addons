@@ -17,13 +17,11 @@ for details.
 @author Anna Kratochvilova <kratochanna gmail.com>
 """
 
-import wx
-
-from gui_core.toolbars import BaseToolbar, BaseIcons
-from icons.icon import MetaIcon
-from iclass.dialogs import IClassMapDialog as MDialog
-
 import grass.script as grass
+import wx
+from gui_core.toolbars import BaseIcons, BaseToolbar
+from iclass.dialogs import IClassMapDialog as MDialog
+from icons.icon import MetaIcon
 
 rdigitIcons = {
     "delCmd": MetaIcon(img="layer-remove", label=_("Delete selected map layer")),

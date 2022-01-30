@@ -133,8 +133,8 @@ REQUIREMENTS:
 
 import atexit
 import os
-import sys
 import string
+import sys
 
 try:
     import resource
@@ -143,12 +143,13 @@ except ImportError:
 
 import copy
 from io import StringIO
-import numpy as np
+
 import grass.script as grass
 import grass.script.task as task
-from grass.script import vector as vect
-from grass.pygrass.raster.history import History
+import numpy as np
 from grass.pygrass.modules import Module, ParallelModuleQueue
+from grass.pygrass.raster.history import History
+from grass.script import vector as vect
 
 # PY2/PY3 compat
 if sys.version_info.major >= 3:

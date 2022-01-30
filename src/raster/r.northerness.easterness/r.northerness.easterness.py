@@ -29,10 +29,11 @@ COPYRIGHT: (C) 2014 by the GRASS Development Team
 #% required: yes
 #%end
 
-import sys
-import os
-import grass.script as grass
 import math
+import os
+import sys
+
+import grass.script as grass
 
 
 def main():

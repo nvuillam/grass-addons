@@ -1,21 +1,20 @@
 #!/usr/bin/env python
-import re
-import os
-import sys
-import random
-import string
-import wx
-import csv
-from datetime import timedelta
-import wx.lib.filebrowsebutton as filebrowse
 import codecs
-from core.gcmd import GMessage, GError
-from grass.script import core as grass
-import grass.script as grass
-
-import time
-from datetime import datetime
+import csv
 import logging
+import os
+import random
+import re
+import string
+import sys
+import time
+from datetime import datetime, timedelta
+
+import grass.script as grass
+import wx
+import wx.lib.filebrowsebutton as filebrowse
+from core.gcmd import GError, GMessage
+from grass.script import core as grass
 
 
 class StaticContext:

@@ -277,9 +277,9 @@
 #%end
 
 
+import atexit
 import os
 import sys
-import atexit
 from multiprocessing import Pool
 
 import grass.script as gscript

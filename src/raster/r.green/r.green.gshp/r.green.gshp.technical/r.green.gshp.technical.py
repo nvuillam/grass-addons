@@ -303,12 +303,12 @@ try:
     set_path("r.green", "libgreen", os.path.join("..", ".."))
     from libgreen.utils import cleanup, rast_or_numb
     from libgshp.ashrae import (
-        GroundProperties,
-        GroundLoads,
-        FluidProperties,
         Borehole,
         BoreholeExchanger,
         BoreholeField,
+        FluidProperties,
+        GroundLoads,
+        GroundProperties,
         get_vars,
         r_bhe_length,
         r_field_length,
@@ -319,12 +319,12 @@ except ImportError:
         set_path("r.green", "libgreen", os.path.join("..", "etc", "r.green"))
         from libgreen.utils import cleanup, rast_or_numb
         from libgshp.ashrae import (
-            GroundProperties,
-            GroundLoads,
-            FluidProperties,
             Borehole,
             BoreholeExchanger,
             BoreholeField,
+            FluidProperties,
+            GroundLoads,
+            GroundProperties,
             get_vars,
             r_bhe_length,
             r_field_length,

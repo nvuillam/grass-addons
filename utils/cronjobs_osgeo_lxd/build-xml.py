@@ -4,11 +4,11 @@
 @Author: Martin Landa
 """
 
+import argparse
+import glob
 import os
 import sys
-import glob
 import tempfile
-import argparse
 from datetime import datetime
 
 import grass.script.task as gtask

@@ -68,9 +68,10 @@
 #% description: Draw also short line for flow from and to same node
 #%end
 
-import os
 import atexit
 import math
+import os
+
 import grass.script as gscript
 
 

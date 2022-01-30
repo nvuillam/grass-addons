@@ -96,11 +96,11 @@
 
 from __future__ import print_function
 
-import sys
+import json
 import os
 import re
+import sys
 from collections import defaultdict
-import json
 from pprint import pprint
 
 import grass.script as gs
@@ -425,9 +425,13 @@ except ImportError:
 
 def print_using_citeproc(csl_json, keys, style):
 
-    from citeproc import CitationStylesStyle, CitationStylesBibliography
-    from citeproc import Citation, CitationItem
-    from citeproc import formatter
+    from citeproc import (
+        Citation,
+        CitationItem,
+        CitationStylesBibliography,
+        CitationStylesStyle,
+        formatter,
+    )
     from citeproc.source.json import CiteProcJSON
 
     def warn(citation_item):
@@ -873,6 +877,7 @@ def doc_test():
     :return: a number of failed tests
     """
     import doctest
+
     from grass.gunittest.utils import do_doctest_gettext_workaround
 
     do_doctest_gettext_workaround()

@@ -101,9 +101,10 @@
 #%end
 
 
-import os
 import atexit
 import math
+import os
+
 import grass.script as grass
 
 global isoraw

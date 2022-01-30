@@ -97,11 +97,10 @@ for details.
 #% required : no
 #%end
 
-import os
-import sys
-
 # i18N
 import gettext
+import os
+import sys
 
 if "GISBASE" not in os.environ:
     print("You must be in GRASS GIS to run this program.")
@@ -389,7 +388,6 @@ def main(argv=None):
 
             globalvar.CheckForWx()
         import vkrige_wxgui as GUI
-
         import wx
 
         app = wx.App()
@@ -501,8 +499,8 @@ def importR():
     global rinterface
     grass.message(_("Loading dependencies, please wait..."))
     try:
-        import rpy2.robjects as robjects
         import rpy2.rinterface as rinterface  # to speed up kriging? for plots.
+        import rpy2.robjects as robjects
     except ImportError:
         # ok for other OSes?
         grass.fatal(

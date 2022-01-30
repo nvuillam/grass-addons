@@ -72,11 +72,12 @@
 #% multiple: no
 #%end
 
+import math
 import os
 import sys
-from grass.script import core as grass
+
 from grass.pygrass.vector import VectorTopo
-import math
+from grass.script import core as grass
 
 # for Python 3 compatibility
 try:

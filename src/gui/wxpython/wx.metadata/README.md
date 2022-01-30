@@ -1,8 +1,8 @@
 ## Dependencies
 
-### Requirements:
+### Requirements
 
-https://grasswiki.osgeo.org/wiki/ISO/INSPIRE_Metadata_Support#Requirements_and_installation
+<https://grasswiki.osgeo.org/wiki/ISO/INSPIRE_Metadata_Support#Requirements_and_installation>
 
 ### Test Dependencies
 

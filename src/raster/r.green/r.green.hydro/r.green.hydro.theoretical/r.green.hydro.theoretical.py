@@ -104,28 +104,30 @@ try:
     # set python path to the shared r.green libraries
     set_path("r.green", "libhydro", "..")
     set_path("r.green", "libgreen", os.path.join("..", ".."))
-    from libgreen.utils import cleanup
+    # from libgreen.utils import check_overlay_rv
+    from libgreen.utils import (
+        check_overlay_rr,
+        cleanup,
+        raster2numpy,
+        remove_pixel_from_raster,
+    )
+    from libhydro import basin
     from libhydro.basin import dtm_corr
     from libhydro.plant import power2energy
-    from libhydro import basin
-    from libgreen.utils import check_overlay_rr
-
-    # from libgreen.utils import check_overlay_rv
-    from libgreen.utils import raster2numpy
-    from libgreen.utils import remove_pixel_from_raster
 except ImportError:
     try:
         set_path("r.green", "libhydro", os.path.join("..", "etc", "r.green"))
         set_path("r.green", "libgreen", os.path.join("..", "etc", "r.green"))
-        from libgreen.utils import cleanup
+        # from libgreen.utils import check_overlay_rv
+        from libgreen.utils import (
+            check_overlay_rr,
+            cleanup,
+            raster2numpy,
+            remove_pixel_from_raster,
+        )
+        from libhydro import basin
         from libhydro.basin import dtm_corr
         from libhydro.plant import power2energy
-        from libhydro import basin
-        from libgreen.utils import check_overlay_rr
-
-        # from libgreen.utils import check_overlay_rv
-        from libgreen.utils import raster2numpy
-        from libgreen.utils import remove_pixel_from_raster
     except ImportError:
         gcore.warning("libgreen and libhydro not in the python path!")
 

@@ -10,19 +10,18 @@ for details.
 @author Mohammed Rashad <rashadkm gmail.com>
 """
 
+import copy
 import os
 import sys
-import copy
 import tempfile
 
-
 import wx
-
 
 try:
     import wx.lib.agw.customtreectrl as CT
 except ImportError:
     import wx.lib.customtreectrl as CT
+
 import wx.lib.buttons as buttons
 
 try:
@@ -30,22 +29,22 @@ try:
 except ImportError:
     from wx.lib.mixins import treemixin
 
+import gettext
 from ctypes import *
+
+import core.render as render
 import grass.script as grass
 from core import globalvar
-from core.gcmd import GError, GMessage
-from mapdisp import statusbar as sb
-from mapwindow import BufferedWindow2
-from gui_core.mapdisp import MapFrameBase
-import gettext
-import core.render as render
-from render2 import Map, MapLayer
-from core.gcmd import RunCommand, GMessage
 from core.debug import Debug
-from lmgr.layertree import LMIcons
+from core.gcmd import GError, GMessage, RunCommand
+from core.utils import GetLayerNameFromCmd
+from gui_core.mapdisp import MapFrameBase
 from gui_core.toolbars import BaseIcons
 from icons.icon import MetaIcon
-from core.utils import GetLayerNameFromCmd
+from lmgr.layertree import LMIcons
+from mapdisp import statusbar as sb
+from mapwindow import BufferedWindow2
+from render2 import Map, MapLayer
 
 
 class ToolBarNames:

@@ -51,10 +51,10 @@
 #%end
 
 
+import csv
 import os
 import sys
 
-import csv
 import numpy as np
 from numpy.linalg.linalg import LinAlgError
 

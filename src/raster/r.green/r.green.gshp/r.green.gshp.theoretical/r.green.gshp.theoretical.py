@@ -221,9 +221,8 @@ import os
 import sys
 
 from grass.script import core as gcore
-from grass.script.utils import set_path
 from grass.script import mapcalc
-
+from grass.script.utils import set_path
 
 try:
     # set python path to the shared r.green libraries

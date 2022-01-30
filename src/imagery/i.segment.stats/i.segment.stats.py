@@ -98,14 +98,15 @@
 #%END
 
 
-import os
-import glob
 import atexit
 import collections
-from math import sqrt
+import glob
+import os
 from functools import partial
-from multiprocessing import Pool
 from itertools import groupby
+from math import sqrt
+from multiprocessing import Pool
+
 import grass.script as gscript
 
 

@@ -119,16 +119,16 @@
 #%end
 
 
-# import required base modules
-import sys
-import os
 import atexit
 import math  # for function sqrt()
+import os
+
+# import required base modules
+import sys
 
 # import required grass modules
 import grass.script as grass
 import grass.script.array as garray
-
 
 # import required numpy/scipy modules
 import numpy

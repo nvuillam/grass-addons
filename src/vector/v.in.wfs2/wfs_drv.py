@@ -1,8 +1,7 @@
-import grass.script as grass
-
-from urllib2 import urlopen
 import xml.etree.ElementTree as etree
 
+import grass.script as grass
+from urllib2 import urlopen
 from wfs_base import WFSBase
 
 

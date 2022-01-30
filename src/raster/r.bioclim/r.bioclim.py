@@ -78,11 +78,12 @@
 #% description: Number of parallel processes to launch
 #%End
 
-import sys
+import atexit
 import os
 import string
+import sys
+
 import grass.script as grass
-import atexit
 
 
 def cleanup():

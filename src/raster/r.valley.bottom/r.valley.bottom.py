@@ -114,11 +114,10 @@ import string
 import sys
 
 import grass.script as gs
+from grass.exceptions import ParameterError
 from grass.pygrass.gis.region import Region
 from grass.pygrass.modules.shortcuts import general as g
 from grass.pygrass.modules.shortcuts import raster as r
-from grass.exceptions import ParameterError
-
 
 if "GISBASE" not in os.environ:
     print("You must be in GRASS GIS to run this program.")

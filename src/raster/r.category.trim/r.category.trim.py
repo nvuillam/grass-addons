@@ -81,11 +81,12 @@
 
 # import libraries
 import os
+import re
 import sys
 from subprocess import PIPE
-from grass.pygrass.modules import Module
+
 import grass.script as gs
-import re
+from grass.pygrass.modules import Module
 
 
 def main(options, flags):

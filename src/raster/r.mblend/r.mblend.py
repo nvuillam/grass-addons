@@ -56,10 +56,11 @@
 #% description: Assign the average difference between the two rasters to the far edge (instead of zero).
 #%end
 
-import os
 import atexit
 import math
+import os
 from time import gmtime, strftime
+
 import grass.script as gscript
 
 index = 0

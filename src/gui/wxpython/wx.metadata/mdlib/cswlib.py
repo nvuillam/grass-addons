@@ -33,14 +33,14 @@ from wx import SplitterWindow
 from wx.html import EVT_HTML_LINK_CLICKED, HW_DEFAULT_STYLE, HW_SCROLLBAR_AUTO
 from wx.lib.mixins.listctrl import ListCtrlAutoWidthMixin
 
+from . import globalvar
 from .cswutil import (
     get_connections_from_file,
     normalize_text,
     open_url,
-    renderXML,
     render_template,
+    renderXML,
 )
-from . import globalvar
 from .mdeditorfactory import ADD_RM_BUTTON_SIZE
 from .mdutil import StaticContext, yesNo
 
@@ -105,18 +105,15 @@ class CSWBrowserPanel(wx.Panel):
         try:
             global BBox, CatalogueServiceWeb, Environment, ExceptionReport, FileSystemLoader, GError, GMessage, GUI, GWarning, HtmlFormatter, PropertyIsLike, XmlLexer, highlight
 
+            from core.gcmd import GError, GMessage, GWarning
+            from gui_core.forms import GUI
             from jinja2 import Environment, FileSystemLoader
-
             from owslib.csw import CatalogueServiceWeb
             from owslib.fes import BBox, PropertyIsLike
             from owslib.ows import ExceptionReport
-
             from pygments import highlight
             from pygments.formatters import HtmlFormatter
             from pygments.lexers import XmlLexer
-
-            from core.gcmd import GError, GMessage, GWarning
-            from gui_core.forms import GUI
         except ModuleNotFoundError as e:
             msg = e.msg
             sys.exit(
@@ -1064,17 +1061,14 @@ class CSWConnectionPanel(wx.Panel):
         try:
             global BBox, CatalogueServiceWeb, Environment, ExceptionReport, FileSystemLoader, GError, GMessage, GWarning, HtmlFormatter, PropertyIsLike, XmlLexer, highlight
 
+            from core.gcmd import GError, GMessage, GWarning
             from jinja2 import Environment, FileSystemLoader
-
             from owslib.csw import CatalogueServiceWeb
             from owslib.fes import BBox, PropertyIsLike
             from owslib.ows import ExceptionReport
-
             from pygments import highlight
             from pygments.formatters import HtmlFormatter
             from pygments.lexers import XmlLexer
-
-            from core.gcmd import GError, GMessage, GWarning
         except ModuleNotFoundError as e:
             msg = e.msg
             sys.exit(

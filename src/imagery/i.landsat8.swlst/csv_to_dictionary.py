@@ -35,12 +35,14 @@ Range 4|(4.0, 5.5)|0.61258|0.99124|0.10051|-0.09664|7.85758|6.86626|-15.00742|-0
 Range 5|(5.0, 6.3)|-0.34808|0.98123|0.05599|-0.03518|11.96444|9.06710|-14.74085|-0.20471|0.93
 Range 6|(0.0, 6.3)|-0.41165|1.00522|0.14543|-0.27297|4.06655|-6.92512|-18.27461|0.24468|0.87"""
 
+import csv
+import functools
+import random
+
 # required librairies
 import sys
-import csv
 from collections import namedtuple
-import random
-import functools
+
 
 # helper functions
 def set_csvfile():

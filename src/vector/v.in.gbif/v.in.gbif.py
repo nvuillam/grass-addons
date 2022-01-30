@@ -50,12 +50,13 @@ COPYRIGHT: (C) 2015 by the GRASS Development Team
 #% description: Reproject data on-the-fly if no latlon (WGS84) location
 #%end
 
-import sys
-import os
 import csv
 import math
+import os
 import shutil
+import sys
 import tempfile
+
 import grass.script as grass
 
 

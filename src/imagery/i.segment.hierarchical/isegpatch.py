@@ -4,9 +4,9 @@ Created on Mon Oct 21 12:54:42 2013
 
 @author: pietro
 """
+from grass.pygrass.messages import get_msgr
 from grass.pygrass.modules.grid.patch import get_start_end_index
 from grass.pygrass.raster import RasterRow
-from grass.pygrass.messages import get_msgr
 
 # for Python 3 compatibility
 try:

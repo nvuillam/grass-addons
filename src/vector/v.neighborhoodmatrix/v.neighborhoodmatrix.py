@@ -42,9 +42,10 @@
 #% description: create bidirectional matrix (same neighborhood relation repeated twice)
 #%end
 
-import sys
-import os
 import atexit
+import os
+import sys
+
 import grass.script as gscript
 from grass.script.utils import separator
 

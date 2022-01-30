@@ -27,11 +27,12 @@ COPYRIGHT:    (C) 2013-2015 by the GRASS Development Team
 #%end
 
 
-import sys
-import re
 import os
-from grass.script import core as grass
+import re
+import sys
+
 import grass.pygrass.modules as mod
+from grass.script import core as grass
 
 
 class CmdMapList(object):

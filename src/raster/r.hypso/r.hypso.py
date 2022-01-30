@@ -46,11 +46,12 @@
 #% description: Generate hypsographic curve
 #%end
 
-import sys
 import os
+import sys
+from operator import itemgetter
+
 import grass.script as grass
 import numpy as np
-from operator import itemgetter
 
 
 def main():

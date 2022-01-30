@@ -72,8 +72,8 @@ COPYRIGHT:    (C) 2019 by the GRASS Development Team
 # - write tests
 # - implement ranges instead of single direction values
 
-import os
 import atexit
+import os
 
 import grass.script as gscript
 

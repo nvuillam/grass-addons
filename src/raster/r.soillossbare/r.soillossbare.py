@@ -139,8 +139,9 @@ This program is free software under the GNU General Public License
 #%end
 
 
-import sys
 import os
+import sys
+
 import grass.script as g
 from grass.exceptions import CalledModuleError
 

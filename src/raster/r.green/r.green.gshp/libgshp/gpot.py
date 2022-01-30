@@ -40,9 +40,8 @@ simulation parameters:
       geo-exchange is evaluated.
 
 """
-from numpy import log, pi, sqrt
-
 from grass.script import raster as grast
+from numpy import log, pi, sqrt
 
 
 def get_borehole_resistence(

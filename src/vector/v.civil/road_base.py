@@ -13,8 +13,7 @@ import re
 
 # from grass.pygrass.vector import VectorTopo
 from grass.pygrass.vector import VectorTopo
-from grass.pygrass.vector.geometry import Point
-from grass.pygrass.vector.geometry import Line
+from grass.pygrass.vector.geometry import Line, Point
 
 
 def azimut(p_ini=None, p_end=None):

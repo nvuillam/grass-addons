@@ -100,26 +100,29 @@ def predefined_estimators(estimator, random_state, n_jobs, p):
     except ImportError:
         pass
 
-    from sklearn.linear_model import (
-        LogisticRegression,
-        LinearRegression,
-        SGDRegressor,
-        SGDClassifier,
+    from sklearn.discriminant_analysis import (
+        LinearDiscriminantAnalysis,
+        QuadraticDiscriminantAnalysis,
     )
-    from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-    from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
-    from sklearn.naive_bayes import GaussianNB
-    from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
     from sklearn.ensemble import (
-        RandomForestClassifier,
-        RandomForestRegressor,
         ExtraTreesClassifier,
         ExtraTreesRegressor,
+        GradientBoostingClassifier,
+        GradientBoostingRegressor,
+        RandomForestClassifier,
+        RandomForestRegressor,
     )
-    from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
-    from sklearn.svm import SVC, SVR
+    from sklearn.linear_model import (
+        LinearRegression,
+        LogisticRegression,
+        SGDClassifier,
+        SGDRegressor,
+    )
+    from sklearn.naive_bayes import GaussianNB
     from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
     from sklearn.neural_network import MLPClassifier, MLPRegressor
+    from sklearn.svm import SVC, SVR
+    from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 
     estimators = {
         "SVC": SVC(C=p["C"], probability=True, random_state=random_state),

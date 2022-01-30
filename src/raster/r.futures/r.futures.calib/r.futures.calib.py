@@ -278,18 +278,17 @@
 #% required: -l,repeat
 #%end
 
-import sys
-import os
 import atexit
-import numpy as np
+import os
+import sys
 from io import StringIO
 from multiprocessing import Process, Queue
 
 import grass.script.core as gcore
 import grass.script.raster as grast
 import grass.script.utils as gutils
+import numpy as np
 from grass.exceptions import CalledModuleError
-
 
 TMP = []
 

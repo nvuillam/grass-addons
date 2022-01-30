@@ -1,22 +1,19 @@
 from __future__ import print_function
 
-import sys
 import csv
 import logging
 import re
 import subprocess
+import sys
+from builtins import zip
 
 import pyhs2
-from builtins import zip
+import security_utils as utils
+from base_hook import BaseHook
+from hdfswrapper.hive_table import HiveSpatial
 from past.builtins import basestring
 from thrift.protocol import TBinaryProtocol
 from thrift.transport import TSocket, TTransport
-
-import security_utils as utils
-from base_hook import BaseHook
-
-
-from hdfswrapper.hive_table import HiveSpatial
 
 
 class HiveCliHook(BaseHook, HiveSpatial):
@@ -59,8 +56,8 @@ class HiveCliHook(BaseHook, HiveSpatial):
         schema = schema or conn.schema
         if schema:
             hql = "USE {schema};\n{hql}".format(**locals())
-        import tempfile
         import os
+        import tempfile
 
         tmp_dir = tempfile.gettempdir()
         if not os.path.isdir(tmp_dir):

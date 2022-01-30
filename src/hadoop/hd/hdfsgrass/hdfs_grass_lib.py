@@ -1,5 +1,4 @@
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import print_function, unicode_literals
 
 import inspect
 import logging
@@ -13,17 +12,16 @@ path = os.path.join(
 if path not in sys.path:
     sys.path.append(path)
 
-from hdfswrapper.connections import Connection
-from hdfswrapper import settings
-from sqlalchemy.exc import IntegrityError
-from sqlalchemy import Table
-from hdfs_grass_util import read_dict, save_dict, get_tmp_folder
+import grass.script as grass
+from dagpype import filt, nth, stream_lines, to_stream
 from grass.pygrass.modules import Module
 from grass.script.core import PIPE
-import grass.script as grass
 from grass_map import VectorDBInfo as VectorDBInfoBase
-
-from dagpype import stream_lines, to_stream, filt, nth
+from hdfs_grass_util import get_tmp_folder, read_dict, save_dict
+from hdfswrapper import settings
+from hdfswrapper.connections import Connection
+from sqlalchemy import Table
+from sqlalchemy.exc import IntegrityError
 
 
 class ConnectionManager:

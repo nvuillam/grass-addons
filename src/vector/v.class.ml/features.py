@@ -2,14 +2,12 @@
 # -- coding: utf-8 --
 from __future__ import absolute_import, division, print_function
 
-import numpy as np
 import matplotlib  # required by windows
+import numpy as np
 
 matplotlib.use("wxAGG")  # required by windows
 import matplotlib.pyplot as plt
-
 from sklearn.ensemble import ExtraTreesClassifier
-
 
 N_ESTIMATORS = 500
 RANDOM_STATE = 0

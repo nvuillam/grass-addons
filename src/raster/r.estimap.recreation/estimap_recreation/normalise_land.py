@@ -2,27 +2,15 @@
 @author Nikos Alexandris
 """
 
-from .grassy_utilities import (
-    grass,
-    r,
-    remove_map_at_exit,
-    temporary_filename,
-)
-from .constants import (
-    EQUATION,
-    THRESHHOLD_ZERO,
-)
-from .messages import (
-    MESSAGE_NORMALISING,
-    ADDING_MAP_TO_COMPONENT,
-    ZEROFY_NULL_CELLS,
-)
+from .components import smooth_component
+from .constants import EQUATION, THRESHHOLD_ZERO
+from .grassy_utilities import grass, r, remove_map_at_exit, temporary_filename
+from .messages import ADDING_MAP_TO_COMPONENT, MESSAGE_NORMALISING, ZEROFY_NULL_CELLS
 from .names import (
     LAND_COMPONENT,
     LAND_COMPONENT_MAP_NAME,
     RECREATION_POTENTIAL_COMPONENT,
 )
-from .components import smooth_component
 from .normalisation import zerofy_and_normalise_component
 
 

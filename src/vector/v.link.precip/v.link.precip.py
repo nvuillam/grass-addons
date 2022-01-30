@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8
-import os
-import sys
 import argparse
-import string
+import os
 import random
 import re
+import string
+import sys
 
 try:
     from grass.script import core as grass

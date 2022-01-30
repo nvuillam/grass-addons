@@ -4,8 +4,8 @@ Unified class for DMSP-OLS Inter-Satellite Calibration Model
 @author: nik | Created on Wed Mar 11 18:07:20 2015
 """
 
-from intercalibration_coefficients import CITATIONS, COEFFICIENTS
 import intercalibration_equations
+from intercalibration_coefficients import CITATIONS, COEFFICIENTS
 
 # globals
 DUMMY_MAPCALC_STRING = "Input"

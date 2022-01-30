@@ -38,12 +38,14 @@ This program is free software under the GNU General Public License
 #% required: no
 #%end
 
+import json
+
 #%flag
 #% key: l
 #% description: Get layers from the server
 #%end
 import sys
-import json
+
 import grass.script as grass
 
 

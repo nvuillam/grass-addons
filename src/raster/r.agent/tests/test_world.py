@@ -1,8 +1,8 @@
 import unittest2 as unittest
+from libagent import error, world
 
 # import unittest
 
-from libagent import world, error
 
 
 class TestWorld(unittest.TestCase):

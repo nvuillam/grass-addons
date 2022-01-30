@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import unittest
-import os
-import numpy as np
-from sklearn.metrics.pairwise import rbf_kernel
-
 # from r.objects.activelearning import * --> doesn't work because of the dots in the file name
 import imp
+import os
+import unittest
+
+import numpy as np
+from sklearn.metrics.pairwise import rbf_kernel
 
 open_file, file_name, description = imp.find_module("r.objects.activelearning")
 al = imp.load_source("al", file_name, open_file)

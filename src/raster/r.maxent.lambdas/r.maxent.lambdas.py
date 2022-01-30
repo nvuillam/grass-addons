@@ -145,11 +145,11 @@ COPYRIGHT:    (C) 2019-2022 by the Norwegian Institute for Nature Research
 #%end
 
 import os
-
-from grass.pygrass.raster import RasterRow
-import grass.script as gscript
-from grass.script.raster import mapcalc, raster_history
 from functools import partial
+
+import grass.script as gscript
+from grass.pygrass.raster import RasterRow
+from grass.script.raster import mapcalc, raster_history
 
 
 def tiled_mapcalc(expression=None, width=None, height=None, nprocs=None):

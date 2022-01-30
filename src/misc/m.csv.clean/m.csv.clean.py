@@ -80,9 +80,9 @@
 #% answer: strip_whitespace,collapse_whitespace
 #%end
 
-import sys
 import csv
 import re
+import sys
 from datetime import datetime
 
 import grass.script as gs

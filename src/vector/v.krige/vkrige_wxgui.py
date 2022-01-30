@@ -16,13 +16,14 @@ for details.
 
 # @TODO move here imports related to wxGUI
 
+import _thread
+
 # generic imports
 import os
 import sys
 
 # from tempfile import gettempdir
 import time
-import _thread
 
 # dependencies to be checked once, as they are quite
 # time-consuming. cfr. grass.parser.
@@ -33,21 +34,18 @@ except ImportError:
     sys.exit(_("No GRASS-python library found."))
 
 sys.path.append(os.path.join(os.getenv("GISBASE"), "gui", "wxpython"))
-from core import globalvar
-from gui_core import gselect
-from core import gconsole
-from gui_core import goutput
-from core.settings import UserSettings
-from gui_core.widgets import GNotebook
-from core.giface import Notification
-from gui_core.wrap import SpinCtrl
-from core.gcmd import GError
-
-import wx
+import rpy2.rinterface as rinterface
 
 # import wx.lib.plot as plot # for plotting the variogram.
 import rpy2.robjects as robjects
-import rpy2.rinterface as rinterface
+import wx
+from core import gconsole, globalvar
+from core.gcmd import GError
+from core.giface import Notification
+from core.settings import UserSettings
+from gui_core import goutput, gselect
+from gui_core.widgets import GNotebook
+from gui_core.wrap import SpinCtrl
 
 # global variables
 # instead of sys.maxint, not working with SpinCtrl on 64bit [reported by

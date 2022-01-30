@@ -79,12 +79,12 @@
 #%end
 
 
-import sys
 import math
-import numpy as np
+import sys
 
 import grass.script.core as gcore
 import grass.script.utils as gutils
+import numpy as np
 
 
 def exp_approach(x, a, b, c):

@@ -48,10 +48,11 @@
 #%end
 
 
-import sys
-import grass.script as grass
 import pdb
 import string
+import sys
+
+import grass.script as grass
 
 
 def parser_4eMka2_rule(tags):

@@ -69,8 +69,8 @@ import numpy as np
 
 # GRASS
 from grass import script as gscript
-from grass.script import array as garray
 from grass.pygrass.modules.shortcuts import general as g
+from grass.script import array as garray
 
 ###############
 # MAIN MODULE #

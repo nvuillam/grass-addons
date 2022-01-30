@@ -150,6 +150,7 @@
 
 import os
 import sys
+
 import grass.script as grass
 
 if "GISBASE" not in os.environ:

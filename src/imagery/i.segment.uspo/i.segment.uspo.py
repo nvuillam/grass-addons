@@ -295,11 +295,12 @@
 #% collective: hr_start,hr_stop,hr_step
 #%end
 
-import grass.script as gscript
-import sys
-import os
 import atexit
+import os
+import sys
 from multiprocessing import Process, Queue, current_process
+
+import grass.script as gscript
 
 # check requirements
 

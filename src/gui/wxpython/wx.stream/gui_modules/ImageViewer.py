@@ -21,8 +21,9 @@ This program is free software under the GNU General Public License
 """
 
 
-import wx
 import glob
+
+import wx
 
 
 class ImgPanel(wx.Panel):

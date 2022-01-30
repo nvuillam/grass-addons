@@ -118,12 +118,13 @@
 #% exclusive: extent,-l
 #%end
 
-import os
-import sys
 import glob
+import os
 import re
+import sys
 import tarfile
 from datetime import *
+
 import grass.script as gs
 from grass.exceptions import CalledModuleError
 

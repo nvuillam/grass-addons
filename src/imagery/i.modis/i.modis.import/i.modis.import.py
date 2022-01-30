@@ -105,16 +105,16 @@
 #% guisection: Temporal
 #%end
 
-import os
-import sys
 import glob
+import os
 import shutil
+import sys
 import tempfile
 from datetime import datetime, timedelta
 
 import grass.script as grass
-from grass.pygrass.utils import get_lib_path
 from grass.exceptions import CalledModuleError
+from grass.pygrass.utils import get_lib_path
 
 path = get_lib_path(modname="i.modis", libname="libmodis")
 if path is None:
@@ -203,7 +203,7 @@ def confile(pm, opts, q, mosaik=False):
     """Create the configuration file for MRT software"""
     try:
         # try to import pymodis (modis) and some classes for i.modis.download
-        from rmodislib import resampling, product, projection
+        from rmodislib import product, projection, resampling
     except ImportError as e:
         grass.fatal("Unable to load i.modis library: {}".format(e))
     # return projection and datum
@@ -380,7 +380,7 @@ def single(options, remove, an, ow, fil):
     """Convert the HDF file to TIF and import it"""
     try:
         # try to import pymodis (modis) and some classes for i.modis.download
-        from rmodislib import product, projection, get_proj
+        from rmodislib import get_proj, product, projection
     except ImportError as e:
         grass.fatal("Unable to load i.modis library: {}".format(e))
     try:
@@ -462,12 +462,12 @@ def mosaic(options, remove, an, ow, fil):
     """Create a daily mosaic of HDF files convert to TIF and import it"""
     try:
         # try to import pymodis (modis) and some classes for i.modis.download
-        from rmodislib import product, projection, get_proj
+        from rmodislib import get_proj, product, projection
     except ImportError as e:
         grass.fatal("Unable to load i.modis library: {}".format(e))
     try:
         from pymodis.convertmodis import convertModis, createMosaic
-        from pymodis.convertmodis_gdal import createMosaicGDAL, convertModisGDAL
+        from pymodis.convertmodis_gdal import convertModisGDAL, createMosaicGDAL
         from pymodis.parsemodis import parseModis
     except ImportError as e:
         grass.fatal("Unable to import pymodis library: {}".format(e))

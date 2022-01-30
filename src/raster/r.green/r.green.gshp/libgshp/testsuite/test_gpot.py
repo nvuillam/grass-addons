@@ -15,8 +15,6 @@ from __future__ import (
 
 import os
 
-from numpy.testing import assert_almost_equal
-
 import gpot as gpot
 from grass.gunittest.case import TestCase
 from grass.gunittest.gmodules import call_module
@@ -25,6 +23,7 @@ from grass.gunittest.main import test
 # ==================================================================
 # Start testing the library
 from grass.pygrass.raster import RasterRow
+from numpy.testing import assert_almost_equal
 
 # ==================================================================
 # Define value and results to be tested as scalar and as raster

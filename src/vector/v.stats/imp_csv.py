@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function, division
-import numpy as np
+from __future__ import division, print_function
 
 import grass.lib.gis as glg
+import numpy as np
 
 NPY2COLTYPE = {"<i8": "INTEGER", "<f8": "DOUBLE"}
 

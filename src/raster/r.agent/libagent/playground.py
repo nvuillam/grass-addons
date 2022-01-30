@@ -12,9 +12,8 @@ COPYRIGHT:    (C) 2015 by Michael Lustenberger and the GRASS Development Team
 import random
 from math import sqrt
 
-from libagent import error
-
 import numpy
+from libagent import error
 
 
 class Playground(object):

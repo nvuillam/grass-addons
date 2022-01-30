@@ -432,15 +432,15 @@ def process_param_grid(hyperparams):
 def main():
 
     # Lazy import libraries
-    from rlearnlib.utils import (
-        predefined_estimators,
-        load_training_data,
-        save_training_data,
-        option_to_list,
-        scoring_metrics,
-        check_class_weights,
-    )
     from rlearnlib.raster import RasterStack
+    from rlearnlib.utils import (
+        check_class_weights,
+        load_training_data,
+        option_to_list,
+        predefined_estimators,
+        save_training_data,
+        scoring_metrics,
+    )
 
     try:
         import sklearn
@@ -635,7 +635,7 @@ def main():
 
     # cross validation settings -----------------------------------------------
     # inner resampling method (cv=2)
-    from sklearn.model_selection import GridSearchCV, StratifiedKFold, GroupKFold, KFold
+    from sklearn.model_selection import GridSearchCV, GroupKFold, KFold, StratifiedKFold
 
     if any(param_grid) is True:
         if group_id is None and mode == "classification":
@@ -668,9 +668,9 @@ def main():
         fit_params = {}
 
     # preprocessing -----------------------------------------------------------
-    from sklearn.pipeline import Pipeline
     from sklearn.compose import ColumnTransformer
-    from sklearn.preprocessing import StandardScaler, OneHotEncoder
+    from sklearn.pipeline import Pipeline
+    from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
     # standardization
     if norm_data is True and category_maps is None:
@@ -747,8 +747,8 @@ def main():
 
     # cross-validation --------------------------------------------------------
     if cv > 1:
-        from sklearn.metrics import classification_report
         from sklearn import metrics
+        from sklearn.metrics import classification_report
 
         if (
             mode == "classification"

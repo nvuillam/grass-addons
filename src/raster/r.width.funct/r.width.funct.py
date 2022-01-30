@@ -40,8 +40,9 @@
 #%END
 
 
-import sys
 import os
+import sys
+
 import grass.script as grass
 import numpy as np
 

@@ -60,6 +60,8 @@
 # % description: Include columns of input vector map
 # %end
 
+import atexit
+
 # %flag
 # % key: c
 # % description: Include point coordinates
@@ -67,8 +69,8 @@
 # import libraries
 import os
 import sys
-import atexit
 from subprocess import PIPE
+
 import grass.script as gs
 from grass.pygrass.modules import Module
 

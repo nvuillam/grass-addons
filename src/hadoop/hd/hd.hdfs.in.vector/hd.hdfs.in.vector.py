@@ -48,8 +48,7 @@
 
 
 import grass.script as grass
-
-from hdfsgrass.hdfs_grass_lib import JSONBuilder, GrassHdfs
+from hdfsgrass.hdfs_grass_lib import GrassHdfs, JSONBuilder
 
 
 def main():

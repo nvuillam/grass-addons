@@ -11,16 +11,16 @@ set -e
 # Author: Martin Landa <landa.martin gmail.com>
 #
 
-if test -z "$1" ; then
-    echo "$0 file.png"
-    exit 1
+if test -z "$1"; then
+	echo "$0 file.png"
+	exit 1
 fi
 
 filename=$1
 ext="${filename##*.}"
-if [ "$ext" != "png" ] ; then
-    echo "Only PNG files are supported"
-    exit 1
+if [ "$ext" != "png" ]; then
+	echo "Only PNG files are supported"
+	exit 1
 fi
 basename=${filename%%.png}
 

@@ -157,7 +157,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   
 ### Changed
   
-- Made extension of the 52 week to be 8 or 9 (leap years) days instead of 
+- Made extension of the 52 week to be 8 or 9 (leap years) days instead of
   7 to ensure that the next year starts on Jan 1st. This makes forecasting
   into the future more streamlined. (Chris Jones)
 
@@ -195,8 +195,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Renamed variables and functions to make the model more clear and easy
   to understand. (Chris Jones)
 - Renaming and partial unification of styles across all files. (Vaclav Petras)
- - All is now in namespace called pops.
- - Private variables use trailing underscore if needed.
+- All is now in namespace called pops.
+- Private variables use trailing underscore if needed.
 - Removed unused and legacy functions and types. (Vaclav Petras)
 
 ## 2018-08-02 - PoPS Model Separation
@@ -217,7 +217,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - The date class now supports also month increments. (Vaclav Petras)
 - Critical temperature as the lowest temperature spores can survive
   in a provided month (Vaclav Petras)
- - Temperature rasters are used at a specified month to check against
+- Temperature rasters are used at a specified month to check against
    a provided critical temperature and if the condition is met,
    infected trees become susceptible again.
 
@@ -246,39 +246,39 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - Long-range dispersal kernel (Anna Petrasova)
- - Events are recorded.
- - The affected points are exported as a vector map.
+- Events are recorded.
+- The affected points are exported as a vector map.
 - Output probability of cell being infected (Vaclav Petras)
 - Optionally output one run for series instead of an average (Vaclav Petras)
 
 ### Changed
 
 - Spread of SOD based on a single species (Anna Petrasova)
- - Spread for UMCA and oak replaced by single species, assumed tanoak.
+- Spread for UMCA and oak replaced by single species, assumed tanoak.
 
 ## 2017-01-28 - January 2017 Status
 
 ### Added
 
 - Simplified weather inputs (Vaclav Petras)
- - Weather can be supplied as as a text file (spatially constant)
- - Weather can be supplied as one variable (non-spatial and non-temporal)
+- Weather can be supplied as as a text file (spatially constant)
+- Weather can be supplied as one variable (non-spatial and non-temporal)
 
 ### Changed
 
 - Efficiency improvements (Vaclav Petras)
- - Enable inlining of size getters of Img class which makes all_infected
+- Enable inlining of size getters of Img class which makes all_infected
    function much faster.
- - Move constructor and assignment operator added for cases when RVO
+- Move constructor and assignment operator added for cases when RVO
    is not applied.
- - Internal storage changed to one array (usually faster allocation).
+- Internal storage changed to one array (usually faster allocation).
 - Code cleanup (Vaclav Petras)
- - Use same API style for Von Mises as for std lib distributions.
- - Creating data for Img outside of the object is avoided.
- - Indexing the Img done using operator ().
- - Using operators for all operations which fit semantically.
- - Remove unused variables from the code.
- - The 'using namespace' statement replaced by explicit use 'using' for
+- Use same API style for Von Mises as for std lib distributions.
+- Creating data for Img outside of the object is avoided.
+- Indexing the Img done using operator ().
+- Using operators for all operations which fit semantically.
+- Remove unused variables from the code.
+- The 'using namespace' statement replaced by explicit use 'using' for
    string and other classes or objects.
 - Date class API extended to provide readable comparison operators
   replacing usage of method with unclear name (Anna Petrasova)

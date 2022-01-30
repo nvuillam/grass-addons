@@ -55,9 +55,10 @@
 #% answer: raster
 #%end
 
+import hashlib
 import os
 import sys
-import hashlib
+
 import grass.script as grass
 
 

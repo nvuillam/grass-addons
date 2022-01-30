@@ -110,17 +110,19 @@
 # Standard
 # ----------------------------------------------------------------------------
 
+import atexit
+import csv
+import operator
+
 # import libraries
 import os
-import sys
-import csv
-import numpy as np
-import uuid
-import operator
-import atexit
-import tempfile
 import string
+import sys
+import tempfile
+import uuid
+
 import grass.script as gs
+import numpy as np
 
 # for Python 3 compatibility
 try:

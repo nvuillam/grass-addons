@@ -66,11 +66,10 @@
 # TODO: create function to check for mask
 # TODO: move escape and mask functions to library
 
-import os
 import atexit
+import os
 
 import grass.script as gscript
-
 
 TMP = []
 

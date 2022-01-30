@@ -55,10 +55,10 @@ git remote -v
 * You should see something like:
 
 ```
-origin	git@github.com:your_GH_account/grass-addons.git (fetch)
-origin	git@github.com:your_GH_account/grass-addons.git (push)
-upstream	https://github.com/OSGeo/grass-addons.git (fetch)
-upstream	https://github.com/OSGeo/grass-addons.git (push)
+origin git@github.com:your_GH_account/grass-addons.git (fetch)
+origin git@github.com:your_GH_account/grass-addons.git (push)
+upstream https://github.com/OSGeo/grass-addons.git (fetch)
+upstream https://github.com/OSGeo/grass-addons.git (push)
 ```
 
 It is important that "origin" points to your fork.

@@ -69,9 +69,10 @@
 #%end
 
 
+import math
+
 import grass.script as gs
 import numpy as np
-import math
 from grass.pygrass.gis.region import Region
 from grass.pygrass.modules.shortcuts import raster as r
 
@@ -91,8 +92,8 @@ def string_to_rules(string):
 
 def main():
     try:
-        import sklearn
         import joblib
+        import sklearn
 
         if sklearn.__version__ < "0.20":
             gs.fatal("Package python3-scikit-learn 0.20 or newer is not installed")

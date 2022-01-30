@@ -101,15 +101,16 @@
 #%end
 
 
+import atexit
+import math
 import os
-import sys
 import random
 import string
-import math
-import numpy as np
+import sys
 from subprocess import PIPE
-import atexit
+
 import grass.script as gs
+import numpy as np
 from grass.pygrass.modules.shortcuts import general as g
 from grass.pygrass.modules.shortcuts import raster as r
 from grass.script.utils import parse_key_val

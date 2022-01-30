@@ -171,8 +171,8 @@
 #%end
 
 
-import sys
 import os
+import sys
 
 # Windows pwd module workaround
 hasPwd = True
@@ -182,17 +182,18 @@ except ImportError:
     hasPwd = False
 
 import atexit
+import copy
 import re
 import tempfile
-import grass.script as grass
-from grass.exceptions import CalledModuleError
-from grass.script.utils import try_rmdir
-import copy
 import time
 import unicodedata
 
 # workspace file is XML so we use an XML parser
 import xml.dom.minidom
+
+import grass.script as grass
+from grass.exceptions import CalledModuleError
+from grass.script.utils import try_rmdir
 
 # initialize global vars
 TMPFORMAT = "BMP"

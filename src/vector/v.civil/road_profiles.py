@@ -10,12 +10,12 @@ Created on Thu Sep 11 00:29:15 2014
 #
 import math
 
+from grass.pygrass.gis.region import Region
+from grass.pygrass.vector.geometry import Line, Point
+
 # import road_base as Base
 # from grass.pygrass.raster import RasterRow
 
-from grass.pygrass.vector.geometry import Point
-from grass.pygrass.gis.region import Region
-from grass.pygrass.vector.geometry import Line
 
 
 class LongProfile(object):

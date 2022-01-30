@@ -39,7 +39,6 @@ import os
 import sys
 
 import grass.script as grass
-
 from hdfsgrass.hdfs_grass_lib import GrassMapBuilderEsriToEsri
 
 

@@ -165,8 +165,9 @@
 #% collective: tile_width, tile_height, overlap
 #%end
 
-import os
 import atexit
+import os
+
 import grass.script as gscript
 from grass.pygrass.modules.grid.grid import GridModule
 from grass.pygrass.vector import VectorTopo

@@ -3,9 +3,9 @@
 WIKI=/osgeo/grass/grass-wiki
 EXT=$1
 
-if test -z "$EXT" ; then
-    echo "Usage: ext"
-    exit 1
+if test -z "$EXT"; then
+	echo "Usage: ext"
+	exit 1
 fi
 
 cd $WIKI/extensions

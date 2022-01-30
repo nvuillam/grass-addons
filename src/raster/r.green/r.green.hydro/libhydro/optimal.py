@@ -30,8 +30,7 @@ version = 70  # 71
 
 # import scientific libraries
 try:
-    from scipy import optimize
-    from scipy import interpolate
+    from scipy import interpolate, optimize
     from scipy.optimize import fsolve
 except ImportError:
     gcore.warning("You should install scipy to use this module: " "pip install scipy")

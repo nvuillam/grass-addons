@@ -4,9 +4,10 @@ Created on Sun Nov 10 17:00:13 2013
 
 @author: pietro
 """
-from __future__ import print_function, division
+from __future__ import division, print_function
 
 import pickle
+
 import numpy as np
 from grass.pygrass.vector import Vector
 from grass.pygrass.vector.table import Link, Table

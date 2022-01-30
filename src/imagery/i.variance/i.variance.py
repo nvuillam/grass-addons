@@ -71,10 +71,11 @@
 #% required: min_cells,max_size
 #%end
 
-import sys
-import os
 import atexit
+import os
+import sys
 from math import sqrt
+
 import grass.script as gscript
 
 

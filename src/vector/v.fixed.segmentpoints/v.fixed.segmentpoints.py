@@ -55,9 +55,10 @@ COPYRIGHT: (C) 2014 by the GRASS Development Team
 #% answer: 100
 #%end
 
-import sys
-import os
 import math
+import os
+import sys
+
 import grass.script as grass
 
 

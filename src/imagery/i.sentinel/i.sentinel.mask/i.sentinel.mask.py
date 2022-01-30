@@ -161,20 +161,20 @@
 #% excludes: input_file,blue,green,red,nir,nir8a,swir11,swir12,mtd_file
 #%end
 
+import atexit
+import glob
+import json
 import math
 import os
-import sys
+import re
 import shutil
 import subprocess
-import re
-import glob
+import sys
 import time
-import atexit
-import json
 import xml.etree.ElementTree as et
 
-import numpy
 import grass.script as gscript
+import numpy
 
 
 def main():

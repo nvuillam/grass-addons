@@ -2,19 +2,20 @@
 @author Nikos Alexandris
 """
 
-from __future__ import division
-from __future__ import absolute_import
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
 
 import atexit
 import os
 
+from .accessibility import compute_artificial_accessibility
+from .colors import OPPORTUNITY_COLORS, POTENTIAL_COLORS, SCORE_COLORS, SPECTRUM_COLORS
+from .components import classify_recreation_component, smooth_component
 from .constants import (
     CITATION_RECREATION_POTENTIAL,
-    COLUMN_PREFIX_SPECTRUM,
     COLUMN_PREFIX_DEMAND,
-    COLUMN_PREFIX_UNMET,
     COLUMN_PREFIX_FLOW,
+    COLUMN_PREFIX_SPECTRUM,
+    COLUMN_PREFIX_UNMET,
     EQUATION,
     HIGHEST_RECREATION_CATEGORY,
     METHODS,
@@ -26,78 +27,62 @@ from .constants import (
     THRESHHOLD_0001,
     THRESHHOLD_ZERO,
 )
-from .messages import (
-    CLASSIFYING_POTENTIAL_MAP,
-    CLASSIFYING_OPPORTUNITY_MAP,
-    COMPUTING_INTERMEDIATE_POTENTIAL_MAP,
-    COMPUTING_INTERMEDIATE_OPPORTUNITY_MAP,
-    WRITING_SPECTRUM_MAP,
-    FILE_NOT_FOUND,
-    INFRASTRUCTURE_NOT_REQUIRED,
-    MESSAGE_PROCESSING,
-    MATCHING_COMPUTATIONAL_RESOLUTION,
-    MESSAGE_NORMALISING,
-    MOBILITY_FUNCTION,
-    POPULATION_STATISTICS,
+from .demand import compute_demand, compute_unmet_demand
+from .distance import compute_artificial_proximity
+from .grassy_utilities import (
+    export_map,
+    g,
+    get_univariate_statistics,
+    grass,
+    r,
+    recode_map,
+    remove_files_at_exit,
+    remove_map_at_exit,
+    remove_temporary_maps,
+    string_to_file,
+    temporary_filename,
+    update_meta,
+    update_vector,
 )
-from .names import (
-    WATER_COMPONENT,
-    NATURAL_COMPONENT,
-    SCORED_PROTECTED_AREAS_MAP_NAME,
-    RECREATION_POTENTIAL_TITLE,
-    RECREATION_OPPORTUNITY_COMPONENT,
-    RECREATION_OPPORTUNITY_TITLE,
-    RECREATION_SPECTRUM_TITLE,
-    MAES_ECOSYSTEM_TYPES_MAP_TITLE,
-)
+from .infrastructure_component import build_infrastructure_component
 from .labels import (
-    POTENTIAL_CATEGORY_LABELS,
     OPPORTUNITY_CATEGORY_LABELS,
+    POTENTIAL_CATEGORY_LABELS,
     SPECTRUM_CATEGORY_LABELS,
     SPECTRUM_DISTANCE_CATEGORY_LABELS,
 )
-from .colors import (
-    SCORE_COLORS,
-    POTENTIAL_COLORS,
-    OPPORTUNITY_COLORS,
-    SPECTRUM_COLORS,
+from .land_component import build_land_component
+from .messages import (
+    CLASSIFYING_OPPORTUNITY_MAP,
+    CLASSIFYING_POTENTIAL_MAP,
+    COMPUTING_INTERMEDIATE_OPPORTUNITY_MAP,
+    COMPUTING_INTERMEDIATE_POTENTIAL_MAP,
+    FILE_NOT_FOUND,
+    INFRASTRUCTURE_NOT_REQUIRED,
+    MATCHING_COMPUTATIONAL_RESOLUTION,
+    MESSAGE_NORMALISING,
+    MESSAGE_PROCESSING,
+    MOBILITY_FUNCTION,
+    POPULATION_STATISTICS,
+    WRITING_SPECTRUM_MAP,
 )
-from .grassy_utilities import (
-    grass,
-    g,
-    r,
-    remove_map_at_exit,
-    remove_files_at_exit,
-    temporary_filename,
-    remove_temporary_maps,
-    string_to_file,
-    get_univariate_statistics,
-    recode_map,
-    update_meta,
-    export_map,
-    update_vector,
+from .mobility import mobility_function
+from .names import (
+    MAES_ECOSYSTEM_TYPES_MAP_TITLE,
+    NATURAL_COMPONENT,
+    RECREATION_OPPORTUNITY_COMPONENT,
+    RECREATION_OPPORTUNITY_TITLE,
+    RECREATION_POTENTIAL_TITLE,
+    RECREATION_SPECTRUM_TITLE,
+    SCORED_PROTECTED_AREAS_MAP_NAME,
+    WATER_COMPONENT,
 )
-from .distance import (
-    compute_artificial_proximity,
-)
+from .natural_component import build_natural_component
 from .normalisation import zerofy_and_normalise_component
 from .normalise_land import normalise_land_component
-from .accessibility import compute_artificial_accessibility
 from .spectrum import compute_recreation_spectrum
-from .components import (
-    smooth_component,
-    classify_recreation_component,
-)
-from .land_component import build_land_component
-from .water_component import build_water_component
-from .natural_component import build_natural_component
-from .infrastructure_component import build_infrastructure_component
-from .mobility import mobility_function
-from .demand import (
-    compute_demand,
-    compute_unmet_demand,
-)
 from .supply_and_use import compute_supply
+from .water_component import build_water_component
 
 
 def main(options, flags):

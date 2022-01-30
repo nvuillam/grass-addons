@@ -16,32 +16,29 @@ for details.
 @author Mohammed Rashad <rashadkm gmail.com>
 """
 
+import copy
 import os
 import sys
-import copy
 import tempfile
 
 if __name__ == "__main__":
     sys.path.append(os.path.join(os.environ["GISBASE"], "etc", "gui", "wxpython"))
 
-import wx
-
 from ctypes import *
+
 import grass.script as grass
+import wx
 from core import globalvar
-from core.gcmd import GError, GMessage
+from core.gcmd import GError, GMessage, RunCommand
+from core.render import Map, MapLayer
+from gui_core.mapdisp import SingleMapFrame
+from iclass.dialogs import IClassMapDialog
 from mapdisp import statusbar as sb
 from mapdisp.mapwindow import BufferedWindow
-from gui_core.mapdisp import SingleMapFrame
-from core.render import Map, MapLayer
-from core.gcmd import RunCommand, GMessage
-from iclass.dialogs import IClassMapDialog
-
-from toolbars import RDigitMapToolbar, RDigitMapManagerToolbar
-
+from rdigit.main import RDigit, haveRDigit
 from rdigit.mapwindow import RDigitWindow
 from rdigit.toolbars import RDigitToolbar
-from rdigit.main import haveRDigit, RDigit
+from toolbars import RDigitMapManagerToolbar, RDigitMapToolbar
 
 
 class RDigitMapFrame(SingleMapFrame):
@@ -393,6 +390,7 @@ class MapManager:
 
 def test():
     import gettext
+
     import core.render as render
 
     gettext.install(

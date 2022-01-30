@@ -21,11 +21,12 @@ for details.
 @author Sudeep Singh Walia (Indian Institute of Technology, Kharagpur , sudeep495@gmail.com)
 """
 
-from grass.script import core as grass
-from BeautifulSoup import BeautifulSoup, BeautifulStoneSoup
 import re
 from xml.dom.minidom import parse, parseString
-from urllib2 import Request, urlopen, URLError, HTTPError
+
+from BeautifulSoup import BeautifulSoup, BeautifulStoneSoup
+from grass.script import core as grass
+from urllib2 import HTTPError, Request, URLError, urlopen
 
 # PY2/PY3 compat
 if sys.version_info.major >= 3:

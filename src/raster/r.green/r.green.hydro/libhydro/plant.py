@@ -4,7 +4,6 @@ import random
 from collections import namedtuple
 
 import numpy as np
-
 from grass.pygrass import utils
 from grass.pygrass.gis.region import Region
 from grass.pygrass.modules.shortcuts import raster as r

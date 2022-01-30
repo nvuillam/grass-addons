@@ -43,8 +43,8 @@
 #% description: Output reclassified map instead of true map
 #%end
 
-import sys
 import atexit
+import sys
 
 import grass.script as gs
 

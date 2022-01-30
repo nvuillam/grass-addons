@@ -271,13 +271,12 @@
 #% description: Use the low-memory version of the program
 #%end
 
-import os
 import atexit
+import os
 from multiprocessing import Process
 
 import grass.script as grass
 import grass.script.core as core
-
 
 REMOVE = []
 MREMOVE = []

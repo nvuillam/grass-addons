@@ -38,9 +38,9 @@
 #%end
 ############################################################################
 
-import sys
-import os
 import atexit
+import os
+import sys
 
 try:
     import grass.script as grass
@@ -57,8 +57,8 @@ if grass_version != "7.":
     grass.fatal(_("Sorry, this script works in GRASS 7.* only"))
 else:
     from grass.lib.gis import *
-    from grass.lib.vector import *
     from grass.lib.raster import *
+    from grass.lib.vector import *
 
 
 def cleanup():

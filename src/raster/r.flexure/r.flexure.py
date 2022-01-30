@@ -172,12 +172,12 @@
 # IMPORT MODULES #
 ##################
 
-# PYTHON
-import numpy as np
-
 # GRASS
 import grass.script as grass
 import grass.script.array as garray
+
+# PYTHON
+import numpy as np
 
 ############################
 # PASS VARIABLES AND SOLVE #

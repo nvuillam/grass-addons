@@ -27,11 +27,11 @@ r.mapcalc --o expr="terrain = terrain + building"
 
 map_basename=reflmap
 
-map_names_file=`g.tempfile pid=$$`
-created_map_names_file=`g.tempfile pid=$$`
+map_names_file=$(g.tempfile pid=$$)
+created_map_names_file=$(g.tempfile pid=$$)
 should_not_be_created_map="test_r_sun_should_not_be_created_map"
 
-cat > "${map_names_file}" << EOF
+cat >"${map_names_file}" <<EOF
 ${map_basename}_026
 ${map_basename}_029
 ${map_basename}_032
@@ -59,7 +59,7 @@ echo "$NAME: r.sun.daily returned: $? (expecting 1)"
 NAME="Map creation test"
 r.sun.daily elevation=terrain start_day=26 end_day=37 day_step=3 reflrad_basename=${map_basename}
 
-g.list -e type=rast pattern=${map_basename}_[0-9]{3} sep=newline > ${created_map_names_file}
+g.list -e type=rast pattern=${map_basename}_[0-9]{3} sep=newline >${created_map_names_file}
 
 diff ${map_names_file} ${created_map_names_file}
 echo "$NAME: Diff returned $? (expecting 0)"
@@ -75,4 +75,3 @@ echo "$NAME: r.sun.daily returned: $? (expecting 1)"
 # clean
 rm ${map_names_file} ${created_map_names_file}
 g.remove -ef type=rast pattern=${map_basename}_[0-9]{3}
-

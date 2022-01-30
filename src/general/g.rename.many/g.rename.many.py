@@ -75,9 +75,9 @@
 #%end
 
 
-from grass.script.utils import parse_key_val, separator
 from grass.script import core as gcore
-from grass.script.core import start_command, read_command, PIPE
+from grass.script.core import PIPE, read_command, start_command
+from grass.script.utils import parse_key_val, separator
 
 # TODO: move some functions to the library if they prove useful
 # TODO: create tests for error cases and dry run

@@ -15,12 +15,13 @@
 
 # python3 visualization.py rmapcalctiled_test.csv images
 
+import os
+import sys
+
 import grass.script as grass
 import matplotlib.pyplot as plt
 import numpy as np
-import os
 import pandas as pd
-import sys
 
 if len(sys.argv) == 1:
     grass.fatal("No csv file and output folder given")

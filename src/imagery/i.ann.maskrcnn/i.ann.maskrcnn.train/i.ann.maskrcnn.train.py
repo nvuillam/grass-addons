@@ -163,11 +163,12 @@
 #%end
 
 
-import grass.script as gscript
-from grass.script.utils import get_lib_path
 import os
 import sys
 from random import shuffle
+
+import grass.script as gscript
+from grass.script.utils import get_lib_path
 
 path = get_lib_path(modname="maskrcnn", libname="model")
 if path is None:
@@ -177,9 +178,9 @@ sys.path.append(path)
 
 def main(options, flags):
 
-    from config import ModelConfig
-    import utils
     import model as modellib
+    import utils
+    from config import ModelConfig
 
     try:
         dataset = options["training_dataset"]

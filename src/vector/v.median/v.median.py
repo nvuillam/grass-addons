@@ -34,12 +34,13 @@
 #% required : no
 #%end
 
-import sys
 import os
-from grass.script.utils import try_remove
-from grass.script import core as grass
+import sys
+
 from grass.exceptions import CalledModuleError
-from numpy import transpose, genfromtxt, median
+from grass.script import core as grass
+from grass.script.utils import try_remove
+from numpy import genfromtxt, median, transpose
 
 
 def point_med(filetmp):

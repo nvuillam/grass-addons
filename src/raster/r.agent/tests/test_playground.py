@@ -1,8 +1,8 @@
-import unittest2 as unittest
-
 # import unittest
 from math import sqrt
-from libagent import playground, error
+
+import unittest2 as unittest
+from libagent import error, playground
 
 
 class TestPlayground(unittest.TestCase):

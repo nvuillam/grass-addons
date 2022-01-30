@@ -19,6 +19,12 @@
 #               for details.
 """
 
+import atexit
+import csv
+
+# import math library
+import math as ma
+
 #%module
 #% description: Create a dasymetric weighting layer with Random Forest
 #% keyword:raster
@@ -177,30 +183,25 @@
 #%end
 # Import standard python libraries
 import os
-import sys
-import time
-import csv
-import atexit
-
-# Import GRASS GIS Python Scripting Library
-import grass.script as gscript
 
 # Import Shutil library
 import shutil
+import sys
+import time
 
-# Import Numpy library
-import numpy as np
+# Import literal_eval
+from ast import literal_eval
+from copy import deepcopy
 
-# import math library
-import math as ma
+# Import GRASS GIS Python Scripting Library
+import grass.script as gscript
 
 # Import pyplot library
 import matplotlib
 import matplotlib.pyplot as plt
 
-# Import literal_eval
-from ast import literal_eval
-from copy import deepcopy
+# Import Numpy library
+import numpy as np
 
 # Import Pandas library (View and manipulation of tables)
 # Still required for selecting in dataframes based on column names

@@ -1,10 +1,10 @@
 import functools
+
 import py
 import pytest
 from ruamel.yaml import YAML
 
 from .runner import estimap_test_runner
-
 
 yaml = YAML(typ="safe", pure=True)
 

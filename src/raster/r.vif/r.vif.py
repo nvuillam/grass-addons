@@ -86,20 +86,23 @@
 #%requires_all: -s,maxvif
 #%end
 
+import math
+
 # import libraries
 import os
 import sys
-import math
+
 import numpy as np
 
 try:
     from io import StringIO
 except ImportError:
     from cStringIO import StringIO
-import uuid
-import atexit
-import grass.script as gs
 
+import atexit
+import uuid
+
+import grass.script as gs
 
 # Functions
 CLEAN_RAST = []

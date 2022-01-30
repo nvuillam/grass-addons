@@ -13,17 +13,15 @@ This program is free software under the GNU General Public
 License (>=v2). Read the file COPYING that comes with GRASS
 for details.
 """
-import tempfile
 import os
+import tempfile
 
 import grass.script as gs
-
 import joblib
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
 import pandas as pd
-
 from grass.gunittest.case import TestCase
 from grass.gunittest.main import test
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 class TestGridSearch(TestCase):

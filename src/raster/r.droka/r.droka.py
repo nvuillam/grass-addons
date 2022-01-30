@@ -75,14 +75,15 @@
 #% required: no
 #%end
 
+import math
 import os
+import re
+import string
 import sys
 import time
-import math
-import string
-import re
-from grass.script import array as garray
+
 import numpy as np
+from grass.script import array as garray
 
 try:
     import grass.script as grass

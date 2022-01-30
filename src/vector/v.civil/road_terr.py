@@ -7,16 +7,17 @@ Created on Thu Sep 11 00:29:15 2014
 
 import math
 
-# import time
-
 import road_base as Base
+from grass.pygrass.gis.region import Region
 from grass.pygrass.raster import RasterRow
 
-from grass.pygrass.vector.geometry import Point
-from grass.pygrass.gis.region import Region
-
 # from grass.pygrass.vector.geometry import Line
-from grass.pygrass.vector.geometry import Boundary
+from grass.pygrass.vector.geometry import Boundary, Point
+
+# import time
+
+
+
 
 # from grass.pygrass.vector.geometry import Area
 

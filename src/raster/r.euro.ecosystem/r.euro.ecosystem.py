@@ -40,12 +40,13 @@ COPYRIGHT: (C) 2015, 2019 by the GRASS Development Team
 #%end
 
 
-import sys
-import os
 import csv
 import math
+import os
 import shutil
+import sys
 import tempfile
+
 import grass.script as grass
 
 

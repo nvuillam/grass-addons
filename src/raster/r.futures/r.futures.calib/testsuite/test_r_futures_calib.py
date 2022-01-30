@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-import os
 import filecmp
+import os
+
 from grass.gunittest.case import TestCase
 from grass.gunittest.main import test
 

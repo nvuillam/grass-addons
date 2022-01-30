@@ -229,7 +229,6 @@ import sys
 from math import acos, asin, log10, pi, sin, sqrt
 
 import numpy as np
-
 from grass.pygrass.messages import get_msgr
 from grass.pygrass.utils import set_path
 from grass.pygrass.vector import VectorTopo
@@ -246,15 +245,15 @@ try:
     set_path("r.green", "libhydro", "..")
     set_path("r.green", "libgreen", os.path.join("..", ".."))
     from libgreen.utils import cleanup
-    from libhydro.plant import power2energy
     from libhydro.optimal import conv_segpoints
+    from libhydro.plant import power2energy
 except ImportError:
     try:
         set_path("r.green", "libhydro", os.path.join("..", "etc", "r.green"))
         set_path("r.green", "libgreen", os.path.join("..", "etc", "r.green"))
         from libgreen.utils import cleanup
-        from libhydro.plant import power2energy
         from libhydro.optimal import conv_segpoints
+        from libhydro.plant import power2energy
     except ImportError:
         gcore.warning("libgreen and libhydro not in the python path!")
 

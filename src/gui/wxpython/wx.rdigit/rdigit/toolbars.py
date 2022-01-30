@@ -14,15 +14,15 @@ This program is free software under the GNU General Public License
 @author Mohammed Rashad <rashadkm gmail.com>
 """
 import wx
-from grass.script import core as grass
-from gui_core.toolbars import BaseToolbar, BaseIcons
-from dialogs_core import CreateNewRaster
-from vdigit.preferences import VDigitSettingsDialog
 from core.debug import Debug
-from core.settings import UserSettings
 from core.gcmd import GError
-from icons.icon import MetaIcon
+from core.settings import UserSettings
+from dialogs_core import CreateNewRaster
+from grass.script import core as grass
+from gui_core.toolbars import BaseIcons, BaseToolbar
 from iclass.digit import IClassVDigit
+from icons.icon import MetaIcon
+from vdigit.preferences import VDigitSettingsDialog
 
 
 class RDigitToolbar(BaseToolbar):

@@ -88,9 +88,9 @@
 import os
 import sys
 from datetime import *
+
 import grass.script as grass
 from grass.pygrass.utils import get_lib_path
-
 
 path = get_lib_path(modname="i.modis", libname="libmodis")
 if path is None:

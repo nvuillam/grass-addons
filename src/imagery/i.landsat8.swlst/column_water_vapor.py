@@ -8,15 +8,12 @@ Huazhong Ren, Chen Du, Qiming Qin, Rongyuan Liu, Jinjie Meng, Jing Li
 @author nik | Created on 2015-04-18 03:48:20 | Updated on June 2020
 """
 
-from constants import DUMMY_Ti_MEAN
-from constants import DUMMY_Tj_MEAN
-from constants import DUMMY_Rji
-from constants import EQUATION
-from randomness import random_adjacent_pixel_values
-from grass.pygrass.modules.shortcuts import general as g
-from dummy_mapcalc_strings import replace_dummies
 import grass.script as grass
+from constants import EQUATION, DUMMY_Rji, DUMMY_Ti_MEAN, DUMMY_Tj_MEAN
+from dummy_mapcalc_strings import replace_dummies
+from grass.pygrass.modules.shortcuts import general as g
 from helpers import run
+from randomness import random_adjacent_pixel_values
 
 
 class Column_Water_Vapor:

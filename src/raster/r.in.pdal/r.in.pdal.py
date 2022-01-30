@@ -153,15 +153,14 @@
 #% exclusive: resolution, raster_file, raster_reference
 #%end
 
-import os
-import sys
-
-import grass.script as grass
-import json
-import time
-
 # i18N
 import gettext
+import json
+import os
+import sys
+import time
+
+import grass.script as grass
 
 gettext.install("grassmods", os.path.join(os.getenv("GISBASE"), "locale"))
 

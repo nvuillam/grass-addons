@@ -1,7 +1,7 @@
 import importlib
 
-import numpy as np
 import grass.script as gs
+import numpy as np
 
 
 class ImportSklearnModule:

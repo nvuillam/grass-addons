@@ -2,14 +2,11 @@
 @author Nikos Alexandris
 """
 
-from .names import NATURAL_COMPONENT_NAME
-from .messages import SCORING_PROTECTED_AREAS
-from .grassy_utilities import (
-    grass,
-    recode_map,
-)
 from .colors import SCORE_COLORS
 from .components import append_map_to_component
+from .grassy_utilities import grass, recode_map
+from .messages import SCORING_PROTECTED_AREAS
+from .names import NATURAL_COMPONENT_NAME
 
 
 def build_natural_component(

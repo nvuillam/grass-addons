@@ -50,8 +50,9 @@
 #% description: Use approximate median instead of mean
 #%end
 
-import os
 import atexit
+import os
+
 import grass.script as grass
 from grass.pygrass.vector import VectorTopo
 from grass.pygrass.vector import geometry as geo

@@ -107,16 +107,18 @@
 #% guisection: Output
 #%end
 
+import atexit
+import operator
+
 # import libraries
 import os
-import sys
-import numpy as np
-import uuid
-import atexit
-import tempfile
-import operator
 import string
+import sys
+import tempfile
+import uuid
+
 import grass.script as gs
+import numpy as np
 from grass.script import db as db
 
 # for Python 3 compatibility

@@ -97,8 +97,8 @@
 #% required : yes
 #%END
 
-import sys
 import os
+import sys
 
 try:
     import grass.script as grass

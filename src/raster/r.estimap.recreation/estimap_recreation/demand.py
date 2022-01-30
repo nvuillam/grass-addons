@@ -1,8 +1,3 @@
-from .grassy_utilities import (
-    grass,
-    g,
-    r,
-)
 from .constants import (
     COLUMN_PREFIX_UNMET,
     EQUATION,
@@ -12,7 +7,7 @@ from .constants import (
     MOBILITY_SCORE,
 )
 from .distance import build_distance_function
-from .grassy_utilities import update_vector
+from .grassy_utilities import g, grass, r, update_vector
 
 
 def build_unmet_demand_expression(

@@ -80,12 +80,14 @@
 #%end
 
 
+import atexit
+
 # import libraries
 import os
+import string
 import sys
 import uuid
-import string
-import atexit
+
 import grass.script as gs
 
 CLEAN_RAST = []

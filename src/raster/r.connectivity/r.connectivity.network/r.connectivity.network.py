@@ -208,14 +208,14 @@ ToDo:
 
 import atexit
 import os
-import sys
 import platform
+import sys
 import warnings
-import numpy as np
-import grass.script as grass
-import grass.script.task as task
-import grass.script.db as grass_db
 
+import grass.script as grass
+import grass.script.db as grass_db
+import grass.script.task as task
+import numpy as np
 
 # check if GRASS is running or not
 if "GISBASE" not in os.environ:
@@ -262,9 +262,9 @@ def main():
         # rpy2 throws lots of warnings (that cannot be suppressed)
         # when packages are loaded
         warnings.filterwarnings("ignore")
+        import rpy2.robjects.numpy2ri
         import rpy2.robjects.packages as rpackages
         from rpy2.robjects.vectors import StrVector
-        import rpy2.robjects.numpy2ri
     except ImportError:
         grass.fatal(
             _(

@@ -80,10 +80,11 @@
 ##      or
 ##   v.to.rast, r.colors -g, then parse colr/ file. But that's resolution dependent
 
-import sys
-import os
 import atexit
+import os
 import string
+import sys
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 

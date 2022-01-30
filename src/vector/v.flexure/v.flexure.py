@@ -121,13 +121,12 @@
 # IMPORT MODULES #
 ##################
 
-# PYTHON
-import numpy as np
-
 # GRASS
 import grass.script as grass
-from grass.pygrass import vector
 
+# PYTHON
+import numpy as np
+from grass.pygrass import vector
 
 ####################
 # UTILITY FUNCTION #

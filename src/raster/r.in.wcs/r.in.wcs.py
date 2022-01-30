@@ -105,17 +105,18 @@ This program is free software under the GNU General Public License
 #% required: no
 #%end
 
-import os
-import sys
 import base64
+import os
 import subprocess
+import sys
+
 import grass.script as grass
 
 try:
-    from urllib2 import urlopen, HTTPError, Request
+    from urllib2 import HTTPError, Request, urlopen
 except ImportError:
-    from urllib.request import urlopen, Request
     from urllib.error import HTTPError
+    from urllib.request import Request, urlopen
 try:
     from httplib import HTTPException
 except ImportError:

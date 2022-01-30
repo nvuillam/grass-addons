@@ -5,9 +5,11 @@ Created on Wed Nov  6 15:08:38 2013
 @author: pietro
 """
 from __future__ import absolute_import, division, print_function, unicode_literals
+
 from gettext import lgettext as _
 
-from sklearn.linear_model import SGDClassifier
+from grass.pygrass.messages import get_msgr
+from sklearn import metrics
 from sklearn.ensemble import (
     AdaBoostClassifier,
     ExtraTreesClassifier,
@@ -15,18 +17,15 @@ from sklearn.ensemble import (
     RandomForestClassifier,
     RandomTreesEmbedding,
 )
+from sklearn.linear_model import SGDClassifier
+from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import (
-    NearestNeighbors,
     KNeighborsClassifier,
-    RadiusNeighborsClassifier,
     NearestCentroid,
+    NearestNeighbors,
+    RadiusNeighborsClassifier,
 )
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn import metrics
-
-
-from grass.pygrass.messages import get_msgr
 
 MSGR = get_msgr()
 

@@ -378,10 +378,11 @@ COPYRIGHT: (C) 2016 Brendan Harmon and the GRASS Development Team
 #% description: Fill depressions
 #%end
 
-import sys
 import atexit
 import csv
 import datetime
+import sys
+
 import grass.script as gscript
 from grass.exceptions import CalledModuleError
 

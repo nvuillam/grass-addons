@@ -57,11 +57,12 @@
 
 import os
 import sys
-from grass.script import core as grass
-from grass.lib.gis import *
-from grass.lib.vector import *
-from grass.lib.raster import *
 from ctypes import *
+
+from grass.lib.gis import *
+from grass.lib.raster import *
+from grass.lib.vector import *
+from grass.script import core as grass
 
 # check if GRASS is running or not
 if "GISBASE" not in os.environ:

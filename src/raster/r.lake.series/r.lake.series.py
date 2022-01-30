@@ -118,9 +118,9 @@ Created on Tue Oct 15 21:18:00 2013
 
 import sys
 
-from grass.script import core as gcore
 import grass.temporal as tgis
 from grass.exceptions import CalledModuleError
+from grass.script import core as gcore
 
 
 def format_time(time):

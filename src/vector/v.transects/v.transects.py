@@ -72,12 +72,13 @@
 #% description: Use the last point of the line to create transect
 #%end
 
-from subprocess import Popen, PIPE, STDOUT
-from numpy import array
-from math import sqrt
-import grass.script as grass
-import tempfile
 import random
+import tempfile
+from math import sqrt
+from subprocess import PIPE, STDOUT, Popen
+
+import grass.script as grass
+from numpy import array
 
 
 def tempmap():

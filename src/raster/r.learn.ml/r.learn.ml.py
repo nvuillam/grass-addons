@@ -403,17 +403,18 @@
 #%end
 
 from __future__ import absolute_import
+
 import atexit
 import os
 import tempfile
 from copy import deepcopy
-import numpy as np
-import grass.script as gs
-from grass.pygrass.modules.shortcuts import raster as r
-from grass.pygrass.modules.shortcuts import imagery as im
-from grass.pygrass.gis.region import Region
-from grass.pygrass.raster import RasterRow
 
+import grass.script as gs
+import numpy as np
+from grass.pygrass.gis.region import Region
+from grass.pygrass.modules.shortcuts import imagery as im
+from grass.pygrass.modules.shortcuts import raster as r
+from grass.pygrass.raster import RasterRow
 
 try:
     basestring
@@ -440,20 +441,23 @@ def model_classifiers(estimator, random_state, n_jobs, p, weights=None):
         or regression
     """
 
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-    from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
-    from sklearn.naive_bayes import GaussianNB
-    from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+    from sklearn.discriminant_analysis import (
+        LinearDiscriminantAnalysis,
+        QuadraticDiscriminantAnalysis,
+    )
     from sklearn.ensemble import (
-        RandomForestClassifier,
-        RandomForestRegressor,
         ExtraTreesClassifier,
         ExtraTreesRegressor,
+        GradientBoostingClassifier,
+        GradientBoostingRegressor,
+        RandomForestClassifier,
+        RandomForestRegressor,
     )
-    from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
-    from sklearn.svm import SVC
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.naive_bayes import GaussianNB
     from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.svm import SVC
+    from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 
     # convert balanced boolean to scikit learn method
     if weights is True:
@@ -464,8 +468,8 @@ def model_classifiers(estimator, random_state, n_jobs, p, weights=None):
     # optional packages that add additional classifiers here
     if estimator == "EarthClassifier" or estimator == "EarthRegressor":
         try:
-            from sklearn.pipeline import Pipeline
             from pyearth import Earth
+            from sklearn.pipeline import Pipeline
 
             earth_classifier = Pipeline(
                 [
@@ -804,8 +808,8 @@ def extract_points(gvector, grasters, field, na_rm=False):
     coordinates (2d numpy array): Sample coordinates
     """
 
-    from grass.pygrass.vector import VectorTopo
     from grass.pygrass.utils import get_raster_for_points
+    from grass.pygrass.vector import VectorTopo
 
     # open grass vector
     points = VectorTopo(gvector.split("@")[0])
@@ -890,14 +894,13 @@ def predict(
         -1 for all cores; -2 for all cores-1
     """
 
-    from joblib import Parallel, delayed
     from grass.pygrass.raster import numpy2raster
+    from joblib import Parallel, delayed
 
     # TODO
     # better memory efficiency and use of memmap for parallel
     # processing
     # from sklearn.externals.joblib.pool import has_shareable_memory
-
     # first unwrap the estimator from any potential pipelines or gridsearchCV
     if type(estimator).__name__ == "Pipeline":
         clf_type = estimator.named_steps["classifier"]
@@ -1261,9 +1264,9 @@ def cross_val_scores(
     predictions (2d numpy array): with y_true, y_pred, fold
     """
 
+    from joblib import Parallel, delayed
     from sklearn import metrics
     from sklearn.model_selection import StratifiedKFold
-    from joblib import Parallel, delayed
 
     # first unwrap the estimator from any potential pipelines or gridsearchCV
     if type(estimator).__name__ == "Pipeline":
@@ -1504,21 +1507,20 @@ warnings.warn = warn
 def main():
     try:
         import joblib
+        from sklearn import metrics
         from sklearn.cluster import KMeans
-        from sklearn.preprocessing import StandardScaler
+        from sklearn.metrics import make_scorer
         from sklearn.model_selection import (
             GridSearchCV,
+            GroupKFold,
             GroupShuffleSplit,
+            KFold,
             ShuffleSplit,
             StratifiedKFold,
-            GroupKFold,
-            KFold,
         )
-        from sklearn.preprocessing import OneHotEncoder
         from sklearn.pipeline import Pipeline
+        from sklearn.preprocessing import OneHotEncoder, StandardScaler
         from sklearn.utils import shuffle
-        from sklearn import metrics
-        from sklearn.metrics import make_scorer
     except:
         gs.fatal("Package python3-scikit-learn 0.18 or newer is not installed")
 

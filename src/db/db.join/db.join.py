@@ -59,8 +59,9 @@
 #% description: Subset of columns from the other table
 #%end
 
-import sys
 import string
+import sys
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 

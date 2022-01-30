@@ -6,13 +6,13 @@
 
 
 from __future__ import (
-    nested_scopes,
-    generators,
-    division,
     absolute_import,
-    with_statement,
+    division,
+    generators,
+    nested_scopes,
     print_function,
     unicode_literals,
+    with_statement,
 )
 
 # Spectral data to load as maps
@@ -41,9 +41,10 @@ cls2_wannabe = [14, 21, 20, 51]
 cls3_wannabe = [29, 35, 39, 41]
 cls4_wannabe = [11, 17, 24, 39]
 
+from grass.pygrass.gis.region import Region
+
 # Load Library
 from grass.pygrass.raster import RasterSegment
-from grass.pygrass.gis.region import Region
 
 # Raster layers names
 outrast1 = "sam_test_b1"

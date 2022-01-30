@@ -46,8 +46,8 @@ This program is free software under the GNU General Public License
 #% type: integer
 #%end
 
-import sys
 import os
+import sys
 
 from grass.script import core as grass
 from grass.script.utils import set_path

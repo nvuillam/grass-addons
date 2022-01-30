@@ -51,14 +51,15 @@
 #% exclusive: path,dbase
 #%end
 
+import atexit
 import os
 import shutil
 import tempfile
-import atexit
 
 try:
-    from urllib2 import HTTPError, URLError
     from urllib import urlopen, urlretrieve
+
+    from urllib2 import HTTPError, URLError
 except ImportError:
     # there is also HTTPException, perhaps change to list
     from urllib.error import HTTPError, URLError

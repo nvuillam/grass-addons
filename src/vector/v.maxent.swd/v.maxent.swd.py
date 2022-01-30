@@ -160,15 +160,17 @@
 # Standard
 # ----------------------------------------------------------------------------
 
+import atexit
+
 # import libraries
 import os
+import string
 import sys
+import tempfile
+import uuid
+
 import grass.script as grass
 import numpy as np
-import string
-import uuid
-import atexit
-import tempfile
 
 # ----------------------------------------------------------------------------
 # Standard

@@ -27,13 +27,11 @@ import string
 import sys
 from subprocess import PIPE
 
+import wx
 from grass.pygrass.modules import Module
 from grass.pygrass.utils import get_lib_path
 from grass.script import core as grass
-
 from owslib import util
-
-import wx
 
 
 class Owslib:

@@ -57,11 +57,12 @@
 
 import os
 import sys
-from grass.script import core as grass
-from grass.script import utils as grassutils
-from grass.script import gisenv
+
 from grass.pygrass.modules.shortcuts import display as d
 from grass.pygrass.modules.shortcuts import general as g
+from grass.script import core as grass
+from grass.script import gisenv
+from grass.script import utils as grassutils
 
 
 def main():

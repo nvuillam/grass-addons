@@ -11,13 +11,12 @@
 #%end
 
 VERSION = 1.3
-import sys
 import os
+import sys
 import tempfile
 import time
 
 import grass.script as grass
-
 from grass.pygrass.utils import set_path
 
 set_path(modulename="g.gui.mwprecip", dirname="etc")
@@ -25,16 +24,17 @@ from grass.script.setup import set_gui_path
 
 set_gui_path()
 
-from mw_util import *
-from mw3 import *
-from core.gcmd import GMessage, GError
-from gui_core import gselect
-from core.gthread import gThread
-from gui_core.widgets import ColorTablesComboBox, PictureComboBox
-from core import globalvar
-from core.utils import GetColorTables
-import wx.lib.scrolledpanel as scrolled
 import logging
+
+import wx.lib.scrolledpanel as scrolled
+from core import globalvar
+from core.gcmd import GError, GMessage
+from core.gthread import gThread
+from core.utils import GetColorTables
+from gui_core import gselect
+from gui_core.widgets import ColorTablesComboBox, PictureComboBox
+from mw3 import *
+from mw_util import *
 
 
 class DBconn(wx.ScrolledWindow):

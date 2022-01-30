@@ -56,9 +56,9 @@
 import copy
 import sys
 
-import grass.temporal as tgis
-import grass.script as gscript
 import grass.pygrass.modules as pymod
+import grass.script as gscript
+import grass.temporal as tgis
 
 
 def main():

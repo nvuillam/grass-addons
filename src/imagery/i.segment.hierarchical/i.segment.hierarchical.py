@@ -137,22 +137,21 @@
 
 
 from __future__ import print_function
-import multiprocessing as mltp
-import time
-import sys
 
-from grass.script.core import parser
+import multiprocessing as mltp
+import sys
+import time
+
+from grass.pygrass.gis import Location
 from grass.pygrass.modules import Module
 from grass.pygrass.modules.grid import GridModule
 from grass.pygrass.modules.grid.grid import copy_rasters
 from grass.pygrass.modules.grid.split import split_region_tiles
-
-from grass.pygrass.gis import Location
 from grass.pygrass.utils import set_path
+from grass.script.core import parser
 
 set_path("i.segment.hierarchical")
 from isegpatch import rpatch_map
-
 
 DEBUG = False
 

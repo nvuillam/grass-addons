@@ -5,19 +5,20 @@ A class for the Split Window Algorithm for Land Surface Temperature estimation
 @author: nik | Created on Wed Mar 18 11:28:45 2015 | Updated on June 2020
 """
 
-from constants import BARREN_LAND_CLASS_STRING
-from constants import DUMMY_MAPCALC_STRING_T10
-from constants import DUMMY_MAPCALC_STRING_T11
-from constants import DUMMY_MAPCALC_STRING_AVG_LSE
-from constants import DUMMY_MAPCALC_STRING_DELTA_LSE
-from constants import DUMMY_MAPCALC_STRING_FROM_GLC
-from constants import DUMMY_MAPCALC_STRING_CWV
-from constants import FROM_GLC_CODES
-from constants import FROM_GLC_LEGEND
-from constants import LST_FORMULA
-from data_validation import check_t1x_range
-from data_validation import check_cwv
 import csv_to_dictionary as coefficients
+from constants import (
+    BARREN_LAND_CLASS_STRING,
+    DUMMY_MAPCALC_STRING_AVG_LSE,
+    DUMMY_MAPCALC_STRING_CWV,
+    DUMMY_MAPCALC_STRING_DELTA_LSE,
+    DUMMY_MAPCALC_STRING_FROM_GLC,
+    DUMMY_MAPCALC_STRING_T10,
+    DUMMY_MAPCALC_STRING_T11,
+    FROM_GLC_CODES,
+    FROM_GLC_LEGEND,
+    LST_FORMULA,
+)
+from data_validation import check_cwv, check_t1x_range
 
 EMISSIVITIES = coefficients.get_average_emissivities()
 COLUMN_WATER_VAPOR = coefficients.get_column_water_vapor()

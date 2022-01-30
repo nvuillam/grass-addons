@@ -8,11 +8,10 @@ ASHREA methodology
 from collections import namedtuple
 from os import getpid
 
-from numpy import log, pi
-
 from grass.pygrass.utils import get_mapset_raster
 from grass.script import core as gcore
 from grass.script import raster as grast
+from numpy import log, pi
 
 BASENAME = "tmprgreen{pid:05d}_".format(pid=getpid())
 

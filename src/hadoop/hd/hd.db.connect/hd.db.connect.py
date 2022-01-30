@@ -117,7 +117,6 @@
 #%end
 
 import grass.script as grass
-
 from hdfsgrass.hdfs_grass_lib import ConnectionManager
 
 

@@ -44,13 +44,13 @@
 #%end
 
 
-import os
-import tempfile
 import atexit
+import os
 import shutil
+import tempfile
 from math import exp
-import grass.script as gscript
 
+import grass.script as gscript
 
 TMPRAST = []
 TMPDIR = tempfile.mkdtemp()

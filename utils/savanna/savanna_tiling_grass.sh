@@ -17,45 +17,45 @@
 
 # Set the gregion
 $gregion
-        if [ $? -ne 0 ] ; then
-                echo 'Error in setting g.region...'
-                exit 1              #Abandon the loop.
-        fi
+if [ $? -ne 0 ]; then
+	echo 'Error in setting g.region...'
+	exit 1 #Abandon the loop.
+fi
 
-eval `$gregion -g`
+eval $($gregion -g)
 
 # Add additional search paths, if neccessary.
-g.mapsets addmapset=$additional_searchpaths 'fs= ,' 
+g.mapsets addmapset=$additional_searchpaths 'fs= ,'
 
 g.region -p
 # echo $tiling_grid"@"$init_mapset
 
-	let "buffersize=ewres*tileoverlap"
+let "buffersize=ewres*tileoverlap"
 
-        v.extract input=$tiling_grid"@"$init_mapset \
-                 output=$tiling_grid"_sub_temp" type=area layer=1 new=-1 list=$tile --overwrite
-        if [ $? -ne 0 ] ; then
-                echo 'Error in v.extract...'
-                exit 1              #Abandon the loop.
-        fi
-        v.buffer input=$tiling_grid"_sub_temp" \
-                output=$tiling_grid"_sub_temp_buffer" \
-                type=area layer=1 buffer=$buffersize scale=1.0 tolerance=0.01 --overwrite --quiet
-        if [ $? -ne 0 ] ; then
-                echo 'Error in v.buffer...'
-                exit 1              #Abandon the loop.
-        fi
-        g.region -a vect=$tiling_grid"_sub_temp_buffer" --quiet
-	g.region -p
-        if [ $? -ne 0 ] ; then
-                echo 'Error in setting g.region...'
-                exit 1              #Abandon the loop.
-        fi
+v.extract input=$tiling_grid"@"$init_mapset \
+	output=$tiling_grid"_sub_temp" type=area layer=1 new=-1 list=$tile --overwrite
+if [ $? -ne 0 ]; then
+	echo 'Error in v.extract...'
+	exit 1 #Abandon the loop.
+fi
+v.buffer input=$tiling_grid"_sub_temp" \
+	output=$tiling_grid"_sub_temp_buffer" \
+	type=area layer=1 buffer=$buffersize scale=1.0 tolerance=0.01 --overwrite --quiet
+if [ $? -ne 0 ]; then
+	echo 'Error in v.buffer...'
+	exit 1 #Abandon the loop.
+fi
+g.region -a vect=$tiling_grid"_sub_temp_buffer" --quiet
+g.region -p
+if [ $? -ne 0 ]; then
+	echo 'Error in setting g.region...'
+	exit 1 #Abandon the loop.
+fi
 echo $command
 $command
-        if [ $? -ne 0 ] ; then
-                echo 'Error in command...'
-                exit 1              #Abandon the loop.
-        fi
+if [ $? -ne 0 ]; then
+	echo 'Error in command...'
+	exit 1 #Abandon the loop.
+fi
 
 exit 0

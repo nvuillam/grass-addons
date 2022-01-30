@@ -86,16 +86,16 @@
 #%end
 
 
-import sys
-import os
 import atexit
 import csv
 
-import grass.script as gscript
-from grass.exceptions import CalledModuleError
-
 # i18N
 import gettext
+import os
+import sys
+
+import grass.script as gscript
+from grass.exceptions import CalledModuleError
 
 gettext.install("grassmods", os.path.join(os.getenv("GISBASE"), "locale"))
 

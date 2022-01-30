@@ -21,21 +21,20 @@ This program is free software under the GNU General Public License
 """
 
 
-import wx
+import dbm
 import glob
 import os
 import sys
 
-from debug import Debug as Debug
-from preferences import globalSettings as UserSettings
-
+import gcmd
+import globalvar
 import grass.script as grass
 import gselect
-import gcmd
-import dbm
-import globalvar
-import utils
 import menuform
+import utils
+import wx
+from debug import Debug as Debug
+from preferences import globalSettings as UserSettings
 
 
 class ImgPanel(wx.Panel):

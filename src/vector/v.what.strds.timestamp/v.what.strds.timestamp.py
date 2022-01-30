@@ -78,6 +78,9 @@ try:
     from subprocess import DEVNULL  # Python 3.
 except ImportError:
     DEVNULL = open(os.devnull, "wb")
+# i18N
+import gettext
+
 import grass.script as grass
 
 # from grass.exceptions import CalledModuleError
@@ -86,9 +89,6 @@ import grass.temporal as tgis
 # from grass.pygrass.utils import copy as gcopy
 # from grass.pygrass.messages import Messenger
 from grass.pygrass.modules import Module
-
-# i18N
-import gettext
 
 gettext.install("grassmods", os.path.join(os.getenv("GISBASE"), "locale"))
 

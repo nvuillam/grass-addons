@@ -13,9 +13,9 @@
 #
 #############################################################################
 
+import grass.script.raster as gr
 from grass.gunittest.case import TestCase
 from grass.gunittest.main import test
-import grass.script.raster as gr
 
 
 class TestForestFrag(TestCase):

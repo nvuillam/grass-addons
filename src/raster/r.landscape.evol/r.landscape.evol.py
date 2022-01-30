@@ -223,9 +223,9 @@
 #% guisection: Optional
 #%end
 
-import sys
-import os
 import math
+import os
+import sys
 
 GISBASE = os.getenv("GISBASE")
 sys.path.append(GISBASE + os.sep + "etc" + os.sep + "python")

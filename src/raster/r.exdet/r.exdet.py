@@ -91,18 +91,20 @@
 #% description: Keep layer Mahalanobis distance in reference domain?
 #%end
 
+import atexit
+
 # import libraries
 import os
+import string
 import sys
-import atexit
-import numpy as np
-import grass.script as gs
-import grass.script.array as garray
 import tempfile
 import uuid
-import string
-from grass.pygrass.modules import Module
 from subprocess import PIPE
+
+import grass.script as gs
+import grass.script.array as garray
+import numpy as np
+from grass.pygrass.modules import Module
 
 # for Python 3 compatibility
 try:

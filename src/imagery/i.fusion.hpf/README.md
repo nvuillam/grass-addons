@@ -1,14 +1,14 @@
-`i.fusion.hpf` is a GRASS-GIS module to combine high-resolution 
-panchromatic data with lower resolution multispectral data, resulting in an 
-output with both excellent detail and a realistic representation of original 
+`i.fusion.hpf` is a GRASS-GIS module to combine high-resolution
+panchromatic data with lower resolution multispectral data, resulting in an
+output with both excellent detail and a realistic representation of original
 multispectral scene colors.
 
-The process involves a convolution using a High Pass Filter (HPF) on the high 
-resolution data, then combining this with the lower resolution multispectral 
+The process involves a convolution using a High Pass Filter (HPF) on the high
+resolution data, then combining this with the lower resolution multispectral
 data.
 
-Optionally, a linear histogram matching technique is performed in a way that 
-matches the resulting Pan-Sharpened imaged to them statistical mean and standard 
+Optionally, a linear histogram matching technique is performed in a way that
+matches the resulting Pan-Sharpened imaged to them statistical mean and standard
 deviation of the original multi-spectral image.
 
 Source: Gangkofner, 2008
@@ -16,15 +16,15 @@ Source: Gangkofner, 2008
 Algorithm description
 =====================
 
-1.  Computing ratio of low (Multi-Spectral) to high (Panchromatic) resolutions
+1. Computing ratio of low (Multi-Spectral) to high (Panchromatic) resolutions
 
-2.  High Pass Filtering the Panchromatic Image
+2. High Pass Filtering the Panchromatic Image
 
-3.  Resampling MSX image to the higher resolution
+3. Resampling MSX image to the higher resolution
 
-4.  Adding weighted High-Pass-Filetred image to the upsampled MSX image
+4. Adding weighted High-Pass-Filetred image to the upsampled MSX image
 
-5.  Optionally, matching histogram of Pansharpened image to the one of the 
+5. Optionally, matching histogram of Pansharpened image to the one of the
 original MSX image
 
 ## From the original paper
@@ -65,11 +65,11 @@ see [GRASS Addons SVN repository, README file, Installation - Code Compilation](
 
 Making the script `i.fusion.hpf` available from within any GRASS-GIS ver. 7.x session, may be done via the following steps:
 
-1.  launch a GRASS-GIS’ ver. 7.x session
+1. launch a GRASS-GIS’ ver. 7.x session
 
-2.  navigate into the script’s source directory
+2. navigate into the script’s source directory
 
-3.  execute `make MODULE_TOPDIR=$GISBASE`
+3. execute `make MODULE_TOPDIR=$GISBASE`
 
 Usage
 =====
@@ -78,24 +78,24 @@ After installation, from within a GRASS-GIS session, see help details via `i.fus
 
 ## Remarks
 
--   easy to use, i.e.:
- * for one band `i.fusion.hpf pan=Panchromatic msx=${Band}`
- * for multiple bands `i.fusion.hpf pan=Panchromatic msx=Red,Green,Blue,NIR`
+- easy to use, i.e.:
+* for one band `i.fusion.hpf pan=Panchromatic msx=${Band}`
+* for multiple bands `i.fusion.hpf pan=Panchromatic msx=Red,Green,Blue,NIR`
 
--   easy to test various parameters that define the High-Pass filter’s *kernel size* and *center value*
+- easy to test various parameters that define the High-Pass filter’s *kernel size* and *center value*
 
--   should work with **any** kind of imagery (think of bitness)
+- should work with **any** kind of imagery (think of bitness)
 
--   the "black border" effect, possibly caused due to a non-perfect match of the high vs. the low resolution 
-of the input images, can be trimmed out by using the `trim` option --a floating point "trimming factor" 
+- the "black border" effect, possibly caused due to a non-perfect match of the high vs. the low resolution
+of the input images, can be trimmed out by using the `trim` option --a floating point "trimming factor"
 with which to multiply the pixel size of the low resolution image-- and shrink the extent of the output image
 
 Implementation notes
 ====================
 
--   First commit on Sat Oct 25 12:26:54 2014 +0300
+- First commit on Sat Oct 25 12:26:54 2014 +0300
 
--   Working state reached on Tue Nov 4 09:28:25 2014 +0200
+- Working state reached on Tue Nov 4 09:28:25 2014 +0200
 
 
 ## To Do
@@ -114,8 +114,8 @@ Implementation notes
 
 - Test. Will it compile in other systems?
 
-- Checking options to integrate in `i.pansharpen`. Think of FFM methods vs. 
-Others? 
+- Checking options to integrate in `i.pansharpen`. Think of FFM methods vs.
+Others?
 
 - Who else to thank?  Transfer from archive/
 - Improve [Documentation.lyx](https://gitlab.com/NikosAlexandris/i.fusion.hpf/blob/master/lyx/Documentation.lyx)
@@ -131,7 +131,7 @@ References
 the high-pass filter addition technique for image fusion.
 PHOTOGRAMMETRIC ENGINEERING & REMOTE SENSING, 74(9):1107–1118.
 
-- “ERDAS IMAGINE.” Accessed March 19, 2015. http://doc.hexagongeospatial.com/ERDAS%20IMAGINE/ERDAS_IMAGINE_Help/#ii_hpfmerge_mergedialog.htm.
+- “ERDAS IMAGINE.” Accessed March 19, 2015. <http://doc.hexagongeospatial.com/ERDAS%20IMAGINE/ERDAS_IMAGINE_Help/#ii_hpfmerge_mergedialog.htm>.
 
 
 - Aniruddha Ghosh & P.K. Joshi (2013) Assessment of pan-sharpened very high-resolution WorldView-2 images, International Journal of Remote Sensing, 34:23, 8336-8359
@@ -148,4 +148,4 @@ PHOTOGRAMMETRIC ENGINEERING & REMOTE SENSING, 74(9):1107–1118.
   - <http://stackoverflow.com/a/275025/1172302>
 - Yann Chemin
 - Aniruddha Ghosh
-- Παναγιώτης Μαυρογιώργος (https://github.com/pmav99)
+- Παναγιώτης Μαυρογιώργος (<https://github.com/pmav99>)

@@ -22,9 +22,8 @@
 export GRASS_BATCH_JOB=$savanna_path/$savanna_tiling_grass_file
 # while true; do
 grass64 -c -text $grassdata_directory/$base_location/$tile_mapset
-  if [ $? -eq 0 ] ; then
-        exit 1              #Abandon the loop.
-  fi
+if [ $? -eq 0 ]; then
+	exit 1 #Abandon the loop.
+fi
 # sleep 1
 # done
-

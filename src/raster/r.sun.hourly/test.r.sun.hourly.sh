@@ -31,36 +31,36 @@ map_basename=reflmap
 decimal_map_basename=reflmap_decimal
 temporal_map_basename=reflmap_temporal
 
-map_names_file=`g.tempfile pid=$$`
-created_map_names_file=`g.tempfile pid=$$`
+map_names_file=$(g.tempfile pid=$$)
+created_map_names_file=$(g.tempfile pid=$$)
 
-decimal_map_names_file=`g.tempfile pid=$$`
-decimal_created_map_names_file=`g.tempfile pid=$$`
+decimal_map_names_file=$(g.tempfile pid=$$)
+decimal_created_map_names_file=$(g.tempfile pid=$$)
 
-temporal_dataset_file=`g.tempfile pid=$$`
-temporal_map_names_file=`g.tempfile pid=$$`
-temporal_created_dataset_file=`g.tempfile pid=$$`
-temporal_created_map_names_file=`g.tempfile pid=$$`
+temporal_dataset_file=$(g.tempfile pid=$$)
+temporal_map_names_file=$(g.tempfile pid=$$)
+temporal_created_dataset_file=$(g.tempfile pid=$$)
+temporal_created_map_names_file=$(g.tempfile pid=$$)
 year=2001
 
-cat > "${map_names_file}" << EOF
+cat >"${map_names_file}" <<EOF
 ${map_basename}_11.50
 ${map_basename}_14.50
 ${map_basename}_17.50
 EOF
 
-cat > "${decimal_map_names_file}" << EOF
+cat >"${decimal_map_names_file}" <<EOF
 ${decimal_map_basename}_07.00
 ${decimal_map_basename}_08.33
 ${decimal_map_basename}_09.67
 ${decimal_map_basename}_11.00
 EOF
 
-cat > "${temporal_dataset_file}" << EOF
-${temporal_map_basename}@`g.mapset -p`
+cat >"${temporal_dataset_file}" <<EOF
+${temporal_map_basename}@$(g.mapset -p)
 EOF
 
-cat > "${temporal_map_names_file}" << EOF
+cat >"${temporal_map_names_file}" <<EOF
 ${temporal_map_basename}_11.50 landsat ${year}-04-10 11:30:00 None
 ${temporal_map_basename}_14.50 landsat ${year}-04-10 14:30:00 None
 ${temporal_map_basename}_17.50 landsat ${year}-04-10 17:30:00 None
@@ -83,7 +83,7 @@ echo "$NAME: r.sun.hourly returned: $? (expecting 1)"
 NAME="Map creation test"
 r.sun.hourly elevation=terrain start_time=11.50 end_time=20.00 time_step=3 day=80 reflrad_basename=${map_basename}
 
-g.list -e type=rast pattern=${map_basename}${map_number_separator}${map_number_pattern} sep=newline > ${created_map_names_file}
+g.list -e type=rast pattern=${map_basename}${map_number_separator}${map_number_pattern} sep=newline >${created_map_names_file}
 
 diff ${map_names_file} ${created_map_names_file}
 echo "$NAME: Diff returned $? (expecting 0)"
@@ -91,7 +91,7 @@ echo "$NAME: Diff returned $? (expecting 0)"
 NAME="Map creation test with too much decimal places"
 r.sun.hourly elevation=terrain start_time=7.0000 end_time=11.0000 time_step=1.3333 day=80 reflrad_basename=${decimal_map_basename}
 
-g.list -e type=rast pattern=${decimal_map_basename}${map_number_separator}${map_number_pattern} sep=newline > ${decimal_created_map_names_file}
+g.list -e type=rast pattern=${decimal_map_basename}${map_number_separator}${map_number_pattern} sep=newline >${decimal_created_map_names_file}
 
 diff ${decimal_map_names_file} ${decimal_created_map_names_file}
 echo "$NAME: Diff returned $? (expecting 0)"
@@ -99,9 +99,9 @@ echo "$NAME: Diff returned $? (expecting 0)"
 NAME="Temporal dataset creation test"
 r.sun.hourly -t elevation=terrain start_time=11.50 end_time=20.00 time_step=3 day=100 year=${year} reflrad_basename=${temporal_map_basename}
 
-t.list type=strds > ${temporal_created_dataset_file}
+t.list type=strds >${temporal_created_dataset_file}
 
-t.rast.list input=${temporal_map_basename} method=col > ${temporal_created_map_names_file}
+t.rast.list input=${temporal_map_basename} method=col >${temporal_created_map_names_file}
 
 diff ${temporal_dataset_file} ${temporal_created_dataset_file}
 echo "$NAME (maps temporal dataset subtest): Diff returned $? (expecting 0)"
@@ -122,4 +122,3 @@ g.remove -ef type=rast pattern=${decimal_map_basename}${map_number_separator}${m
 
 rm ${temporal_map_names_file} ${temporal_dataset_file} ${temporal_created_dataset_file} ${temporal_created_map_names_file}
 t.remove -rf inputs=${temporal_map_basename}
-
