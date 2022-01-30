@@ -9,6 +9,9 @@ DISABLE:
   - C # Remove this lint to enable if you decide to follow Google Style Guide
   - CPP # Remove this line to enable if you decide to follow Google Style Guide
   - COPYPASTE # There are too many copy pastes, disable if you decide to correct them, or configure .jscpd.json to ignore folders/files
+  - LATEX # (1 file with 19 errors) Disabled to allow to use MegaLinter python flavor
+  - PERL # (1 file 2 errors) Disabled to allow to use MegaLinter python flavor
+  - R # (1 file without error) Disabled to allow to use MegaLinter python flavor
   - XML # Seems that there are lot of XML issues, solve them before if you want to enable XML linter
 DISABLE_LINTERS:
   - SPELL_CSPELL # You should activate it from time to time to fix spelling mistakes, but not always as it takes 5mn to run
