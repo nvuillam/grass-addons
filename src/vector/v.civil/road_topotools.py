@@ -26,7 +26,6 @@ from grass.pygrass.vector.geometry import Line, Point
 # from grass.pygrass.vector.geometry import GEOOBJ as _GEOOBJ
 
 
-
 def time_func(funcion_f):
     """Return"""
 

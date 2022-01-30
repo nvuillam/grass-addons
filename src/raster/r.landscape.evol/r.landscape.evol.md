@@ -26,7 +26,7 @@ a) GIS Implementation:
     Tc=K*C*P*gw*(1/N)*((i*A)/(0.595*t))^m*(tan(S)^n)
 
 b) Variables:
-          
+
 - Tc = Transport Capacity [kg/meters.second]
 - K\*C\*P ~ Kt = mitigating effects of soil type, vegetation cover, and land-use practices. [unitless]
 - gw = Hydrostatic pressure of water 9810 [kg/m2.second]
@@ -39,7 +39,7 @@ b) Variables:
 - m = transport coefficient for upslope area [unitless]
 - n = transport coefficient for slope [unitless]
   
- 
+
 c) Converted to Map Algebra:
 
         ${K}*${C}*${P} * exp(${manningn}, -1) * 9810. * exp((((${rain}/1000.)*\
@@ -235,12 +235,12 @@ At this time, this module should be considered to be at a robust alpha stage. It
 ## SEE ALSO
 
 The <a href="http://medland.asu.edu/">MEDLAND</a> project at Arizona State University
- 
+
 <a href="r.watershed.html">r.watershed</a>, <a href="r.terraflow.html">r.terraflow</a>, <a href="r.mapcalc.html">r.mapcalc</a>
 
 Mitasova, H., C. M. Barton, I. I. Ullah, J. Hofierka, and R. S. Harmon 2013 GIS-based soil erosion modeling. In Remote Sensing and GIScience in Geomorphology, edited by J. Shroder and M. P. Bishop. 3:228-258. San Diego: Academic Press.
 
- 
+
 
 
 ## REFERENCES

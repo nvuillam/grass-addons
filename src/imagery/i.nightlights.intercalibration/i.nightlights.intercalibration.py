@@ -219,7 +219,6 @@ from intercalibration_models import Elvidge, Liu2012, Wu2013
 # from grass.pygrass.raster.abstract import Info
 
 
-
 # any constants? -------------------------------------------------------------
 MODELS = {"elvidge": Elvidge, "liu2012": Liu2012, "wu2013": Wu2013}
 

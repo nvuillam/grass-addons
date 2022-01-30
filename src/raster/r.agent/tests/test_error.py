@@ -4,7 +4,6 @@ from libagent import error
 # import unittest
 
 
-
 class TestOurExceptions(unittest.TestCase):
     #    def setUp(self):
 

@@ -17,7 +17,6 @@ from grass.pygrass.vector.geometry import Line
 # import road_base as Base
 
 
-
 class Parabola(object):
     """Return"""
 

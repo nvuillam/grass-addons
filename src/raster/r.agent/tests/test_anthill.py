@@ -4,7 +4,6 @@ from libagent import anthill, playground
 # import unittest
 
 
-
 class TestAnthill(unittest.TestCase):
     def setUp(self):
         self.pg = playground.Playground()

@@ -30,9 +30,6 @@ from gui_core.widgets import EVT_SYMBOL_SELECTION_CHANGED, GListCtrl, SingleSymb
 # from wx.lib.newevent import NewEvent
 
 
-
-
-
 class NewRasterDialog(ElementDialog):
     def __init__(
         self,

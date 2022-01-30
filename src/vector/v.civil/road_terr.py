@@ -17,8 +17,6 @@ from grass.pygrass.vector.geometry import Boundary, Point
 # import time
 
 
-
-
 # from grass.pygrass.vector.geometry import Area
 
 

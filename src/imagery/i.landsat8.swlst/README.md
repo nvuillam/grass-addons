@@ -80,8 +80,8 @@ the equation:
 
 LST = b0 +
     + ( b1 + b2 *( 1 - ae ) / ae + b3* de / ae^2 ) *( t10 + t11 ) / 2 +
-+ ( b4 + b5* ( 1 - ae ) / ae + b6 *de / ae^2 )* ( t10 - t11 ) / 2 +
-    + b7 * ( t10 - t11 )^2
++ ( b4 + b5*( 1 - ae ) / ae + b6*de / ae^2 )* ( t10 - t11 ) / 2 +
+  + b7 * ( t10 - t11 )^2
 
 Note, however, **the last quadratic term** of the Split-Window equation **is
 applied only over barren land**. [Reference Required!]

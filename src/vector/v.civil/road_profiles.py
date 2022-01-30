@@ -17,7 +17,6 @@ from grass.pygrass.vector.geometry import Line, Point
 # from grass.pygrass.raster import RasterRow
 
 
-
 class LongProfile(object):
     """Return"""
 

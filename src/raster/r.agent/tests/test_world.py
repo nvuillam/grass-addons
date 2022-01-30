@@ -4,7 +4,6 @@ from libagent import error, world
 # import unittest
 
 
-
 class TestWorld(unittest.TestCase):
     def setUp(self):
         self.world = world.World()

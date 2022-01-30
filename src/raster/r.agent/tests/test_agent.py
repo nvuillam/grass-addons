@@ -4,7 +4,6 @@ from libagent import agent, playground, world
 # import unittest
 
 
-
 class TestAgent(unittest.TestCase):
     def setUp(self):
         self.pg = playground.Playground()
