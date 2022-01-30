@@ -121,11 +121,12 @@
 #%end
 
 from __future__ import unicode_literals
-from builtins import str
-from builtins import range
-import sys
-import os
+
 import atexit
+import os
+import sys
+from builtins import range, str
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 

@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
+import argparse
 import os
+
 import grass.script as gscript
 from PIL import Image
-import argparse
 
 # before the script runs, old maps and existing images must be removed
 # g.remove type=raster name=slope,aspect,profile_curvature,shade -f

@@ -12,16 +12,17 @@ import math
 
 # import grass.script as grass
 import re
-from grass.pygrass.vector import VectorTopo
-import road_base as Base
-from road_plant import Aligns
 
-# from grass.pygrass.vector.geometry import Point
-from grass.pygrass.vector.geometry import Line
+import road_base as Base
 
 # from grass.pygrass.vector.geometry import Boundary
 # from grass.pygrass.vector.geometry import Area
 import road_plant as Plant
+from grass.pygrass.vector import VectorTopo
+
+# from grass.pygrass.vector.geometry import Point
+from grass.pygrass.vector.geometry import Line
+from road_plant import Aligns
 
 
 def write_objs(allrectas, radio):

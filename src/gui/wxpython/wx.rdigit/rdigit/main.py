@@ -15,7 +15,7 @@ This program is free software under the GNU General Public License
 """
 
 try:
-    from rdigit.wxdigit import IRDigit, GV_LINES, CFUNCTYPE
+    from rdigit.wxdigit import CFUNCTYPE, GV_LINES, IRDigit
 
     haveRDigit = True
     errorMsg = ""

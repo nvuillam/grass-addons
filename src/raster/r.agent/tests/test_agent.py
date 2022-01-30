@@ -1,8 +1,7 @@
 import unittest2 as unittest
+from libagent import agent, playground, world
 
 # import unittest
-
-from libagent import playground, world, agent
 
 
 class TestAgent(unittest.TestCase):

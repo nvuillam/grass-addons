@@ -100,8 +100,9 @@ More about NTv2 format on https://github.com/Esri/ntv2-file-routines.
 
 import atexit
 import sys
-import uuid
 import time
+import uuid
+
 from grass.script import core as grass
 
 tmp_group = str(uuid.uuid4())

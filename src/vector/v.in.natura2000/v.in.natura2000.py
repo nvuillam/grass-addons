@@ -110,12 +110,13 @@ COPYRIGHT: (C) 2015 by the GRASS Development Team
 #% guisection: print
 #%end
 
-import sys
-import os
 import csv
 import math
+import os
 import shutil
+import sys
 import tempfile
+
 import grass.script as grass
 
 

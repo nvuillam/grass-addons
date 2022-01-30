@@ -68,8 +68,9 @@
 #% description: output DOS code to set up display
 #%End
 
-import sys
 import os
+import sys
+
 from grass.script import core as grass
 
 

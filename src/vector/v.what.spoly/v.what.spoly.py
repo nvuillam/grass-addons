@@ -59,10 +59,10 @@
 #%End
 ############################################################################
 
-import sys
-import os
-import glob
 import atexit
+import glob
+import os
+import sys
 
 import grass.script as grass
 from grass.script import core as grass

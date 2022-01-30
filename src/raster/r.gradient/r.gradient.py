@@ -51,6 +51,7 @@
 
 # import library
 import sys
+
 import grass.script as grass
 from grass.pygrass.raster import RasterRow
 from grass.pygrass.raster.buffer import Buffer

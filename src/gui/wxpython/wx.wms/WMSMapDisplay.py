@@ -18,8 +18,8 @@ for details.
 @author Sudeep Singh Walia (Indian Institute of Technology, Kharagpur , sudeep495@gmail.com)
 """
 
-import wx
 import cStringIO
+import wx
 
 
 class ImagePanel(wx.Panel):

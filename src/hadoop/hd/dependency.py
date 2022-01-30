@@ -20,6 +20,6 @@ except:
     print ("hdfs library is missing.")
 
 import hdfs
+import sqlalchemy
 import thrift
 from snakebite.client import Client, HAClient, Namenode
-import sqlalchemy

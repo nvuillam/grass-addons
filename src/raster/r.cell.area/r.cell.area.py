@@ -42,15 +42,16 @@
 # IMPORT MODULES #
 ##################
 
+import glob
+
 # PYTHON
 import os
-import glob
-import numpy as np
 
 # GRASS
 import grass.script as grass
-from grass.script import array as garray
+import numpy as np
 from grass.pygrass.vector import VectorTopo
+from grass.script import array as garray
 
 
 def main():

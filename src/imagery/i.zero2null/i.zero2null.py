@@ -28,10 +28,11 @@
 #%end
 
 
-import sys
+import atexit
 import os
 import shutil
-import atexit
+import sys
+
 import grass.script as gscript
 
 # initialize global vars

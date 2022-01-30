@@ -108,19 +108,21 @@
 #%end
 
 
-import os
 import atexit
-import numpy as np
+import os
 import shutil
+import subprocess
 import time
 import zipfile as zfile
-import subprocess
+
+import numpy as np
 from six.moves.urllib import request as urllib2
 
 try:
     from http.cookiejar import CookieJar
 except ImportError:
     from cookielib import CookieJar
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 

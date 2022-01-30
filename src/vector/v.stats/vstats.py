@@ -4,8 +4,10 @@ Created on Mon Oct 21 12:54:42 2013
 
 @author: pietro
 """
-from __future__ import print_function, division
+from __future__ import division, print_function
+
 import os
+
 from grass.pygrass.modules import Module, ParallelModuleQueue
 
 

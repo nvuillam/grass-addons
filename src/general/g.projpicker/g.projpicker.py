@@ -92,8 +92,9 @@
 # % requires: -1, -g
 # %end
 
-import sys
 import re
+import sys
+
 import grass.script as grass
 
 

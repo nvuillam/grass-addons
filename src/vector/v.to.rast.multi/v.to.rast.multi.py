@@ -164,8 +164,9 @@
 # %end
 
 import sys
-import numpy as np
+
 import grass.script as gscript
+import numpy as np
 
 
 def check_columns(module_options):

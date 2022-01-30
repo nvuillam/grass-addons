@@ -79,8 +79,9 @@
 
 # import library
 import os
-import sys
 import re
+import sys
+
 import grass.script as grass
 
 

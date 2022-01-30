@@ -51,8 +51,8 @@ This program is free software under the GNU General Public License
 import os
 from subprocess import PIPE
 
-from grass.script import core as grass
 from grass.pygrass.modules import Module
+from grass.script import core as grass
 
 
 def writeEPSGtoPEMANENT(epsg):

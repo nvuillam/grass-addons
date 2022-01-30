@@ -69,14 +69,15 @@ import os
 import sys
 
 from grass.script.core import (
+    debug,
+    fatal,
+    gisenv,
     parser,
     read_command,
-    fatal,
-    debug,
     run_command,
-    gisenv,
     warning,
 )
+
 
 # check if monitor is running
 def check_monitor():

@@ -90,9 +90,10 @@
 #% guisection: Plot options
 #%end
 
-import sys
-import grass.script as gscript
 import operator
+import sys
+
+import grass.script as gscript
 import numpy as np
 
 

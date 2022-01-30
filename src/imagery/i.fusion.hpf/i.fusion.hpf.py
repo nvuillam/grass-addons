@@ -175,10 +175,11 @@
 #% required: no
 #%end
 
+import atexit
+
 # StdLib
 import os
 import sys
-import atexit
 
 # check if within a GRASS session?
 if "GISBASE" not in os.environ:

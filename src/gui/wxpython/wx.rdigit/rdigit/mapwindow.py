@@ -15,13 +15,12 @@ This program is free software under the GNU General Public License
 """
 
 import wx
-
-from core.gcmd import RunCommand, GMessage, GError
 from core.debug import Debug
-from mapdisp.mapwindow import BufferedWindow
+from core.gcmd import GError, GMessage, RunCommand
+from core.globalvar import QUERYLAYER
 from core.settings import UserSettings
 from core.utils import ListOfCatsToRange
-from core.globalvar import QUERYLAYER
+from mapdisp.mapwindow import BufferedWindow
 
 
 class Circle:

@@ -47,9 +47,10 @@
 #%end
 
 import sys
+import warnings
+
 import grass.script as grass
 import numpy as np
-import warnings
 
 
 def calculateWeight(pairwise):

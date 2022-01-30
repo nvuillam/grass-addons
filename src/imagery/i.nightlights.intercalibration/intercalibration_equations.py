@@ -7,13 +7,13 @@ Convert (and export -- needs uncommenting!) intercalibration equations
 @author: nik | Created on Wed Mar 11 18:34:03 2015
 """
 
-import os
-from io import StringIO
-import csv
 import collections
+import csv
+import os
 
 # PY2/PY3 compat
 import sys
+from io import StringIO
 
 if sys.version_info.major >= 3:
     unicode = str

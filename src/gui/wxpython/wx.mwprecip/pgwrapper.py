@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8
 
-import sys
 import importlib
 import logging
+import sys
 
 
 class pgwrapper:

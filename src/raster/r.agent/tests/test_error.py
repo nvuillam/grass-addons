@@ -1,8 +1,7 @@
 import unittest2 as unittest
+from libagent import error
 
 # import unittest
-
-from libagent import error
 
 
 class TestOurExceptions(unittest.TestCase):

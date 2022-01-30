@@ -77,14 +77,14 @@
 ##% description: Output integer category values, not cell values
 ##%end
 
-import sys
 import copy
 import csv
-import grass.script as gscript
-from grass.script import core as gcore
-import grass.temporal as tgis
-import grass.pygrass.modules as pymod
+import sys
 
+import grass.pygrass.modules as pymod
+import grass.script as gscript
+import grass.temporal as tgis
+from grass.script import core as gcore
 
 ############################################################################
 

@@ -144,11 +144,11 @@
 #% requires: final_date_column, date_column
 #%end
 
-from datetime import datetime
-from datetime import timedelta
+from datetime import datetime, timedelta
 from subprocess import PIPE as PI
-import numpy as np
+
 import grass.script as gscript
+import numpy as np
 from grass.exceptions import CalledModuleError
 
 

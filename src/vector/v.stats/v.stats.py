@@ -15,6 +15,8 @@
 #
 #############################################################################
 
+import os
+
 #%Module
 #% description: Calculates vector statistics
 #% keyword: vector
@@ -135,14 +137,11 @@
 #%end
 # -----------------------------------------------------
 import sys
-import os
-
-from grass.script.core import parser
-
 
 from grass.pygrass.utils import get_lib_path, get_mapset_raster
-from grass.pygrass.vector import VectorTopo, Vector
+from grass.pygrass.vector import Vector, VectorTopo
 from grass.pygrass.vector.table import Link
+from grass.script.core import parser
 
 path = get_lib_path("v.stats", "")
 if path is None:
@@ -150,8 +149,8 @@ if path is None:
 
 sys.path.append(path)
 
-from vstats import get_shp_csv, get_zones, get_rst_csv
 from imp_csv import update_cols
+from vstats import get_rst_csv, get_shp_csv, get_zones
 
 
 def main(opt, flg):

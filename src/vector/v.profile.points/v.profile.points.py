@@ -82,13 +82,12 @@
 # TODO: shift x coordinates to zero
 # TODO: flags to place the result in region or near the input
 
-import sys
-import os
 import atexit
+import os
+import sys
 import uuid
 
 import grass.script as gs
-
 
 TMP = []
 

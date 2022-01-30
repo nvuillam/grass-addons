@@ -8,8 +8,10 @@ lights time series.
 
 # required librairies
 import random
+
 from intercalibration_coefficients import COEFFICIENTS
 from intercalibration_models import Elvidge, Liu2012, Wu2013
+
 
 # helper functions
 def random_digital_numbers(count=3):

@@ -65,7 +65,6 @@
 
 
 import grass.script as grass
-
 import numpy as np
 
 

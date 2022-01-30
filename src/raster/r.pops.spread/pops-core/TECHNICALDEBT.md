@@ -37,7 +37,7 @@ optionally linked in an entry.
 
 - Use member initialization for all variables in all Raster constructors.
 - Binary operators of raster should be functions.
-  * Both scalar * raster and raster * scaler should be functions.
+  * Both scalar *raster and raster* scaler should be functions.
 
 ### Fix
 

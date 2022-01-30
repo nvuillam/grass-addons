@@ -2,19 +2,15 @@
 @author Nikos Alexandris
 """
 
-from __future__ import division
-from __future__ import absolute_import
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
 
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 from grass.pygrass.modules.shortcuts import general as g
 from grass.pygrass.modules.shortcuts import raster as r
 from grass.pygrass.modules.shortcuts import vector as v
-from .constants import (
-    EQUATION,
-    EUCLIDEAN,
-)
+
+from .constants import EQUATION, EUCLIDEAN
 
 
 def build_distance_function(

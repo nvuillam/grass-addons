@@ -83,15 +83,14 @@ This executable script is a GRASS GIS module to run in a GRASS GIS session.
 #% requires: -s,packages
 #%end
 
-import os
-import json
 import csv
+import json
 
 # Importing so that it available to the expression.
 import math  # noqa: F401 pylint: disable=unused-import
+import os
 
 import grass.script as gs
-
 
 SQL_INT_TYPES = [
     "INT",

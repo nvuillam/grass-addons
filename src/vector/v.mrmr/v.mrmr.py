@@ -68,15 +68,15 @@
 #% guisection: Options
 #%end
 
-import sys
+import atexit
 import os
-import subprocess
+import os.path
 import shutil
+import subprocess
+import sys
+import tempfile
 
 import grass.script as grass
-import tempfile
-import atexit
-import os.path
 
 # env = grass.gisenv()
 # gisdbase = env['GISDBASE']

@@ -1,7 +1,8 @@
 import logging
-from utils import string2dict, find_ST_fnc
-import sys
 import os
+import sys
+
+from utils import find_ST_fnc, string2dict
 
 
 class HiveBaseTable(object):

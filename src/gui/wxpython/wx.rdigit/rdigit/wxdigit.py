@@ -15,22 +15,22 @@ This program is free software under the GNU General Public License
 @author Mohammed Rashad <rashadkm gmail.com>
 """
 
+import os
+import sys
+import tempfile
+
 import grass.script.core as grass
+from core.debug import Debug
+from core.gcmd import CommandThread, GError, RunCommand
 
 # from pygrass.modules import Module
 from core.gconsole import GConsole
-from core.gcmd import GError, RunCommand, CommandThread
-from core.debug import Debug
 from core.settings import UserSettings
-
-import sys
-import os
-import tempfile
 
 try:
     from grass.lib.gis import *
-    from grass.lib.vector import *
     from grass.lib.raster import *
+    from grass.lib.vector import *
 except ImportError:
     pass
 

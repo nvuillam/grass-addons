@@ -95,16 +95,16 @@
 #% required: no
 #%end
 
+import atexit
 import os
 import sys
-import uuid
-import atexit
 import tempfile
+import uuid
+
 import grass.script as gs
 
 # Neutral naming for better compatibility between 2D and 3D version
 from grass.script.raster import mapcalc
-
 
 LABELS = """\
 0 exterior

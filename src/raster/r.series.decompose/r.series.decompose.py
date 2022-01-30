@@ -68,12 +68,11 @@
 #%end
 
 
+import csv
 import os
 import sys
-import csv
 import uuid
-
-from math import pi, degrees
+from math import degrees, pi
 
 if "GISBASE" not in os.environ:
     sys.stderr.write("You must be in GRASS GIS to run this program.\n")

@@ -92,12 +92,11 @@
 #% excludes: smooth_dist,overlap
 #%end
 
+import atexit
 import os
 import sys
-import atexit
 
 import grass.script as gscript
-
 
 TMP = []
 

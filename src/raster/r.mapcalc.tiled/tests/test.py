@@ -17,10 +17,11 @@
 
 import configparser
 import csv
-import grass.script as grass
 import os
 import sys
 import time
+
+import grass.script as grass
 
 if len(sys.argv) == 1:
     configfile = "config.ini"

@@ -49,12 +49,12 @@
 #%end
 
 
-import sys
-import os
-import grass.script as gs
-
 # i18N
 import gettext
+import os
+import sys
+
+import grass.script as gs
 
 gettext.install("grassmods", os.path.join(os.getenv("GISBASE"), "locale"))
 

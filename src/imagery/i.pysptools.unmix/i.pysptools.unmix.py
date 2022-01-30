@@ -93,10 +93,11 @@ COPYRIGHT: (C) 2018 by the GRASS GIS Development Team,
 
 import os
 import sys
+
+import grass.script as gs
 import numpy as np
 from grass.pygrass import raster as r
 from grass.pygrass.utils import getenv
-import grass.script as gs
 
 if "GISBASE" not in os.environ.keys():
     gs.message("You must be in GRASS GIS to run this program.")
@@ -156,7 +157,7 @@ def main():
         )
 
     try:
-        from cvxopt import solvers, matrix
+        from cvxopt import matrix, solvers
     except ImportError:
         gs.fatal(
             _(
@@ -319,8 +320,7 @@ def main():
         gs.verbose("Writing vector map with endmembers...")
         from grass.pygrass import utils as u
         from grass.pygrass.gis.region import Region
-        from grass.pygrass.vector import Vector
-        from grass.pygrass.vector import VectorTopo
+        from grass.pygrass.vector import Vector, VectorTopo
         from grass.pygrass.vector.geometry import Point
 
         # Build attribute table

@@ -19,26 +19,26 @@ for details.
 @author: Sudeep Singh Walia (Indian Institute of Technology, Kharagpur , sudeep495@gmail.com)
 """
 
-import wx
 import os
-import popen2
-import uuid
-from urllib2 import Request, urlopen, URLError, HTTPError
-import urlparse
 import urllib
+import uuid
 
+import popen2
+import urlparse
+import wx
+from BeautifulSoup import BeautifulSoup, BeautifulStoneSoup, NavigableString, Tag
 from grass.script import core as grass
-from wx.lib.pubsub import Publisher
-from BeautifulSoup import BeautifulSoup, Tag, NavigableString, BeautifulStoneSoup
+from LoadConfig import loadConfigFile
+from parse import isServiceException, isValidResponse, parsexml, populateLayerTree
 from ServerInfoAPIs import (
     addServerInfo,
+    getAllRows,
+    initServerInfoBase,
     removeServerInfo,
     updateServerInfo,
-    initServerInfoBase,
-    getAllRows,
 )
-from parse import parsexml, isServiceException, populateLayerTree, isValidResponse
-from LoadConfig import loadConfigFile
+from urllib2 import HTTPError, Request, URLError, urlopen
+from wx.lib.pubsub import Publisher
 
 # PY2/PY3 compat
 if sys.version_info.major >= 3:

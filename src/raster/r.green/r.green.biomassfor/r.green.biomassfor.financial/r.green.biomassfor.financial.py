@@ -355,16 +355,12 @@ try:
     # set python path to the shared r.green libraries
     set_path("r.green", "libforest", "..")
     set_path("r.green", "libgreen", os.path.join("..", ".."))
-    from libforest.harvesting import combination
-    from libforest.harvesting import slope_computation, yield_pix_process
-    from libgreen.utils import cleanup
-    from libgreen.utils import sel_columns
-
     # TODO: check the required column
     # from libgreen.checkparameter import check_required_columns,
     # exception2error
-    from libforest.financial import revenues, productivity
-    from libforest.financial import costs, net_revenues
+    from libforest.financial import costs, net_revenues, productivity, revenues
+    from libforest.harvesting import combination, slope_computation, yield_pix_process
+    from libgreen.utils import cleanup, sel_columns
 except ImportError:
     warning("libgreen and libforest not in the python path!")
 

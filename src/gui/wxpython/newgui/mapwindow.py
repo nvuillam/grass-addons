@@ -20,26 +20,23 @@ This program is free software under the GNU General Public License
 @author Stepan Turek <stepan.turek seznam.cz> (handlers support, GraphicsSet)
 """
 
-import os
-import time
 import math
+import os
 import sys
+import time
 from copy import copy
 
-import wx
-
-from grass.pydispatch.signal import Signal
-
 import grass.script as grass
-
-from gui_core.dialogs import SavedRegion
-from core.gcmd import RunCommand, GException, GError, GMessage
+import wx
 from core.debug import Debug
-from core.settings import UserSettings
 from core.events import EVT_UPDATE_MAP
-from gui_mapwindow import MapWindow
-from core.ws import EVT_UPDATE_PRGBAR
+from core.gcmd import GError, GException, GMessage, RunCommand
+from core.settings import UserSettings
 from core.utils import GetGEventAttribsForHandler
+from core.ws import EVT_UPDATE_PRGBAR
+from grass.pydispatch.signal import Signal
+from gui_core.dialogs import SavedRegion
+from gui_mapwindow import MapWindow
 
 try:
     import grass.lib.gis as gislib

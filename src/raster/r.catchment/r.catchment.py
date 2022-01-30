@@ -124,9 +124,9 @@
 #%END
 
 
-import sys
 import os
 import subprocess
+import sys
 
 # Just in case system can't find where grass.script is
 grass_install_tree = os.getenv("GISBASE")

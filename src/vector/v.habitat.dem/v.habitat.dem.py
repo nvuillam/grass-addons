@@ -108,13 +108,13 @@ COPYRIGHT: (C) 2014 by the GRASS Development Team
 #% answer: 2014
 #%end
 
-import sys
-import os
-import grass.script as grass
-import math
-from numpy import array
-from numpy import zeros
 import csv
+import math
+import os
+import sys
+
+import grass.script as grass
+from numpy import array, zeros
 
 
 def main():

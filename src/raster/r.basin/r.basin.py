@@ -68,15 +68,16 @@
 #% description: No maps output
 #%END
 
-import sys
-import os
-import grass.script as grass
-import math
-from numpy import zeros
 import csv
 
 # i18N
 import gettext
+import math
+import os
+import sys
+
+import grass.script as grass
+from numpy import zeros
 
 gettext.install("grassmods", os.path.join(os.getenv("GISBASE"), "locale"))
 

@@ -37,9 +37,9 @@
 #% required: no
 #%end
 
-from grass.script.utils import try_remove, basename, parse_key_val
 from grass.script import core as grass
 from grass.script import vector as vgrass
+from grass.script.utils import basename, parse_key_val, try_remove
 
 
 def main():

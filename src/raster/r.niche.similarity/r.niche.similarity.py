@@ -65,12 +65,14 @@
 #%required: -i,-d,-c
 #%end
 
+import atexit
+
 # import libraries
 import os
-import sys
-import atexit
-import uuid
 import string
+import sys
+import uuid
+
 import grass.script as gs
 
 # Cleanup

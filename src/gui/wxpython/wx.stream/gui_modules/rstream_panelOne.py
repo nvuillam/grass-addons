@@ -26,23 +26,20 @@ sys.path.append(
     os.path.join(os.getenv("GISBASE"), "etc", "gui", "wxpython", "gui_modules")
 )
 
-import wx
-import wx.lib.flatnotebook as FN
+import dbm
 
-from debug import Debug as Debug
-from preferences import globalSettings as UserSettings
-
+import gcmd
+import globalvar
 import grass.script as grass
 import gselect
-import gcmd
-import dbm
-import globalvar
-import utils
 import menuform
-
 import rstream_ImageViewer
+import utils
+import wx
+import wx.lib.flatnotebook as FN
+from debug import Debug as Debug
+from preferences import globalSettings as UserSettings
 from rstream_ImageViewer import ImgFrame
-
 
 # -------------------------------------------------------------
 

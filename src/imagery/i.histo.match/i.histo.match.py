@@ -53,9 +53,10 @@
 #%end
 
 
-import sys
 import os
 import sqlite3
+import sys
+
 import grass.script as grass
 
 

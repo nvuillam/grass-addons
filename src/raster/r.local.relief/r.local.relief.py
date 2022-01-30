@@ -87,12 +87,11 @@
 #%end
 
 
-import os
 import atexit
+import os
 
 import grass.script as gscript
 import grass.script.core as gcore
-
 
 RREMOVE = []
 VREMOVE = []

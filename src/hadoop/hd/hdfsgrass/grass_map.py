@@ -1,9 +1,10 @@
 import os
+from subprocess import PIPE
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 from grass.pygrass.modules import Module
 from grass.script import parse_key_val
-from subprocess import PIPE
 
 
 class VectorDBInfo:

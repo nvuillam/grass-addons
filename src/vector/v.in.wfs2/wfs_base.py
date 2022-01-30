@@ -1,10 +1,9 @@
 import os
 from math import ceil
 
-from urllib2 import urlopen, HTTPError, URLError
-
 import grass.script as grass
 from grass.exceptions import CalledModuleError
+from urllib2 import HTTPError, URLError, urlopen
 
 
 class WFSBase:

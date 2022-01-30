@@ -78,15 +78,14 @@
 #%end
 
 
-import sys
-import os
 import atexit
-import string
+import os
 import re
+import string
+import sys
 
 import grass.script as grass
 from grass.exceptions import CalledModuleError
-
 
 # .... todo ....
 

@@ -7,9 +7,9 @@ Created on Fri Oct 20 10:29:51 2017
 """
 
 import argparse
+import fnmatch
 import glob
 import os
-import fnmatch
 
 modules = ["d.", "db.", "g.", "i.", "m.", "r3.", "r.", "t.", "v.", "wxGUI."]
 

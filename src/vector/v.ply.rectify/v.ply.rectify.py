@@ -34,11 +34,12 @@
 #% description: Also export point cloud shifted to center
 #%end
 
-import sys
-import os
 import atexit
-import string
+import os
 import shutil
+import string
+import sys
+
 from grass.script import core as grass
 from grass.script import vector as gvector
 

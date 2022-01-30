@@ -88,10 +88,11 @@
 #%end
 
 
+import json
 import os
 import sys
-import json
 from multiprocessing import Pool
+
 import grass.script as gs
 
 

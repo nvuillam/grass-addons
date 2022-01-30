@@ -300,13 +300,10 @@ class UpdateConnectionsResources:
             global CatalogueServiceWeb, etree, ExceptionReport, get_data, validators
 
             import lxml.etree as etree
-
+            import validators
             from owslib.csw import CatalogueServiceWeb
             from owslib.ows import ExceptionReport
-
             from pyexcel_ods3 import get_data
-
-            import validators
         except ModuleNotFoundError as e:
             msg = e.msg
             gscript.fatal(

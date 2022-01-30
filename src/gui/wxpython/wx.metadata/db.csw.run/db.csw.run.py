@@ -74,10 +74,10 @@
 #% answer: 8000
 #%end
 
-from io import StringIO
+import contextlib
 import os
 import sys
-import contextlib
+from io import StringIO
 
 from grass.script import core as grass
 from grass.script.utils import set_path

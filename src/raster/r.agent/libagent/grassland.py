@@ -11,7 +11,6 @@ COPYRIGHT:    (C) 2015 by Michael Lustenberger and the GRASS Development Team
 
 import grass.script as grass
 from grass.script import array as garray
-
 from libagent import error, playground
 
 

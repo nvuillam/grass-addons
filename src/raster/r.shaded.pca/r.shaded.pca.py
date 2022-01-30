@@ -88,8 +88,8 @@
 #%end
 
 
-import os
 import atexit
+import os
 from multiprocessing import Process
 
 import grass.script as grass

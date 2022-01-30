@@ -60,23 +60,21 @@ if(isnull(${tmp_dir}[1,1]),1,7),3),8),2),1) \
 # Compute slope of the streets for three different step-size (neighborhood)
 r.slope.direction -a elevation=elevation direction=streets_wake_dir8 steps=1,5,13 output=streets_wake_slope_1,streets_wake_slope_5,streets_wake_slope_13
 
-
 # Generate image
 #d.mon wx0
-for out in streets_wake_slope_1 streets_wake_slope_5 streets_wake_slope_13
-do
-output=r_slope_direction_${out}.png
+for out in streets_wake_slope_1 streets_wake_slope_5 streets_wake_slope_13; do
+	output=r_slope_direction_${out}.png
 
-d.mon --o start=cairo width=600  height=600 bgcolor=white output=$output
-d.rast ${out}
-d.mon stop=cairo
-# save image to files (manually)
-# crop the background using Gimp or ImageMagic
-mogrify -trim $output
-# some bounding box problems noticed when opening mogrify result in Gimp
+	d.mon --o start=cairo width=600 height=600 bgcolor=white output=$output
+	d.rast ${out}
+	d.mon stop=cairo
+	# save image to files (manually)
+	# crop the background using Gimp or ImageMagic
+	mogrify -trim $output
+	# some bounding box problems noticed when opening mogrify result in Gimp
 
-# Optimize for SVN
-../../../../utils/svn-image.sh $output
+	# Optimize for SVN
+	../../../../utils/svn-image.sh $output
 done
 
 # Compute slope of the streets for three different step-size (neighborhood)
@@ -89,19 +87,18 @@ r.relief --o input=elevation output=hillshade
 g.region -p n=225230 s=221050 w=633990 e=639570
 
 #d.mon wx0
-for out in fdir_slope_1 fdir_slope_5 fdir_slope_13
-do
-output=r_slope_direction_${out}.png
+for out in fdir_slope_1 fdir_slope_5 fdir_slope_13; do
+	output=r_slope_direction_${out}.png
 
-d.mon --o start=cairo width=600  height=600 bgcolor=none output=$output
-d.rast hillshade
-d.rast ${out}
-d.mon stop=cairo
-# save image to files (manually)
-# crop the background using Gimp or ImageMagic
-mogrify -trim $output
-# some bounding box problems noticed when opening mogrify result in Gimp
+	d.mon --o start=cairo width=600 height=600 bgcolor=none output=$output
+	d.rast hillshade
+	d.rast ${out}
+	d.mon stop=cairo
+	# save image to files (manually)
+	# crop the background using Gimp or ImageMagic
+	mogrify -trim $output
+	# some bounding box problems noticed when opening mogrify result in Gimp
 
-# Optimize for SVN
-../../../../utils/svn-image.sh $output
+	# Optimize for SVN
+	../../../../utils/svn-image.sh $output
 done

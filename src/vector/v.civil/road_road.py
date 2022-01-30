@@ -8,20 +8,22 @@ Created on Tue Sep 23 11:34:58 2014
 # import math
 import time
 
+import road_displ as Displ
+import road_marks as Marks
+
+# import road_base as Base
+import road_plant as Plant
+import road_profiles as Profile
+import road_tables as Tables
+import road_terr as Terr
+import road_trans as Trans
+import road_vertical as Vert
+
 # import grass.script as grass
 from grass.pygrass.vector import VectorTopo
 
 # from grass.pygrass.vector.table import Link
 
-# import road_base as Base
-import road_plant as Plant
-import road_vertical as Vert
-import road_displ as Displ
-import road_trans as Trans
-import road_terr as Terr
-import road_tables as Tables
-import road_profiles as Profile
-import road_marks as Marks
 
 # import road_topotools as Topotools
 

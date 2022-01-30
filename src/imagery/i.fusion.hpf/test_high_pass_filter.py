@@ -4,12 +4,9 @@
 
 """ Test High Pass Filtering functions.  """
 
-from __future__ import division
-from __future__ import print_function
-from __future__ import absolute_import
+from __future__ import absolute_import, division, print_function
 
-
-from high_pass_filter import get_row, get_mid_row, get_kernel, get_center_cell
+from high_pass_filter import get_center_cell, get_kernel, get_mid_row, get_row
 
 
 def test_get_row():

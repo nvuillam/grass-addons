@@ -24,23 +24,21 @@ This program is free software under the GNU General Public License
 @author Martin Landa <landa.martin gmail.com>
 """
 
-import os
-import sys
+import copy
 import glob
 import math
-import copy
+import os
+import sys
 import tempfile
 import types
 
 import wx
-
-from grass.script import core as grass
-
 from core import utils
-from core.ws import RenderWMSMgr, wxUpdateProgressBar
-from core.gcmd import GException, GError, RunCommand
 from core.debug import Debug
+from core.gcmd import GError, GException, RunCommand
 from core.settings import UserSettings
+from core.ws import RenderWMSMgr, wxUpdateProgressBar
+from grass.script import core as grass
 
 USE_GPNMCOMP = True
 

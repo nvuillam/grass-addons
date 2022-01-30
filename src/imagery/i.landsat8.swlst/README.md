@@ -26,14 +26,14 @@ where:
 A faster call is to use existing maps for all in-between
 processing steps: at-satellite temperatures, cloud and emissivity maps.
 
-  * At-satellite temperature maps (options `t10`, `t11`) may be derived via
+* At-satellite temperature maps (options `t10`, `t11`) may be derived via
   the `i.landsat.toar` module. Note that `i.landsat.toar` does not
   process single bands selectively.
 
-  * The `clouds` option can be any user-defined map. Essentialy, it applies
+* The `clouds` option can be any user-defined map. Essentialy, it applies
     the given map as an inverted mask.
 
-  * The emissivity maps, derived by the module itself, can be saved once
+* The emissivity maps, derived by the module itself, can be saved once
     via the `emissivity_out` and `delta_emissivity_out` options and used
     afterwards via the `emissivity` and `delta_emissivity` options. Expert
     users, however, may use emissivity maps from other sources directly.
@@ -79,9 +79,9 @@ The combination of the brightness temperatures to estimate the LST bases upon
 the equation:
 
 LST = b0 +
-    + ( b1 + b2 * ( 1 - ae ) / ae + b3 * de / ae^2 ) * ( t10 + t11 ) / 2 +
-    + ( b4 + b5 * ( 1 - ae ) / ae + b6 * de / ae^2 ) * ( t10 - t11 ) / 2 +
-    + b7 * ( t10 - t11 )^2
+    + ( b1 + b2 *( 1 - ae ) / ae + b3* de / ae^2 ) *( t10 + t11 ) / 2 +
++ ( b4 + b5*( 1 - ae ) / ae + b6*de / ae^2 )* ( t10 - t11 ) / 2 +
+  + b7 * ( t10 - t11 )^2
 
 Note, however, **the last quadratic term** of the Split-Window equation **is
 applied only over barren land**. [Reference Required!]
@@ -110,11 +110,11 @@ Compilation](https://svn.osgeo.org/grass/grass-addons/README)
 Making the script `i.lansat8.swlst` available from within any GRASS-GIS ver.
 7.x session, may be done via the following steps:
 
-1.  launch a GRASS-GIS’ ver. 7.x session
+1. launch a GRASS-GIS’ ver. 7.x session
 
-2.  navigate into the script’s source directory
+2. navigate into the script’s source directory
 
-3.  execute `make MODULE_TOPDIR=$GISBASE`
+3. execute `make MODULE_TOPDIR=$GISBASE`
 
 
 
@@ -134,12 +134,12 @@ Implementation notes
 
 - Evaluate BIG mapcalc expressions -- are they correct?  I guess so ;-)
 
-    - ~~Expression for Column Water Vapor~~
-    - ~~CWV output values range -- is it rational?~~ It was not. There is a
+  - ~~Expression for Column Water Vapor~~
+  - ~~CWV output values range -- is it rational?~~ It was not. There is a
       typo in paper [0]. The correct order of the coefficients is in papers [1,
       2].
-    - ~~Expression for Land Surface Temperature~~
-    - ~~LST output values range -- is it rational?  At the moment, not!~~
+  - ~~Expression for Land Surface Temperature~~
+  - ~~LST output values range -- is it rational?  At the moment, not!~~
       Fixed. The main Split-Window equation was wrong.
 
 - ~~Why is the LST out of range when using a fixed land cover class?~~ Cloudy
@@ -201,21 +201,21 @@ Snow and ice|0.992|0.998
 References
 ==========
 
--   [0] Du, Chen; Ren, Huazhong; Qin, Qiming; Meng, Jinjie; Zhao,
+- [0] Du, Chen; Ren, Huazhong; Qin, Qiming; Meng, Jinjie; Zhao,
     Shaohua. 2015. "A Practical Split-Window Algorithm for Estimating
     Land Surface Temperature from Landsat 8 Data." Remote Sens. 7, no.
     1: 647-665.
     http://www.mdpi.com/2072-4292/7/1/647/htm\#sthash.ba1pt9hj.dpuf
 
--   [1] Huazhong Ren, Chen Du, Qiming Qin, Rongyuan Liu, Jinjie Meng,
+- [1] Huazhong Ren, Chen Du, Qiming Qin, Rongyuan Liu, Jinjie Meng,
     and Jing Li. "Atmospheric Water Vapor Retrieval from Landsat 8 and
     Its Validation." 3045--3048. IEEE, 2014.
 
--   [2] Ren, H., Du, C., Liu, R., Qin, Q., Yan, G., Li, Z. L., & Meng, J.
+- [2] Ren, H., Du, C., Liu, R., Qin, Q., Yan, G., Li, Z. L., & Meng, J.
     (2015). Atmospheric water vapor retrieval from Landsat 8 thermal infrared
     images. Journal of Geophysical Research: Atmospheres, 120(5), 1723-1738.
 
--   [3] FROM-GLC products, <http://data.ess.tsinghua.edu.cn/>
+- [3] FROM-GLC products, <http://data.ess.tsinghua.edu.cn/>
 
 Ευχαριστώ
 =========

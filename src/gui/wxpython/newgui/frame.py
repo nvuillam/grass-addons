@@ -10,21 +10,18 @@ for details.
 @author Mohammed Rashad <rashadkm gmail.com>
 """
 
+import copy
+import gettext
 import os
 import sys
-import copy
 import tempfile
-import gettext
 
 if __name__ == "__main__":
     sys.path.append(os.path.join(os.environ["GISBASE"], "etc", "gui", "wxpython"))
 import wx
-
-
-from api_test import MySingleMapFrame
-from api_test import ToolBarNames
-from render2 import MapLayer
+from api_test import MySingleMapFrame, ToolBarNames
 from lmgr.toolbars import LMWorkspaceToolbar
+from render2 import MapLayer
 
 
 class MyFrame(MySingleMapFrame):

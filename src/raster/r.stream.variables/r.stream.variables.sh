@@ -5,11 +5,11 @@
 # MODULE:       r.stream.watersheds
 #
 # AUTHOR(S):    Giuseppe Amatulli & Sami Domisch
-#               based on "Domisch, S., Amatulli, G., Jetz, W. (in review) 
-#				Near-global freshwater-specific environmental variables for 
+#               based on "Domisch, S., Amatulli, G., Jetz, W. (in review)
+#				Near-global freshwater-specific environmental variables for
 # 				biodiversity analyses in 1km resolution. Scientific Data"
 #
-# PURPOSE:      Calculation of contiguous stream-specific variables that account 
+# PURPOSE:      Calculation of contiguous stream-specific variables that account
 #				for the upstream environment (based on r.stream.watersheds).
 #
 # COPYRIGHT:    (C) 2001-2012 by the GRASS Development Team
@@ -47,7 +47,7 @@
 #%end
 
 #%option
-#% key: folder 
+#% key: folder
 #% type: string
 #% key_desc: name
 #% description: Provide the full folder path (same as for r.stream.watersheds)
@@ -56,7 +56,7 @@
 #%end
 
 #%option
-#% key: out_folder 
+#% key: out_folder
 #% type: string
 #% key_desc: name
 #% description: Provide the full folder path for the output stream-specific variable
@@ -80,7 +80,7 @@
 #% type: double
 #% key_desc: value
 #% label: Provide a scale factor to multiply or divide the final stream-specific variable
-#% description: Provide it e.g. if input raster values are between -1 and 1, use scale=1000 to inicrease the number of decimals - all outputs will be rounded to integers 
+#% description: Provide it e.g. if input raster values are between -1 and 1, use scale=1000 to inicrease the number of decimals - all outputs will be rounded to integers
 #% answer: 1
 #% required:no
 #%end
@@ -93,19 +93,19 @@
 #% required:no
 #%end
 
-if [ -z "$GISBASE" ] ; then
-    echo "You must be in GRASS GIS to run this program." >&2
-    exit 1
+if [ -z "$GISBASE" ]; then
+	echo "You must be in GRASS GIS to run this program." >&2
+	exit 1
 fi
 
-if [ "$1" != "@ARGS_PARSED@" ] ; then
-    exec g.parser "$0" "$@"
+if [ "$1" != "@ARGS_PARSED@" ]; then
+	exec g.parser "$0" "$@"
 fi
 
 #### check if we have awk
-if [ ! -x "`which awk`" ] ; then
-    g.message -e "awk required, please install awk or gawk first"
-    exit 1
+if [ ! -x "$(which awk)" ]; then
+	g.message -e "awk required, please install awk or gawk first"
+	exit 1
 fi
 
 # setting environment, so that awk works properly in all languages
@@ -115,68 +115,66 @@ export LC_NUMERIC
 
 #test:
 
-if [ -z "$GIS_OPT_VARIABLE"  ] ; then
-    g.message "Please provide the name of raster to be converted into a stream-specific variable."
-exit 1
+if [ -z "$GIS_OPT_VARIABLE" ]; then
+	g.message "Please provide the name of raster to be converted into a stream-specific variable."
+	exit 1
 fi
 
-if [ -z "$GIS_OPT_AREA" ] ; then
-    g.message "Please provide area of aggregation: across the sub-watersheds or only across sub-streams."   
-exit 1
+if [ -z "$GIS_OPT_AREA" ]; then
+	g.message "Please provide area of aggregation: across the sub-watersheds or only across sub-streams."
+	exit 1
 fi
 
-if [ -z "$GIS_OPT_OUTPUT"  ] ; then
-    g.message "Please provide the output aggregation method for the stream-specific variable: upstream  min, max, range, mean, stddev, coeff_var, sum"
-exit 1
+if [ -z "$GIS_OPT_OUTPUT" ]; then
+	g.message "Please provide the output aggregation method for the stream-specific variable: upstream  min, max, range, mean, stddev, coeff_var, sum"
+	exit 1
 fi
 
 #check if drainage and stream file exists
-eval `g.findfile element=cell file="$GIS_OPT_VARIABLE"`
-if [ ! "$file" ] ; then
-    g.message -e "<$GIS_OPT_VARIABLE> does not exist! Aborting."
-    exit 1
+eval $(g.findfile element=cell file="$GIS_OPT_VARIABLE")
+if [ ! "$file" ]; then
+	g.message -e "<$GIS_OPT_VARIABLE> does not exist! Aborting."
+	exit 1
 fi
 
-
-export GISDBASE=$(g.gisenv get=GISDBASE  separator=space)
-export LOCATION_NAME=$(g.gisenv get=LOCATION_NAME  separator=space)
+export GISDBASE=$(g.gisenv get=GISDBASE separator=space)
+export LOCATION_NAME=$(g.gisenv get=LOCATION_NAME separator=space)
 export GIS_OPT_AREA
 export GIS_OPT_VARIABLE
 export GIS_OPT_OUTPUT
 export GIS_OPT_SCALE
 
-if [ ${GIS_OPT_FOLDER} = "GISDBASE/folder_structure" ] ; then
-       export GIS_OPT_FOLDER=$GISDBASE"/folder_structure"
-else 
-       export GIS_OPT_FOLDER=$GIS_OPT_FOLDER
+if [ ${GIS_OPT_FOLDER} = "GISDBASE/folder_structure" ]; then
+	export GIS_OPT_FOLDER=$GISDBASE"/folder_structure"
+else
+	export GIS_OPT_FOLDER=$GIS_OPT_FOLDER
 fi
 
-if [ ${GIS_OPT_OUT_FOLDER} = "GISDBASE/stream-specific_variables" ] ; then
-      export GIS_OPT_OUT_FOLDER=$GISDBASE"/stream-specific_variables"
-else 
-      export GIS_OPT_OUT_FOLDER=$GIS_OPT_OUT_FOLDER
+if [ ${GIS_OPT_OUT_FOLDER} = "GISDBASE/stream-specific_variables" ]; then
+	export GIS_OPT_OUT_FOLDER=$GISDBASE"/stream-specific_variables"
+else
+	export GIS_OPT_OUT_FOLDER=$GIS_OPT_OUT_FOLDER
 fi
 
-mkdir  $GIS_OPT_OUT_FOLDER  2> /dev/null 
+mkdir $GIS_OPT_OUT_FOLDER 2>/dev/null
 
 # what to do in case of user break:
-exitprocedure()
-{
-echo ""
-g.message -e 'Process aborted by user. All intermediate files have been deleted!'
+exitprocedure() {
+	echo ""
+	g.message -e 'Process aborted by user. All intermediate files have been deleted!'
 
-# reset in the permanent mapset 
-g.gisenv set="MAPSET=PERMANENT"
-g.gisenv set="LOCATION_NAME=$LOCATION_NAME"
-g.gisenv set="GISDBASE=$GISDBASE"
+	# reset in the permanent mapset
+	g.gisenv set="MAPSET=PERMANENT"
+	g.gisenv set="LOCATION_NAME=$LOCATION_NAME"
+	g.gisenv set="GISDBASE=$GISDBASE"
 
-# delete intermediate files 
-rm -fr  $GISDBASE/$LOCATION_NAME/sub_${GIS_OPT_AREA}* 
-find    $GIS_OPT_FOLDER/ -maxdepth 1 -name  '*.txt' -delete 
-find    $GIS_OPT_FOLDER/ -maxdepth 1 -name  '*.tif' -delete 
-rm -fr  $GIS_OPT_FOLDER/blockfile/stat_*.txt 
+	# delete intermediate files
+	rm -fr $GISDBASE/$LOCATION_NAME/sub_${GIS_OPT_AREA}*
+	find $GIS_OPT_FOLDER/ -maxdepth 1 -name '*.txt' -delete
+	find $GIS_OPT_FOLDER/ -maxdepth 1 -name '*.tif' -delete
+	rm -fr $GIS_OPT_FOLDER/blockfile/stat_*.txt
 
-exit 1
+	exit 1
 }
 
 # shell check for user break (signal list: trap -l)
@@ -194,31 +192,35 @@ echo ""
 
 export GISRC_def=$GISRC
 
-rm -fr   $GISDBASE/$LOCATION_NAME/sub_${GIS_OPT_AREA}*
+rm -fr $GISDBASE/$LOCATION_NAME/sub_${GIS_OPT_AREA}*
 
-echo Using  $( ls $GIS_OPT_FOLDER/blockfile/blockfile* | wc -l ) blocks in  $GIS_OPT_FOLDER/blockfile/
+echo Using $(ls $GIS_OPT_FOLDER/blockfile/blockfile* | wc -l) blocks in $GIS_OPT_FOLDER/blockfile/
 
-for file in  $GIS_OPT_FOLDER/*digit4/*digit3/*digit2/*digit1/blockfile*_sub_${GIS_OPT_AREA}.tar.gz    ; do 
-    
-    export DIRNAME=$(dirname   $file )
-    filename=$(basename $file )
-    cd $DIRNAME
-    tar -xf $file 
-    cd $GISDBASE
+for file in $GIS_OPT_FOLDER/*digit4/*digit3/*digit2/*digit1/blockfile*_sub_${GIS_OPT_AREA}.tar.gz; do
 
-    export BLKID=$(echo $filename |  awk -v GIS_OPT_AREA=${GIS_OPT_AREA} '{ gsub("0000", "") ; gsub("blockfile","") ; gsub("_sub_","") ; gsub("GIS_OPT_AREA","") ; gsub(".tar.gz","") ;  print  }')
-    export dir4d=${BLKID: -4:1} ; if [ -z $dir4d  ] ; then  dir4d=0 ; fi
-    export dir3d=${BLKID: -3:1} ; if [ -z $dir3d  ] ; then  dir3d=0 ; fi  
-    export dir2d=${BLKID: -2:1} ; if [ -z $dir2d  ] ; then  dir2d=0 ; fi
-    export dir1d=${BLKID: -1:1} ; if [ -z $dir1d  ] ; then  dir1d=0 ; fi
+	export DIRNAME=$(dirname $file)
+	filename=$(basename $file)
+	cd $DIRNAME
+	tar -xf $file
+	cd $GISDBASE
 
-g.gisenv set="GISDBASE=$GISDBASE"
-g.gisenv set="LOCATION_NAME=$LOCATION_NAME"
-g.gisenv set="MAPSET=PERMANENT"
+	export BLKID=$(echo $filename | awk -v GIS_OPT_AREA=${GIS_OPT_AREA} '{ gsub("0000", "") ; gsub("blockfile","") ; gsub("_sub_","") ; gsub("GIS_OPT_AREA","") ; gsub(".tar.gz","") ;  print  }')
+	export dir4d=${BLKID: -4:1}
+	if [ -z $dir4d ]; then dir4d=0; fi
+	export dir3d=${BLKID: -3:1}
+	if [ -z $dir3d ]; then dir3d=0; fi
+	export dir2d=${BLKID: -2:1}
+	if [ -z $dir2d ]; then dir2d=0; fi
+	export dir1d=${BLKID: -1:1}
+	if [ -z $dir1d ]; then dir1d=0; fi
 
-echo  "Start the stream-specific variable aggregation for block $file"
+	g.gisenv set="GISDBASE=$GISDBASE"
+	g.gisenv set="LOCATION_NAME=$LOCATION_NAME"
+	g.gisenv set="MAPSET=PERMANENT"
 
-ls  $DIRNAME/sub_${GIS_OPT_AREA}ID*.tif | awk '{ if (NR>0) { print $1 ,  NR} }'   | xargs  -n 2 -P $GIS_OPT_CPU  bash -c  $' 
+	echo "Start the stream-specific variable aggregation for block $file"
+
+	ls $DIRNAME/sub_${GIS_OPT_AREA}ID*.tif | awk '{ if (NR>0) { print $1 ,  NR} }' | xargs -n 2 -P $GIS_OPT_CPU bash -c $' 
 
 file=$1
 filename=$(basename $file .tif )
@@ -266,22 +268,22 @@ fi
 
 rm -r $HOME/.grass8/rc$ID    $GISDBASE/$LOCATION_NAME/sub_${GIS_OPT_AREA}ID$ID
 
-' _ 
+' _
 
-g.gisenv set="MAPSET=PERMANENT"
-g.gisenv set="LOCATION_NAME=$LOCATION_NAME"
-g.gisenv set="GISDBASE=$GISDBASE"
+	g.gisenv set="MAPSET=PERMANENT"
+	g.gisenv set="LOCATION_NAME=$LOCATION_NAME"
+	g.gisenv set="GISDBASE=$GISDBASE"
 
-echo -en  "\r100% done"
-echo ""
+	echo -en "\r100% done"
+	echo ""
 
-echo "Check for missing files due to RAM overload"
+	echo "Check for missing files due to RAM overload"
 
-if ls $DIRNAME/sub_${GIS_OPT_AREA}ID*.tif  1> /dev/null 2>&1 ; then
+	if ls $DIRNAME/sub_${GIS_OPT_AREA}ID*.tif 1>/dev/null 2>&1; then
 
-echo $(ls $DIRNAME/sub_${GIS_OPT_AREA}ID*.tif  | wc -l ) files had RAM issues
+		echo $(ls $DIRNAME/sub_${GIS_OPT_AREA}ID*.tif | wc -l) files had RAM issues
 
-ls $DIRNAME/sub_${GIS_OPT_AREA}ID*.tif  | awk '{ if (NR>0) { print $1 ,  NR} }'   | xargs  -n 2 -P 1 bash -c  $' 
+		ls $DIRNAME/sub_${GIS_OPT_AREA}ID*.tif | awk '{ if (NR>0) { print $1 ,  NR} }' | xargs -n 2 -P 1 bash -c $' 
 
 file=$1
 filename=$(basename $file .tif )
@@ -333,27 +335,26 @@ rm -r $HOME/.grass8/rc$ID    $GISDBASE/$LOCATION_NAME/sub_${GIS_OPT_AREA}ID$ID
 
 fi 
 
-' _ 
+' _
 
-else 
-echo 0 files had RAM issues
-fi 
+	else
+		echo 0 files had RAM issues
+	fi
 
+	cat $DIRNAME/stat_${GIS_OPT_VARIABLE}_ID*.txt >$DIRNAME/stat_${GIS_OPT_VARIABLE}.txt
+	rm -f $DIRNAME/stat_${GIS_OPT_VARIABLE}_ID*.txt
 
-cat $DIRNAME/stat_${GIS_OPT_VARIABLE}_ID*.txt >  $DIRNAME/stat_${GIS_OPT_VARIABLE}.txt 
-rm -f  $DIRNAME/stat_${GIS_OPT_VARIABLE}_ID*.txt 
-
-done 
+done
 
 echo "Aggregating the final table to reclassify the raster ID"
 
-echo "ID|non_null_cells|null_cells|min|max|range|mean|mean_of_abs|stddev|variance|coeff_var|sum|sum_abs" >  $GIS_OPT_FOLDER/blockfile/stat_${GIS_OPT_VARIABLE}.txt
-cat  $GIS_OPT_FOLDER/*digit4/*digit3/*digit2/*digit1/stat_${GIS_OPT_VARIABLE}.txt  >>  $GIS_OPT_FOLDER/blockfile/stat_${GIS_OPT_VARIABLE}.txt
-rm -f  $GIS_OPT_FOLDER/*digit4/*digit3/*digit2/*digit1/stat_${GIS_OPT_VARIABLE}.txt
+echo "ID|non_null_cells|null_cells|min|max|range|mean|mean_of_abs|stddev|variance|coeff_var|sum|sum_abs" >$GIS_OPT_FOLDER/blockfile/stat_${GIS_OPT_VARIABLE}.txt
+cat $GIS_OPT_FOLDER/*digit4/*digit3/*digit2/*digit1/stat_${GIS_OPT_VARIABLE}.txt >>$GIS_OPT_FOLDER/blockfile/stat_${GIS_OPT_VARIABLE}.txt
+rm -f $GIS_OPT_FOLDER/*digit4/*digit3/*digit2/*digit1/stat_${GIS_OPT_VARIABLE}.txt
 
-echo Reclass the grid_id for the following output  ${GIS_OPT_OUTPUT//","/" "}
+echo Reclass the grid_id for the following output ${GIS_OPT_OUTPUT//","/" "}
 
-echo ${GIS_OPT_OUTPUT//","/" "} |  xargs -n 1 -P $GIS_OPT_CPU bash -c $'
+echo ${GIS_OPT_OUTPUT//","/" "} | xargs -n 1 -P $GIS_OPT_CPU bash -c $'
 
 if [ $1 = "cells" ]     ; then col=2 ; fi
 if [ $1 = "min" ]       ; then col=4 ; fi
@@ -366,9 +367,9 @@ if [ $1 = "sum" ]       ; then col=12 ; fi
 
 awk -F "|" -v col=$col -v scale=$GIS_OPT_SCALE  \' { if (NR>1 ) {gsub("-nan","0",$col); gsub("inf","0",$col);  print $1" = "int($col * scale) }}\' $GIS_OPT_FOLDER/blockfile/stat_${GIS_OPT_VARIABLE}.txt  > $GIS_OPT_FOLDER/blockfile/stat_${GIS_OPT_VARIABLE}_$1.txt
 
-' _ 
+' _
 
-echo ${GIS_OPT_OUTPUT//","/" "} |  xargs -n 1 -P 1 bash -c $'
+echo ${GIS_OPT_OUTPUT//","/" "} | xargs -n 1 -P 1 bash -c $'
 
 if [ $1 = "cells" ]     ; then col=2 ; fi
 if [ $1 = "min" ]       ; then col=4 ; fi 
@@ -390,9 +391,9 @@ r.out.gdal -c  input=${GIS_OPT_VARIABLE}_${1}  nodata=-9999  output=$GIS_OPT_OUT
 if test -f "$GIS_OPT_FOLDER/blockfile/${GIS_OPT_VARIABLE}_${1}.tif"; then echo "$GIS_OPT_FOLDER/blockfile/${GIS_OPT_VARIABLE}_${1}.tif has been created!";fi
 #echo "$GIS_OPT_OUT_FOLDER/blockfile/${GIS_OPT_VARIABLE}_${1}.tif has been created!"
 
-' _ 
+' _
 
-exit 
+exit
 
 echo "The full stream variable calculation has been done!"
 echo "To list the stream-specific output variables: ls $GIS_OPT_OUT_FOLDER/*.tif"

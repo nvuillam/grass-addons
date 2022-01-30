@@ -17,35 +17,32 @@
 # log every 5 minutes
 interval=300
 
-outfile=~/"cpu_use.`hostname -s`.log"
+outfile=~/"cpu_use.$(hostname -s).log"
 
 #echo "Will consume about $((50 * 3600/$interval * 24 / 1024)) kb/day"
 
-echo "#year/day hr:min TZ cpu_1min_avg cpu_5min_avg cpu_15min_avg cpu_hog hog_cpu% free_mem_mb" >> "$outfile"
+echo "#year/day hr:min TZ cpu_1min_avg cpu_5min_avg cpu_15min_avg cpu_hog hog_cpu% free_mem_mb" >>"$outfile"
 
-while [ 1 -eq 1 ] ; do
-   unset TIMESTAMP CPU_USAGE CPU_HOG FREE_MEM
-   TIMESTAMP=`date -u '+%Y/%j %k:%M UTC'`
-   CPU_USAGE=`uptime | sed -e 's/^.*average://' -e 's/,//g' -e 's/^ //'`
-   CPU_HOG=`top -b -n 1 | sed -e '1,7d' | head -n 1 | awk '{print $12 " " $9}'`
-   FREE_MEM=`free -m | grep 'buffers/cache' | awk '{print $4}'`
-   sleep 1
-   echo "$TIMESTAMP $CPU_USAGE $CPU_HOG $FREE_MEM" >> "$outfile"
-   sleep `expr $interval - 1`
+while [ 1 -eq 1 ]; do
+	unset TIMESTAMP CPU_USAGE CPU_HOG FREE_MEM
+	TIMESTAMP=$(date -u '+%Y/%j %k:%M UTC')
+	CPU_USAGE=$(uptime | sed -e 's/^.*average://' -e 's/,//g' -e 's/^ //')
+	CPU_HOG=$(top -b -n 1 | sed -e '1,7d' | head -n 1 | awk '{print $12 " " $9}')
+	FREE_MEM=$(free -m | grep 'buffers/cache' | awk '{print $4}')
+	sleep 1
+	echo "$TIMESTAMP $CPU_USAGE $CPU_HOG $FREE_MEM" >>"$outfile"
+	sleep $(expr $interval - 1)
 done
-
-
 
 ## top load times
 #cat cpu_use.xblade14.log | sort -k4 -r | grep -v '^#' | head -n 20
 ## lowest RAM times
 #cat cpu_use.xblade14.log | sort -k9 | grep -v '^#' | head -n 20
 
-
 # #### plot using gnuplot
 # # 5==1min avg, 6==5min avg, 7==15min avg
 # data=7
-# 
+#
 # for server in xblade13 xblade14 ; do
 #   file=cpu_use.$server
 #   cat $file.log | sed -e 's/^#.*//' | cut -f2 -d/ | \
@@ -53,8 +50,8 @@ done
 #     '{ if(/./) {printf("%f %s\n", $1 + $2/24 + $3/(24*60), $4)} else {print} }' \
 #     > $file.prn
 # done
-# 
-# 
+#
+#
 # ( cat << EOF
 # set terminal svg size 800 480
 # set output "cpuload.svg"
@@ -65,14 +62,13 @@ done
 # #set label "httpd" at 147.332, 6.5
 # #set label "rsync" at 147.278, 3.9
 # set arrow from 146,1 to 160,1 nohead lt -1 lw 1.75
-# 
+#
 # plot "cpu_use.xblade14.prn" title 'xblade14' with lines lt 8, \
 #      "cpu_use.xblade13.prn" title 'xblade13' with lines lt 3
 # EOF
 # ) | gnuplot
-# 
+#
 # inkscape --file=cpuload.svg --export-png=cpuload.png -b white
-
 
 ########
 # Average load:
@@ -92,11 +88,11 @@ x14_load_gt1 = length(find ( xblade14(:,2) > 1)) / length(xblade14(:,2))
 # 0.5197   52 %  (load is >1.0: 10.1% of the time )
 #
 # Matlab plotting code:  (perhaps SciPy/NumPy/PyPlot?)
-# 
+#
 # clf
 # set(gcf, 'color', 'w')
 # colormap([.5 .5 .5])
-# 
+#
 # subplot(211)
 # hist(xblade13(:,2),512)
 # xlim([0 1])
@@ -107,7 +103,7 @@ x14_load_gt1 = length(find ( xblade14(:,2) > 1)) / length(xblade14(:,2))
 # posn(2) = posn(2) * 0.5;
 # set(hT, 'Position', posn)
 # hL = line([1 1], [0 5000], 'color', 'k', 'LineStyle', ':');
-# 
+#
 # subplot(212)
 # hist(xblade14(:,2),255)
 # xlim([0 4])
@@ -118,5 +114,4 @@ x14_load_gt1 = length(find ( xblade14(:,2) > 1)) / length(xblade14(:,2))
 # posn(2) = posn(2) * 0.5;
 # set(hT, 'Position', posn)
 # hL = line([1 1], [0 1500], 'color', 'k', 'LineStyle', ':');
-# 
-
+#

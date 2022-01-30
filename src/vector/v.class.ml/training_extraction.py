@@ -6,16 +6,16 @@ Created on Sat Nov  2 13:30:33 2013
 
 """
 from __future__ import absolute_import, division, print_function, unicode_literals
+
 from gettext import lgettext as _
+
 import numpy as np
-
-from grass.script.core import overwrite
-from grass.pygrass.vector import VectorTopo, Vector
-from grass.pygrass.vector.table import Link, Table
-from grass.pygrass.vector.geometry import Line, Area, intersects
-from grass.pygrass.vector.basic import Bbox, BoxList
 from grass.pygrass.messages import get_msgr
-
+from grass.pygrass.vector import Vector, VectorTopo
+from grass.pygrass.vector.basic import Bbox, BoxList
+from grass.pygrass.vector.geometry import Area, Line, intersects
+from grass.pygrass.vector.table import Link, Table
+from grass.script.core import overwrite
 
 COLS = [
     ("cat", "INTEGER PRIMARY KEY"),

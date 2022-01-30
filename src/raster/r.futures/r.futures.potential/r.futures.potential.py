@@ -90,12 +90,12 @@
 #% guisection: Dredge
 #%end
 
-import sys
 import atexit
 import subprocess
+import sys
+
 import grass.script as gscript
 import grass.script.utils as gutils
-
 
 rscript = """
 # load required libraries

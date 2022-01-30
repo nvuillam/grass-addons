@@ -24,84 +24,83 @@ MINOR=$2
 # generated Addon HTML manual pages are expected to be in the directory
 # /var/www/code_and_data/grass${major}${minor}/manuals/addons/
 
-if [ $# -ne 3 ] ; then
-  echo "ERROR: addon manpath required.
+if [ $# -ne 3 ]; then
+	echo "ERROR: addon manpath required.
 
 Usage:
 
 $0 GMAJOR GMINOR manpath"
-  exit 1
+	exit 1
 fi
 
-
-module_prefix () {
-    case "$1" in
+module_prefix() {
+	case "$1" in
 	"db")
-	    label="Database"
-	    anchor="db"
-	    ;;
+		label="Database"
+		anchor="db"
+		;;
 	"d")
-	    label="Display"
-            anchor="d"
-	    ;;
+		label="Display"
+		anchor="d"
+		;;
 	"g")
-	    label="General"
-            anchor="g"
-	    ;;
+		label="General"
+		anchor="g"
+		;;
 	"i")
-	    label="Imagery"
-            anchor="i"
-	    ;;
+		label="Imagery"
+		anchor="i"
+		;;
 	"m")
-	    label="Miscellaneous"
-            anchor="m"
-	    ;;
+		label="Miscellaneous"
+		anchor="m"
+		;;
 	"r")
-	    label="Raster"
-            anchor="r"
-	    ;;
+		label="Raster"
+		anchor="r"
+		;;
 	"r3")
-	    label="3D raster"
-            anchor="r3"
-	    ;;
+		label="3D raster"
+		anchor="r3"
+		;;
 	"v")
-	    label="Vector"
-            anchor="v"
-	    ;;
+		label="Vector"
+		anchor="v"
+		;;
 	"t")
-	    label="Temporal"
-            anchor="t"
-	    ;;
+		label="Temporal"
+		anchor="t"
+		;;
 	"ps")
-	    label="Postscript"
-            anchor="ps"
-	    ;;
+		label="Postscript"
+		anchor="ps"
+		;;
 	*)
-	    label="unknown"
-	    ;;
-    esac
-    echo "<a name=\"$anchor\"></a>"
-    echo "<h3>$label</h3>"
+		label="unknown"
+		;;
+	esac
+	echo "<a name=\"$anchor\"></a>"
+	echo "<h3>$label</h3>"
 }
 
-generate () {
-    # 7 8 manpath | 8 0 manpath
-    major=$1
-    minor=$2
-    manpath=$3
+generate() {
+	# 7 8 manpath | 8 0 manpath
+	major=$1
+	minor=$2
+	manpath=$3
 
-    # DEBUG
-    # mkdir -p /tmp/grass${major}${minor}/manuals/addons ; cd /tmp/grass${major}${minor}/manuals/addons
-    cd $manpath
+	# DEBUG
+	# mkdir -p /tmp/grass${major}${minor}/manuals/addons ; cd /tmp/grass${major}${minor}/manuals/addons
+	cd $manpath
 
-    if test -f index.html ; then
-	mv index.html index.html.bak
-    fi
+	if test -f index.html; then
+		mv index.html index.html.bak
+	fi
 
-    TMP=$$
-    LASTDATE=`date +"%d %b %Y"`
+	TMP=$$
+	LASTDATE=$(date +"%d %b %Y")
 
-    echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">
+	echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">
 <html>
 <head>
  <title>GRASS GIS ${major} Addons Manual pages</title>
@@ -155,32 +154,32 @@ See also log files of compilation:
 <li class=\"toc\"><a class=\"toc\" href=\"#t\">Temporal commands (t.*)</a></li>
 <li class=\"toc\"><a class=\"toc\" href=\"#v\">Vector commands (v.*)</a></li>
 </ul>
-</div>" > index.html
+</div>" >index.html
 
-    prefix_last=""
-    for currfile in `ls -1 *.html | grep -v index.html` ; do
-	# module prefix
-	prefix=`echo $currfile | cut -d'.' -f1`
-	if [ -z $prefix_last ] || [ $prefix != $prefix_last ] ; then
-	    if [ "$prefix_last" != "" ]; then
-		echo "</ul>" >> index.html
-	    fi
-	    module_prefix $prefix >> index.html
-	    echo "<ul>" >> index.html
-	    prefix_last=$prefix
-	fi
+	prefix_last=""
+	for currfile in $(ls -1 *.html | grep -v index.html); do
+		# module prefix
+		prefix=$(echo $currfile | cut -d'.' -f1)
+		if [ -z $prefix_last ] || [ $prefix != $prefix_last ]; then
+			if [ "$prefix_last" != "" ]; then
+				echo "</ul>" >>index.html
+			fi
+			module_prefix $prefix >>index.html
+			echo "<ul>" >>index.html
+			prefix_last=$prefix
+		fi
 
-	module=`echo $currfile | sed 's+\.html$++g'`
-	echo "<li style=\"margin-left: 20px\"><a href=\"$currfile\">$module</a>: " >> index.html
-        python3 $CRONJOBDIR/get_page_description.py $currfile >> index.html
-    done
+		module=$(echo $currfile | sed 's+\.html$++g')
+		echo "<li style=\"margin-left: 20px\"><a href=\"$currfile\">$module</a>: " >>index.html
+		python3 $CRONJOBDIR/get_page_description.py $currfile >>index.html
+	done
 
-    year=`date +%Y`
-    echo "</ul><hr>
-&copy; 2013-${year} <a href=\"https://grass.osgeo.org\">GRASS Development Team</a>, GRASS GIS ${major} Addons Reference Manual<br>" >> index.html
-    echo "<i><small>`date -u`</small></i>" >> index.html
-    echo "</body></html>" >> index.html
-    rm -f index.html.bak
+	year=$(date +%Y)
+	echo "</ul><hr>
+&copy; 2013-${year} <a href=\"https://grass.osgeo.org\">GRASS Development Team</a>, GRASS GIS ${major} Addons Reference Manual<br>" >>index.html
+	echo "<i><small>$(date -u)</small></i>" >>index.html
+	echo "</body></html>" >>index.html
+	rm -f index.html.bak
 }
 
 ## main
@@ -188,4 +187,3 @@ See also log files of compilation:
 generate $MAJOR $MINOR $3
 
 exit 0
-

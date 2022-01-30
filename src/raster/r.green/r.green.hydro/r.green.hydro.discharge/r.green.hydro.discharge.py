@@ -169,9 +169,9 @@ import os
 import sys
 
 from grass.pygrass.messages import get_msgr
-from grass.script import core as gcore
 
 # import grass libraries
+from grass.script import core as gcore
 from grass.script import mapcalc
 from grass.script.utils import set_path
 

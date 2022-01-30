@@ -496,14 +496,14 @@ import os
 import sys
 
 import numpy as np
-
 from grass.exceptions import ParameterError
 from grass.pygrass.gis.region import Region
 from grass.pygrass.messages import get_msgr
 from grass.pygrass.modules.shortcuts import raster as r
 from grass.pygrass.modules.shortcuts import vector as v
+from grass.pygrass.vector import VectorTopo
 from grass.pygrass.vector import geometry as geo
-from grass.pygrass.vector import VectorTopo, sql
+from grass.pygrass.vector import sql
 from grass.pygrass.vector.basic import Cats
 from grass.script.core import overwrite, parser, run_command, warning
 from grass.script.utils import set_path

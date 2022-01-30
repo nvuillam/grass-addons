@@ -67,13 +67,14 @@
 #% description: compute null value as zero
 #%end
 
-import sys
 import copy
-import numpy as np
-from time import time, ctime
+import sys
+from functools import reduce
+from time import ctime, time
+
 import grass.script as grass
 import grass.script.array as garray
-from functools import reduce
+import numpy as np
 
 
 def BuildFileISF(attributes, preferences, decision, outputMap, outputTxt):

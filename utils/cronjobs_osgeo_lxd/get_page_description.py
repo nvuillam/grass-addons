@@ -6,8 +6,8 @@
 #          Vaclav Petras (Python version)
 
 import os
-import sys
 import re
+import sys
 
 
 def get_desc_from_manual_page_line(text):

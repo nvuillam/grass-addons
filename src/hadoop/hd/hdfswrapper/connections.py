@@ -1,21 +1,19 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 from future.standard_library import install_aliases
 
 install_aliases()
-from builtins import bytes
 import json
 import logging
-from urlparse import urlparse
-from sqlalchemy import Column, Integer, String, Boolean
+from builtins import bytes
+
+from hdfswrapper import settings
+from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
 
 # from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy.orm import synonym
-from hdfswrapper import settings
+from urlparse import urlparse
 
 Base = declarative_base()
 ID_LEN = 250
@@ -151,7 +149,7 @@ class Connection(Base):
         return synonym("_extra", descriptor=property(cls.get_extra, cls.set_extra))
 
     def get_hook(self):
-        from hdfswrapper import hive_hook, webhdfs_hook, hdfs_hook
+        from hdfswrapper import hdfs_hook, hive_hook, webhdfs_hook
 
         if self.conn_type == "hive_cli":
             return hive_hook.HiveCliHook(hive_cli_conn_id=self.conn_id)

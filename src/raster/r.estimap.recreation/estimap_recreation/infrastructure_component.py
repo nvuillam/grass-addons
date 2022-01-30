@@ -1,5 +1,5 @@
-from .distance import compute_artificial_proximity
 from .accessibility import compute_artificial_accessibility
+from .distance import compute_artificial_proximity
 
 
 def build_infrastructure_component(

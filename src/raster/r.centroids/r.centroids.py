@@ -34,8 +34,9 @@
 #%option G_OPT_V_OUTPUT
 #%end
 
-import grass.script as gs
 import sys
+
+import grass.script as gs
 
 
 def main():

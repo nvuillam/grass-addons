@@ -12,24 +12,24 @@ echo "With base raster resolution matching current region"
 
 g.region align=${basename}base
 r.in.pdal input=data/points.las output=${basename}with_region \
-    method=min
+	method=min
 echo "Almost all in the following r.univar output should be zero"
 r.univar ${basename}with_region
 echo "Automatic test if there are only allowed values..."
-r.univar ${basename}with_region -g \
-    | grep -ve "=0$" | grep -ve "=-nan$" | grep -e "=[^2-9][^12345789]$"
+r.univar ${basename}with_region -g |
+	grep -ve "=0$" | grep -ve "=-nan$" | grep -e "=[^2-9][^12345789]$"
 
 echo "With base raster resolution different from current region"
 
 g.region res=5
 g.region align=${basename}base
 r.in.pdal input=data/points.las output=${basename}with_base \
-    method=min
+	method=min
 echo "Almost all in the following r.univar output should be zero"
 r.univar ${basename}with_base
 echo "Automatic test if there are only allowed values..."
-r.univar ${basename}with_base -g \
-    | grep -ve "=0$" | grep -ve "=-nan$" | grep -e "=[^12356789]$"
+r.univar ${basename}with_base -g |
+	grep -ve "=0$" | grep -ve "=-nan$" | grep -e "=[^12356789]$"
 
 echo "Test successful
 When running manually maps can be now removed with:

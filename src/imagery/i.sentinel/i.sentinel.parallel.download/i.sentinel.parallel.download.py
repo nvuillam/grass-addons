@@ -122,12 +122,13 @@
 #% requires_all: -e,-s,scene_name
 #%end
 
-import sys
-import os
 import multiprocessing as mp
+import os
+import sys
+from datetime import datetime, timedelta
+
 import grass.script as grass
 from grass.pygrass.modules import Module, ParallelModuleQueue
-from datetime import datetime, timedelta
 
 
 def scenename_split(scenename, datasource, esa_name_for_usgs=False):

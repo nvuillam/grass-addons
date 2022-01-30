@@ -5,10 +5,10 @@ Sample Python script to access vector data using GRASS Ctypes
 interface
 """
 
-import sys
-import os
-
 import math
+import os
+import sys
+
 import grass.script as grass
 from grass.pygrass.vector import VectorTopo
 from grass.pygrass.vector.geometry import Point

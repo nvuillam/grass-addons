@@ -7,7 +7,6 @@
 import sys
 from collections import namedtuple
 
-
 # globals
 MTLFILE = ""
 DUMMY_MAPCALC_STRING_RADIANCE = "Radiance"

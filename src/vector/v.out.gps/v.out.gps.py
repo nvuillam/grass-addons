@@ -79,10 +79,10 @@
 #% guisection: Subset
 #%end
 
-import sys
-import os
 import atexit
+import os
 import re
+import sys
 
 import grass.script as grass
 from grass.exceptions import CalledModuleError

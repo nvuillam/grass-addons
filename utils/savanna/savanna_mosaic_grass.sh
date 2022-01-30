@@ -28,41 +28,39 @@
 outputs=($outputs)
 
 $gregion
-if [ $? -ne 0 ] ; then
-        echo 'Error in g.region pass 1...'
-        exit 1              #Abandon the loop.
+if [ $? -ne 0 ]; then
+	echo 'Error in g.region pass 1...'
+	exit 1 #Abandon the loop.
 fi
 
 outputs_N=${#outputs[*]}
 # We use the first tile to define what the outputs are.
 tile_unique_id=$(printf "%0"$numdigits"d\n" 1)
 unset MAPS
-for output_loop in $(seq 1 $outputs_N)
-do
-echo $output_loop
-echo "base_MAPS=(g.mlist type=rast sep=space mapset=${prefix}_$tile_unique_id pat=${outputs[($output_loop-1)]})"
-base_MAPS=(`g.mlist type=rast sep=space mapset=${prefix}_$tile_unique_id pat=${outputs[($output_loop-1)]}`)
-base_MAPS_N=${#base_MAPS[*]}
-echo $base_MAPS
-for maps_loop in $(seq 1 $base_MAPS_N)
-do
-echo $maps_loop
-echo "MAPS=(`g.mlist type=rast sep=, pat=${base_MAPS[($maps_loop-1)]}_tile_*`)"
-MAPS=(`g.mlist type=rast sep=, pat=${base_MAPS[($maps_loop-1)]}_tile_*`)
-echo $MAPS
-g.region rast=${MAPS[*]}
-if [ $? -ne 0 ] ; then
-        echo 'Error in g.region pass 5 for beam...'
-        exit 1              #Abandon the loop.
-fi
-r.patch in=$MAPS out=${base_MAPS[($maps_loop-1)]}
-#if [ $? -ne 0 ] ; then
-#        echo 'Error in r.patch...'
-#        exit 1              #Abandon the loop.
-#fi
-unset MAPS
-done
-unset base_MAPS
+for output_loop in $(seq 1 $outputs_N); do
+	echo $output_loop
+	echo "base_MAPS=(g.mlist type=rast sep=space mapset=${prefix}_$tile_unique_id pat=${outputs[($output_loop - 1)]})"
+	base_MAPS=($(g.mlist type=rast sep=space mapset=${prefix}_$tile_unique_id pat=${outputs[($output_loop - 1)]}))
+	base_MAPS_N=${#base_MAPS[*]}
+	echo $base_MAPS
+	for maps_loop in $(seq 1 $base_MAPS_N); do
+		echo $maps_loop
+		echo "MAPS=($(g.mlist type=rast sep=, pat=${base_MAPS[($maps_loop - 1)]}_tile_*))"
+		MAPS=($(g.mlist type=rast sep=, pat=${base_MAPS[($maps_loop - 1)]}_tile_*))
+		echo $MAPS
+		g.region rast=${MAPS[*]}
+		if [ $? -ne 0 ]; then
+			echo 'Error in g.region pass 5 for beam...'
+			exit 1 #Abandon the loop.
+		fi
+		r.patch in=$MAPS out=${base_MAPS[($maps_loop - 1)]}
+		#if [ $? -ne 0 ] ; then
+		#        echo 'Error in r.patch...'
+		#        exit 1              #Abandon the loop.
+		#fi
+		unset MAPS
+	done
+	unset base_MAPS
 done
 
 # Now clean up the files

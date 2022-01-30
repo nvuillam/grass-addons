@@ -1,24 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8
-import os
-import sys
 import argparse
-import string
-import random
-import math
-import timeit
-import time
 import atexit
-import shutil
 import csv
 import glob
+import math
+import os
+import random
 import re
+import shutil
+import string
+import sys
+import time
+import timeit
 from collections import defaultdict
 from datetime import datetime, timedelta
-from math import sin, cos, atan2, degrees, radians, tan, sqrt, fabs
+from math import atan2, cos, degrees, fabs, radians, sin, sqrt, tan
 
-from grass.script import core as grass
 from grass.exceptions import CalledModuleError
+from grass.script import core as grass
 
 ##########################################################
 ################## guisection: required ##################

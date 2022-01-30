@@ -81,12 +81,12 @@
 ## if we override Required (which is not possible now)
 
 
-import sys
 import atexit
+import sys
 
-from grass.script.utils import parse_key_val
-from grass.script import core as gcore
 from grass.exceptions import CalledModuleError
+from grass.script import core as gcore
+from grass.script.utils import parse_key_val
 
 
 def main():

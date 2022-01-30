@@ -34,10 +34,11 @@
 #% options: 0-10
 #%end
 
-import sys
-import os
 import atexit
 import math
+import os
+import sys
+
 import grass.script as grass
 
 

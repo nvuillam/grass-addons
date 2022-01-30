@@ -1,8 +1,8 @@
 import io
 import sys
-import urllib.request
-import urllib.parse
 import urllib.error
+import urllib.parse
+import urllib.request
 
 from . import globalvar
 
@@ -25,16 +25,16 @@ class MySheet:
         try:
             global ParagraphStyle, TA_CENTER, _baseFontName, _baseFontNameB, _baseFontNameBI, _baseFontNameI, colors, inch
 
+            from reportlab.lib import colors
+            from reportlab.lib.enums import TA_CENTER
             from reportlab.lib.styles import (
                 ParagraphStyle,
                 _baseFontNameB,
-                _baseFontNameI,
                 _baseFontNameBI,
+                _baseFontNameI,
             )
             from reportlab.lib.units import inch
-            from reportlab.lib import colors
             from reportlab.rl_config import canvas_basefontname as _baseFontName
-            from reportlab.lib.enums import TA_CENTER
         except ModuleNotFoundError as e:
             msg = e.msg
             sys.exit(
@@ -353,10 +353,10 @@ class Pdf(object):
         try:
             global Image, KeepTogether, LongTable, Paragraph, SimpleDocTemplate, Spacer, Table
 
+            from reportlab.platypus import KeepTogether, Paragraph, Spacer
             from reportlab.platypus.doctemplate import SimpleDocTemplate
             from reportlab.platypus.flowables import Image
-            from reportlab.platypus import Paragraph, Spacer, KeepTogether
-            from reportlab.platypus.tables import Table, LongTable
+            from reportlab.platypus.tables import LongTable, Table
         except ModuleNotFoundError as e:
             msg = e.msg
             sys.exit(

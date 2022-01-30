@@ -93,15 +93,14 @@
 #%end
 
 
-import sys
-import os
 import atexit
+import os
+import sys
 
-from grass.exceptions import CalledModuleError
 import grass.script.core as gcore
 import grass.script.raster as grast
+from grass.exceptions import CalledModuleError
 from grass.pygrass.messages import get_msgr
-
 
 # TODO: also used for r.slope.aspect result
 TMP_NAME = "tmp_horizon_" + str(os.getpid())

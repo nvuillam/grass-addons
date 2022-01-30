@@ -2,13 +2,12 @@
 import os
 
 import numpy as np
-
 from grass.pygrass.gis.region import Region
 from grass.pygrass.raster import RasterRow
 from grass.pygrass.raster.buffer import Buffer
-from grass.script import core as gcore
 
 # import grass libraries
+from grass.script import core as gcore
 from grass.script import mapcalc
 
 # import pdb

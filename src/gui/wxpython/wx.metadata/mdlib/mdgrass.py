@@ -28,8 +28,8 @@ from grass.script import core as grass
 from grass.script import parse_key_val
 from grass.script.setup import set_gui_path
 
-from . import globalvar
 from . import mdutil  # metadata lib
+from . import globalvar
 
 
 class GrassMD:
@@ -45,6 +45,8 @@ class GrassMD:
         try:
             global CI_Date, CI_OnlineResource, CI_ResponsibleParty, DQ_DataQuality, Environment, etree, EX_Extent, EX_GeographicBoundingBox, FileSystemLoader, MD_Distribution, MD_ReferenceSystem, RunCommand
 
+            from jinja2 import Environment, FileSystemLoader
+            from lxml import etree
             from owslib.iso import (
                 CI_Date,
                 CI_OnlineResource,
@@ -55,8 +57,6 @@ class GrassMD:
                 MD_Distribution,
                 MD_ReferenceSystem,
             )
-            from jinja2 import Environment, FileSystemLoader
-            from lxml import etree
 
             set_gui_path()
             from core.gcmd import RunCommand

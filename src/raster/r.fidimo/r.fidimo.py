@@ -187,20 +187,21 @@
 #%end
 
 
+import atexit
+import csv
+import math  # for function sqrt()
+import os
+import random
+import sqlite3
+
 # import required base modules
 import sys
-import os
-import atexit
 import time
-import sqlite3
-import math  # for function sqrt()
-import csv
-import random
 
 # import required grass modules
 import grass.script as grass
-import grass.script.setup as gsetup
 import grass.script.array as garray
+import grass.script.setup as gsetup
 
 # lazy imports: numpy and scipy
 
@@ -231,8 +232,7 @@ def main():
 
     # lazy import required numpy and scipy modules
     import numpy
-    from scipy import stats
-    from scipy import optimize
+    from scipy import optimize, stats
 
     ############ DEFINITION CLEANUP TEMPORARY FILES ##############
     # global variables for cleanup

@@ -77,9 +77,9 @@
 #% answer : 10
 #%end
 
-import sys
-import os
 import atexit
+import os
+import sys
 
 # GRASS binding
 try:

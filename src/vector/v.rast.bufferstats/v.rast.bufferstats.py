@@ -136,23 +136,23 @@ To Dos:
 #% required: no
 #%end
 
-import sys
-import os
 import atexit
 import math
+import os
+import sys
+from itertools import chain
 from subprocess import PIPE
+
 import grass.script as grass
-from grass.pygrass.vector import VectorTopo
-from grass.pygrass.raster.abstract import RasterAbstractBase
-from grass.pygrass.raster import RasterRow
 from grass.pygrass.gis import Mapset
-from grass.pygrass.vector.geometry import Boundary
-from grass.pygrass.vector.geometry import Centroid
 from grass.pygrass.gis.region import Region
 
 # from grass.pygrass.vector.table import *
 from grass.pygrass.modules.interface.module import Module
-from itertools import chain
+from grass.pygrass.raster import RasterRow
+from grass.pygrass.raster.abstract import RasterAbstractBase
+from grass.pygrass.vector import VectorTopo
+from grass.pygrass.vector.geometry import Boundary, Centroid
 
 # PY2/PY3 compat
 if sys.version_info.major >= 3:
@@ -243,8 +243,8 @@ def random_name(length):
     'MxMa1kAS13s9'
     """
 
-    import string
     import random
+    import string
 
     chars = string.ascii_uppercase + string.ascii_lowercase + string.digits
     randomname = "1"

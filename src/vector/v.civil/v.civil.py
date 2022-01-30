@@ -534,10 +534,9 @@ if path is None:
     grass.fatal("Not able to find the civil library directory.")
 sys.path.append(path)
 
-import road_road as Road
 import road_crosstools as Tools2
+import road_road as Road
 import road_topotools as Topotools
-
 
 # =============================================
 # Main

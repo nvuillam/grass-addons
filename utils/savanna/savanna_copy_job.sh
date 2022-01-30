@@ -22,10 +22,10 @@
 export GRASS_BATCH_JOB=$savanna_path/$savanna_copy_grass_file
 #while true; do
 grass64 -c -text $grassdata_directory/$base_location/$init_mapset
-  if [ $? -eq 0 ] ; then
-        exit 1              #Abandon the loop.
-  else
-#sleep 30
-#done
+if [ $? -eq 0 ]; then
+	exit 1 #Abandon the loop.
+else
+	#sleep 30
+	#done
 	exit 0
- fi
+fi

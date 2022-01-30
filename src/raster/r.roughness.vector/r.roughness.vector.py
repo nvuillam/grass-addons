@@ -120,9 +120,11 @@
 #%end
 #
 
-import sys
 import atexit
+import sys
+
 import grass.script as grass
+
 
 # cleaning up temp files
 def cleanup():

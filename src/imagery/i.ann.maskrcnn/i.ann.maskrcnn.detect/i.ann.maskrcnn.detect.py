@@ -79,15 +79,14 @@
 
 
 import os
-from shutil import copyfile
 import sys
 from io import BytesIO
-
-import numpy as np
+from shutil import copyfile
 
 import grass.script as gscript
-from grass.script.utils import get_lib_path
 import grass.script.array as garray
+import numpy as np
+from grass.script.utils import get_lib_path
 
 path = get_lib_path(modname="maskrcnn", libname="model")
 if path is None:
@@ -614,8 +613,8 @@ if __name__ == "__main__":
     # Lazy imports
 
     try:
-        from skimage.measure import find_contours
         import skimage.io
+        from skimage.measure import find_contours
     except ImportError:
         grass.fatal(
             "Cannot import skimage." " Please install the Python scikit-image package."

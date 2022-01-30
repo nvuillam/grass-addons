@@ -107,7 +107,6 @@ from datetime import datetime, timedelta
 
 import grass.script as grass
 
-
 # initialize global vars
 rm_regions = []
 rm_vectors = []

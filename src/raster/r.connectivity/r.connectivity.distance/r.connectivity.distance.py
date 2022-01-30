@@ -219,19 +219,18 @@ Todo:
 
 import atexit
 import os
-import sys
-import string
 import random
+import string
 import subprocess
+import sys
 from io import BytesIO
-import numpy as np
+
 import grass.script as grass
+import numpy as np
+from grass.pygrass.raster.history import History
 from grass.pygrass.vector import VectorTopo
 from grass.pygrass.vector.basic import Bbox
-from grass.pygrass.raster.history import History
-from grass.pygrass.vector.geometry import Centroid
-from grass.pygrass.vector.geometry import Point
-from grass.pygrass.vector.geometry import Line
+from grass.pygrass.vector.geometry import Centroid, Line, Point
 
 # check if GRASS is running or not
 if "GISBASE" not in os.environ:

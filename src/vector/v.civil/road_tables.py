@@ -7,13 +7,13 @@ Created on Thu Oct  2 18:24:22 2014
 
 # from grass.pygrass.vector.table import Link
 import time
-import grass.script as grass
+
 import grass.lib.vector as libvect
+import grass.script as grass
 from grass.pygrass.errors import GrassError
+from grass.pygrass.vector import VectorTopo, sql
 from grass.pygrass.vector.geometry import Point
-from grass.pygrass.vector import sql
 from grass.pygrass.vector.table import Link
-from grass.pygrass.vector import VectorTopo
 
 # from grass.pygrass.vector.geometry import Line
 

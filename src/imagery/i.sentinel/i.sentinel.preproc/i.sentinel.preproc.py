@@ -162,16 +162,17 @@
 #% exclusive: -o,-r
 #%end
 
-import grass.script as gscript
+import atexit
+import glob
+import math
+import os
+import re
+import shutil
+import sys
 import xml.etree.ElementTree as et
 from datetime import datetime
-import os
-import math
-import sys
-import shutil
-import re
-import glob
-import atexit
+
+import grass.script as gscript
 
 
 def main():

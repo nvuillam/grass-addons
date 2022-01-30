@@ -587,12 +587,13 @@ def main():
     global svm, preprocessing, train_test_split, RandomizedSearchCV
     global StratifiedKFold, rbf_kernel
     try:
-        from sklearn import svm
-        from sklearn import preprocessing
-        from sklearn.model_selection import train_test_split
-        from sklearn.model_selection import RandomizedSearchCV
-        from sklearn.model_selection import StratifiedKFold
+        from sklearn import preprocessing, svm
         from sklearn.metrics.pairwise import rbf_kernel
+        from sklearn.model_selection import (
+            RandomizedSearchCV,
+            StratifiedKFold,
+            train_test_split,
+        )
     except ImportError:
         gcore.fatal(
             "This module requires the scikit-learn python package. Please install it."
@@ -600,8 +601,8 @@ def main():
 
     global scipy, np
     try:
-        import scipy
         import numpy as np
+        import scipy
     except ModuleNotFoundError as e:
         msg = e.msg
         gcore.fatal(

@@ -58,9 +58,10 @@
 # import libraries
 import os
 import sys
-import numpy as np
 import tempfile
+
 import grass.script as grass
+import numpy as np
 
 # for Python 3 compatibility
 try:

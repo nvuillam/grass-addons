@@ -1,8 +1,7 @@
-from grass.pygrass.modules.shortcuts import general as g
-from dummy_mapcalc_strings import replace_dummies
-from constants import DUMMY_MAPCALC_STRING_FROM_GLC
-from constants import EQUATION
 import grass.script as grass
+from constants import DUMMY_MAPCALC_STRING_FROM_GLC, EQUATION
+from dummy_mapcalc_strings import replace_dummies
+from grass.pygrass.modules.shortcuts import general as g
 from helpers import run
 
 

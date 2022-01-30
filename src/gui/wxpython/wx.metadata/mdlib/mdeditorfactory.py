@@ -27,8 +27,9 @@ import sys
 import tempfile
 from subprocess import PIPE
 
+import wx
+import wx.lib.scrolledpanel as scrolled
 from grass.pygrass.modules import Module
-
 from gui_core.widgets import (
     EmailValidator,
     IntegerValidator,
@@ -37,11 +38,7 @@ from gui_core.widgets import (
     TimeISOValidator,
 )
 
-import wx
-import wx.lib.scrolledpanel as scrolled
-
-from . import globalvar
-from . import mdutil
+from . import globalvar, mdutil
 from .mdjinjaparser import JinjaTemplateParser
 
 # =========================================================================
@@ -59,10 +56,9 @@ class MdFileWork:
         try:
             global Environment, FileSystemLoader, etree, GError, GMessage
 
+            from core.gcmd import GError, GMessage
             from jinja2 import Environment, FileSystemLoader
             from lxml import etree
-
-            from core.gcmd import GError, GMessage
         except ModuleNotFoundError as e:
             msg = e.msg
             sys.exit(
@@ -1180,6 +1176,7 @@ class MdMainEditor(wx.Panel):
         try:
             global CI_Date, CI_OnlineResource, CI_ResponsibleParty, DQ_DataQuality, EX_Extent, EX_GeographicBoundingBox, GError, MD_Distribution, MD_ReferenceSystem
 
+            from core.gcmd import GError
             from owslib.iso import (
                 CI_Date,
                 CI_OnlineResource,
@@ -1190,8 +1187,6 @@ class MdMainEditor(wx.Panel):
                 MD_Distribution,
                 MD_ReferenceSystem,
             )
-
-            from core.gcmd import GError
         except ModuleNotFoundError as e:
             msg = e.msg
             sys.exit(

@@ -52,8 +52,8 @@ import os
 import sys
 
 import grass.script as grass
-from grass.pygrass.modules import Module
 from grass.exceptions import CalledModuleError
+from grass.pygrass.modules import Module
 
 
 def coeff(name, rl):

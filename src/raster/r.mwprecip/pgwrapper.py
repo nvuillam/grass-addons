@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8
 
-import sys
-import os
 import argparse
+import os
+import sys
+
 import psycopg2 as ppg
 import psycopg2.extensions
 

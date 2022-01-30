@@ -87,6 +87,7 @@
 #%end
 
 import math
+
 import grass.script as gscript
 from grass.pygrass.modules.grid.grid import *
 

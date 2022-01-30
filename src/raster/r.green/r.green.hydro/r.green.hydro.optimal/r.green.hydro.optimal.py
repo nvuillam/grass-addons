@@ -110,20 +110,14 @@ try:
     # set python path to the shared r.green libraries
     set_path("r.green", "libhydro", "..")
     set_path("r.green", "libgreen", os.path.join("..", ".."))
-    from libgreen.utils import cleanup
-    from libgreen.utils import dissolve_lines
-    from libhydro.optimal import find_segments
-    from libhydro.optimal import write_plants
-    from libhydro.optimal import write_points
+    from libgreen.utils import cleanup, dissolve_lines
+    from libhydro.optimal import find_segments, write_plants, write_points
 except ImportError:
     try:
         set_path("r.green", "libhydro", os.path.join("..", "etc", "r.green"))
         set_path("r.green", "libgreen", os.path.join("..", "etc", "r.green"))
-        from libgreen.utils import cleanup
-        from libgreen.utils import dissolve_lines
-        from libhydro.optimal import find_segments
-        from libhydro.optimal import write_plants
-        from libhydro.optimal import write_points
+        from libgreen.utils import cleanup, dissolve_lines
+        from libhydro.optimal import find_segments, write_plants, write_points
     except ImportError:
         gcore.warning("libgreen and libhydro not in the python path!")
 

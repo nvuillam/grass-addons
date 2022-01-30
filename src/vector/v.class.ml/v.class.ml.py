@@ -361,26 +361,25 @@
 #%end
 # -----------------------------------------------------
 from __future__ import absolute_import, division, print_function, unicode_literals
-from importlib.machinery import SourceFileLoader
-import sys
+
 import os
-from pprint import pprint
+import sys
 from fnmatch import fnmatch
+from importlib.machinery import SourceFileLoader
+from pprint import pprint
 
 import numpy as np
-
-from grass.pygrass.utils import set_path
 from grass.pygrass.messages import get_msgr
-from grass.pygrass.vector import Vector
 from grass.pygrass.modules import Module
-from grass.script.core import parser, overwrite
+from grass.pygrass.utils import set_path
+from grass.pygrass.vector import Vector
+from grass.script.core import overwrite, parser
 
 set_path("v.class.ml")
 
-from training_extraction import extract_training
-from sqlite2npy import save2npy
 from npy2table import export_results
-
+from sqlite2npy import save2npy
+from training_extraction import extract_training
 
 DECMP = {}
 
@@ -389,10 +388,10 @@ def load_decompositions():
     """Import decompositions and update dictionary which stores them"""
     from sklearn.decomposition import (
         PCA,
+        FastICA,
         KernelPCA,
         ProbabilisticPCA,
         RandomizedPCA,
-        FastICA,
         TruncatedSVD,
     )
     from sklearn.lda import LDA
@@ -505,15 +504,15 @@ def extract_classes(vect, layer):
 
 def main(opt, flg):
     # import functions which depend on sklearn only after parser run
+    from features import importances, tocsv
     from ml_functions import (
         balance,
-        explorer_clsfiers,
-        run_classifier,
-        optimize_training,
         explore_SVC,
+        explorer_clsfiers,
+        optimize_training,
         plot_grid,
+        run_classifier,
     )
-    from features import importances, tocsv
 
     msgr = get_msgr()
     indexes = None

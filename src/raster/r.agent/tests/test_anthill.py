@@ -1,8 +1,7 @@
 import unittest2 as unittest
+from libagent import anthill, playground
 
 # import unittest
-
-from libagent import playground, anthill
 
 
 class TestAnthill(unittest.TestCase):

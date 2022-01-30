@@ -36,14 +36,13 @@
 #%end
 
 
-import sys
-import os
 import atexit
+import os
+import sys
 
-from grass.exceptions import CalledModuleError
 import grass.script.core as gcore
 import grass.script.raster as grast
-
+from grass.exceptions import CalledModuleError
 
 TMP = []
 CLEANUP = True

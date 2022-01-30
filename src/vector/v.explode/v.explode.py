@@ -49,8 +49,8 @@
 #%End
 ############################################################################
 
-import os
 import atexit
+import os
 
 try:
     import grass.script as grass

@@ -169,15 +169,15 @@
 
 import fnmatch
 import hashlib
+import logging
 import os
-import xml.etree.ElementTree as ET
 import shutil
 import sys
-import logging
 import time
+import xml.etree.ElementTree as ET
 from collections import OrderedDict
-from glob import glob
 from datetime import datetime
+from glob import glob
 
 import grass.script as gs
 
@@ -774,9 +774,10 @@ class SentinelDownloader(object):
         create_dir(output)
         gs.message(_("Downloading data into <{}>...").format(output))
         if datasource == "USGS_EE":
+            from zipfile import ZipFile
+
             from landsatxplore.earthexplorer import EarthExplorer
             from landsatxplore.errors import EarthExplorerError
-            from zipfile import ZipFile
 
             ee_login = False
             while ee_login is False:

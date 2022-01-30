@@ -2,28 +2,25 @@
 @author Nikos Alexandris
 """
 
+from .components import append_map_to_component
 from .constants import (
     EUCLIDEAN,
     NEIGHBORHOOD_METHOD,
     NEIGHBORHOOD_SIZE,
-    WATER_PROXIMITY_CONSTANT,
     WATER_PROXIMITY_ALPHA,
+    WATER_PROXIMITY_CONSTANT,
     WATER_PROXIMITY_KAPPA,
     WATER_PROXIMITY_SCORE,
 )
-from .names import WATER_COMPONENT_NAME
+from .distance import compute_attractiveness, neighborhood_function
+from .grassy_utilities import grass
 from .messages import (
-    FATAL_MESSAGE_MISSING_COASTLINE,
     FATAL_MESSAGE_MISSING_COAST_PROXIMITY,
+    FATAL_MESSAGE_MISSING_COASTLINE,
     WATER_COMPONENT_INCLUDES,
 )
+from .names import WATER_COMPONENT_NAME
 from .utilities import get_coefficients
-from .grassy_utilities import grass
-from .distance import (
-    compute_attractiveness,
-    neighborhood_function,
-)
-from .components import append_map_to_component
 
 
 def build_water_component(

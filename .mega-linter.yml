@@ -1,0 +1,37 @@
+# Configuration file for MegaLinter
+# See all available variables at https://megalinter.github.io/configuration/ and in linters documentation
+
+DEFAULT_BRANCH: grass8 # Temporary override of default branch
+APPLY_FIXES: all # all, none, or list of linter keys
+
+# Linters activation / deactivation
+DISABLE:
+  - C # Remove this lint to enable if you decide to follow Google Style Guide
+  - CPP # Remove this line to enable if you decide to follow Google Style Guide
+  - COPYPASTE # There are too many copy pastes, disable if you decide to correct them, or configure .jscpd.json to ignore folders/files
+  - LATEX # (1 file with 19 errors) Disabled to allow to use MegaLinter python flavor
+  - PERL # (1 file 2 errors) Disabled to allow to use MegaLinter python flavor
+  - R # (1 file without error) Disabled to allow to use MegaLinter python flavor
+  - XML # Seems that there are lot of XML issues, solve them before if you want to enable XML linter
+DISABLE_LINTERS:
+  - SPELL_CSPELL # You should activate it from time to time to fix spelling mistakes, but not always as it takes 5mn to run
+  - SPELL_MISSPELL # Would probably mess with code by renaming stuff
+
+# Generic run config
+SHOW_ELAPSED_TIME: true
+GITHUB_STATUS_REPORTER: false
+FILEIO_REPORTER: false
+PYTHON_PYLINT_ARGUMENTS: -j 0 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the number of processors available to use.
+
+# Conditions to set results as warning
+COPYPASTE_JSCPD_DISABLE_ERRORS_IF_LESS_THAN: 1561 # Avoid adding new technical debt. Reduce this when the number of detections will lower.
+ACTION_ACTIONLINT_DISABLE_ERRORS: true
+BASH_SHELLCHECK_DISABLE_ERRORS_IF_LESS_THAN: 945
+GIT_GIT_DIFF_DISABLE_ERRORS: true
+HTML_HTMLHINT_DISABLE_ERRORS: true
+PERL_PERLCRITIC_DISABLE_ERRORS: true
+LATEX_CHKTEX_DISABLE_ERRORS_IF_LESS_THAN: 20
+MARKDOWN_MARKDOWN_LINK_CHECK_DISABLE_ERRORS_IF_LESS_THAN: 6
+PYTHON_PYLINT_DISABLE_ERRORS_IF_LESS_THAN: 3391
+PYTHON_MYPY_DISABLE_ERRORS_IF_LESS_THAN: 2
+PYTHON_BANDIT_DISABLE_ERRORS_IF_LESS_THAN: 486

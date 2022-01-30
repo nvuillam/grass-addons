@@ -60,8 +60,9 @@ COPYRIGHT: (C) 2015 by the GRASS Development Team
 #% guisection: listing
 #%end
 
-import sys
 import os
+import sys
+
 import grass.script as grass
 
 

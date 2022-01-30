@@ -1,9 +1,8 @@
 import logging
 import os
 
-from hdfs import InsecureClient, HdfsError
-
 from base_hook import BaseHook
+from hdfs import HdfsError, InsecureClient
 
 _kerberos_security_mode = None  # TODO make confugration file for this
 if _kerberos_security_mode:

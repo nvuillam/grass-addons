@@ -196,11 +196,12 @@
 #%description: Use math notation brackets in legend
 #%end
 
-import sys
-import os
-import string
-import shutil
 import atexit
+import os
+import shutil
+import string
+import sys
+
 import grass.script as grass
 
 # for Python 3 compatibility

@@ -7,24 +7,23 @@ interface
 
 # import os, sys
 
-import grass.lib.gis as GrassGis
-import grass.lib.vector as GrassVect
-import time
+import math
 import os
 import sys
-import math
+import time
+
+import grass.lib.gis as GrassGis
+import grass.lib.vector as GrassVect
 import grass.script as grass
+import road_base as Base
+from grass.pygrass.vector import VectorTopo
+from grass.pygrass.vector.geometry import Line, Point
 
 # from grass.pygrass.gis.region import Region
 
-from grass.pygrass.vector import VectorTopo
-from grass.pygrass.vector.geometry import Point
-from grass.pygrass.vector.geometry import Line
 
 # from grass.pygrass.vector.geometry import Boundary
 # from grass.pygrass.vector.geometry import GEOOBJ as _GEOOBJ
-
-import road_base as Base
 
 
 def time_func(funcion_f):

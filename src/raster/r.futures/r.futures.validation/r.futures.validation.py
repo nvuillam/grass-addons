@@ -49,10 +49,11 @@
 #%end
 
 
-import sys
 import json
-import numpy as np
+import sys
+
 import grass.script as gs
+import numpy as np
 
 
 def print_results(

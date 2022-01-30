@@ -18,14 +18,14 @@ This program is free software under the GNU General Public License
 @author Vaclav Petras <wenzeslaus gmail.com> (menu customization)
 """
 
+import getopt
 import os
 import sys
-import getopt
 
 if __name__ == "__main__":
     sys.path.append(os.path.join(os.getenv("GISBASE"), "etc", "gui", "wxpython"))
-from core import globalvar
 import wx
+from core import globalvar
 
 try:
     import wx.lib.agw.advancedsplash as SC

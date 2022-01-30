@@ -47,14 +47,11 @@ from core.debug import Debug
 
 grass.utils.set_path(modulename="wx.metadata", dirname="mdlib", path="..")
 
-from mdlib import globalvar
-from mdlib import mdgrass
-from mdlib import mdutil
+import wx
+from mdlib import globalvar, mdgrass, mdutil
 from mdlib.cswlib import CSWConnectionPanel
 from mdlib.mdeditorfactory import MdMainEditor
 from mdlib.mdpdffactory import PdfCreator
-
-import wx
 from wx import SplitterWindow
 from wx.lib.buttons import ThemedGenBitmapTextButton as BitmapBtnTxt
 

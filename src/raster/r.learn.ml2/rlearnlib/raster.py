@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import importlib
 import itertools
 import os
 from subprocess import PIPE
@@ -15,12 +16,10 @@ from grass.pygrass.raster.buffer import Buffer
 from grass.pygrass.utils import get_mapset_raster
 from grass.pygrass.vector import VectorTopo
 
-from .indexing import _LocIndexer, _ILocIndexer
+from .indexing import _ILocIndexer, _LocIndexer
 from .stats import StatisticsMixin
 from .transformers import CategoryEncoder
 from .utils import get_fullname
-
-import importlib
 
 
 def import_pandas():

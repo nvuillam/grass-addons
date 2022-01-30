@@ -5,12 +5,12 @@ Created on Thu Nov 19 10:42:17 2020
 
 @author: lucadelu
 """
-import os
 import argparse
 import glob
+import os
 import xml.etree.cElementTree as ET
-from xml.dom import minidom
 from datetime import datetime
+from xml.dom import minidom
 
 
 def main():

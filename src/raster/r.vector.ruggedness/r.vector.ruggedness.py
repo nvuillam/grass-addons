@@ -84,10 +84,10 @@ import math
 import multiprocessing as mp
 import random
 import string
-import numpy as np
 import tempfile
 
 import grass.script as gs
+import numpy as np
 from grass.pygrass.modules import Module, ParallelModuleQueue
 from grass.pygrass.modules.shortcuts import general as gg
 from grass.pygrass.modules.shortcuts import raster as gr

@@ -90,10 +90,11 @@
 #%end
 
 import atexit
+import os
+import subprocess
+
 import grass.script as g
 from grass.pygrass.raster import RasterRow
-import subprocess
-import os
 
 crctd_lst = []
 

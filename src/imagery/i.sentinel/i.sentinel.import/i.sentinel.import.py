@@ -143,13 +143,13 @@
 #% requires: -s,-c
 #%end
 
-import os
-import sys
-import re
 import glob
-import shutil
 import io
 import json
+import os
+import re
+import shutil
+import sys
 from zipfile import ZipFile
 
 import grass.script as gs
@@ -768,8 +768,8 @@ class SentinelImporter(object):
         import numpy as np
 
         try:
-            from xml.etree import ElementTree
             from datetime import datetime
+            from xml.etree import ElementTree
         except ImportError as e:
             gs.fatal(_("Unable to parse metadata file. {}").format(e))
 

@@ -65,16 +65,16 @@
 #%end
 
 
+import atexit
 import os
 import sys
-import atexit
-import numpy as np
 from math import sqrt
 
 # from grass.exceptions import CalledModuleError
 import grass.script.core as gcore
-import grass.script.utils as gutils
 import grass.script.raster as grast
+import grass.script.utils as gutils
+import numpy as np
 
 TMPFILE = None
 TMP = []

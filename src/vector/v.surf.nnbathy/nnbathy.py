@@ -1,5 +1,6 @@
-import grass.script as grass
 import os
+
+import grass.script as grass
 
 
 class Nnbathy:

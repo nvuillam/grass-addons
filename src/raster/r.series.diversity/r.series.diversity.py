@@ -119,12 +119,14 @@
 # Standard
 # ----------------------------------------------------------------------------
 
+import atexit
+
 # import libraries
 import os
+import string
 import sys
 import uuid
-import atexit
-import string
+
 import grass.script as grass
 
 # ----------------------------------------------------------------------------

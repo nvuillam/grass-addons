@@ -66,19 +66,18 @@
 ##################
 # PYTHON
 import numpy as np
+from grass import script as gscript
+from grass.pygrass import utils, vector
+from grass.pygrass.gis import region
 
 # GRASS
 from grass.pygrass.modules.shortcuts import general as g
+from grass.pygrass.modules.shortcuts import miscellaneous as m
 from grass.pygrass.modules.shortcuts import raster as r
 from grass.pygrass.modules.shortcuts import vector as v
-from grass.pygrass.modules.shortcuts import miscellaneous as m
-from grass.pygrass.gis import region
-from grass.pygrass import vector
-from grass.script import vector_db_select
-from grass.pygrass.vector import Vector, VectorTopo
 from grass.pygrass.raster import RasterRow
-from grass.pygrass import utils
-from grass import script as gscript
+from grass.pygrass.vector import Vector, VectorTopo
+from grass.script import vector_db_select
 
 ###############
 # MAIN MODULE #

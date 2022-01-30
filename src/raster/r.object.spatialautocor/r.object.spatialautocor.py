@@ -55,8 +55,11 @@
 #%end
 
 from __future__ import print_function
+
 import sys
+
 import grass.script as gscript
+
 
 # check requirements
 def check_progs():

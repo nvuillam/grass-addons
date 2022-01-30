@@ -74,16 +74,18 @@
 #%end
 
 import sys
+
 import grass.script as gscript
 import grass.temporal as tgis
-from grass.pygrass.raster import RasterRow
 from grass.pygrass.gis.region import Region
+from grass.pygrass.raster import RasterRow
 from grass.script.utils import separator
 
 try:
     from collections import OrderedDict
 except:
     from types import DictType as OrderedDic
+
 import numpy as np
 
 
@@ -134,8 +136,8 @@ def _split_maps(maps, splitting):
 
 
 def _kappa_pixel(maps1, maps2, out, method, over):
-    from grass.pygrass.raster.buffer import Buffer
     import sklearn
+    from grass.pygrass.raster.buffer import Buffer
 
     rasterout = RasterRow(out, overwrite=over)
     rasterout.open("w", "DCELL")

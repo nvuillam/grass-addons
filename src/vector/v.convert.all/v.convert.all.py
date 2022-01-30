@@ -22,8 +22,9 @@
 #%end
 
 import sys
-from grass.script import core as grass
+
 from grass.exceptions import CalledModuleError
+from grass.script import core as grass
 
 
 def main():

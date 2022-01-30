@@ -76,11 +76,12 @@
 
 import atexit
 import csv
-from math import nan
-import numpy as np
 import os
 import sys
+from math import nan
+
 import grass.script as grass
+import numpy as np
 
 # initialize global vars
 rm_files = []

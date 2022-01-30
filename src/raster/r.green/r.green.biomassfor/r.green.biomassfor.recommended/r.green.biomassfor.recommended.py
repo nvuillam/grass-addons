@@ -104,7 +104,6 @@ import pdb
 import string
 
 import numpy as np
-
 from grass.pygrass.raster import RasterRow
 from grass.script.core import overwrite, parser, run_command
 

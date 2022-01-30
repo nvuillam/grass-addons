@@ -64,12 +64,13 @@
 #% description: Align ISIS3 data to the extents of the current GRASS region
 #%end
 
-import subprocess
-import sys
 import os
 import platform
 import re
 import string
+import subprocess
+import sys
+
 import grass.script as grass
 from grass.lib import gis as grasslib
 from grass.lib import proj as grassproj
@@ -80,7 +81,7 @@ if sys.version_info > (3,):
 
     IterableUserDict = UserDict
 else:
-    from UserDict import UserDict, IterableUserDict
+    from UserDict import IterableUserDict, UserDict
 
 if "GISBASE" not in os.environ:
     print("You must be in GRASS GIS to run this program.")

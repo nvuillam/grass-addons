@@ -36,8 +36,8 @@
 #% description: do not reverse sort
 #%end
 
-import sys
 import os
+import sys
 
 import grass.script as gscript
 

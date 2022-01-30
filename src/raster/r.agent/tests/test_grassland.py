@@ -1,10 +1,10 @@
+import grass.script as grass
 import unittest2 as unittest
+from grass.script import array as garray
+from libagent import error, grassland, playground
 
 # import unittest
 
-from libagent import error, playground, grassland
-import grass.script as grass
-from grass.script import array as garray
 
 
 class TestGrassland(unittest.TestCase):

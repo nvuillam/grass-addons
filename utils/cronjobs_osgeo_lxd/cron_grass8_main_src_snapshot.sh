@@ -35,21 +35,20 @@ TAR=tar
 # catch CTRL-C and other breaks:
 trap "echo 'user break.' ; exit" 2 3 9 15
 
-halt_on_error()
-{
-  echo "ERROR: $1"
-  exit 1
+halt_on_error() {
+	echo "ERROR: $1"
+	exit 1
 }
 
 # create a source code snapshot:
-CWD=`pwd`
+CWD=$(pwd)
 
 mkdir -p $TARGETDIR
 cd $SOURCE/$BRANCH/
 date
 
 #clean up
-$MYMAKE distclean > /dev/null 2>&1
+$MYMAKE distclean >/dev/null 2>&1
 
 # cleanup leftover garbage
 git status | grep '.rst' | xargs rm -f
@@ -60,7 +59,7 @@ rm -f config_${DOTVERSION}.git_log.txt ChangeLog
 #git checkout main && git reset --hard HEAD~1 && git reset --hard origin
 
 echo "git update..."
-git fetch --all --prune       || halt_on_error "git fetch error!"
+git fetch --all --prune || halt_on_error "git fetch error!"
 # we dont have upstream in this cronjob repo
 git merge origin/$BRANCH
 
@@ -76,7 +75,7 @@ cd ..
 
 date
 #package it (we rename the directory to have the date inside the package):
-DATE=`date '+_%Y_%m_%d'`
+DATE=$(date '+_%Y_%m_%d')
 mv $BRANCH $PACKAGENAME\src_snapshot$DATE
 # exclude version control system directories (the flag order matters!)
 $TAR cfz $PACKAGENAME\src_snapshot$DATE.tar.gz --exclude-vcs $PACKAGENAME\src_snapshot$DATE
@@ -94,11 +93,15 @@ cd ..
 gzip $TARGETDIR/ChangeLog
 cp $PACKAGENAME\src_snapshot$DATE.tar.gz $TARGETDIR
 rm -f $PACKAGENAME\src_snapshot$DATE.tar.gz
-chmod a+r,g+w $TARGETDIR/* 2> /dev/null
-chgrp grass $TARGETDIR/*   2> /dev/null
+chmod a+r,g+w $TARGETDIR/* 2>/dev/null
+chgrp grass $TARGETDIR/* 2>/dev/null
 
 # link for convenience:
-(cd $TARGETDIR ; rm -f $PACKAGENAME\src_snapshot_latest.tar.gz ; ln -s $PACKAGENAME\src_snapshot$DATE.tar.gz $PACKAGENAME\src_snapshot_latest.tar.gz)
+(
+	cd $TARGETDIR
+	rm -f $PACKAGENAME\src_snapshot_latest.tar.gz
+	ln -s $PACKAGENAME\src_snapshot$DATE.tar.gz $PACKAGENAME\src_snapshot_latest.tar.gz
+)
 
 echo "Written to: $TARGETDIR
 https://grass.osgeo.org/grass${GSHORTGVERSION}/source/snapshot/"

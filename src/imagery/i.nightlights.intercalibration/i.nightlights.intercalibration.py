@@ -209,14 +209,14 @@ sys.path.insert(
 )
 
 import atexit
+
 import grass.script as grass
 from grass.exceptions import CalledModuleError
 from grass.pygrass.modules.shortcuts import general as g
+from intercalibration_models import Elvidge, Liu2012, Wu2013
 
 # from grass.pygrass.modules.shortcuts import raster as r
 # from grass.pygrass.raster.abstract import Info
-
-from intercalibration_models import Elvidge, Liu2012, Wu2013
 
 
 # any constants? -------------------------------------------------------------

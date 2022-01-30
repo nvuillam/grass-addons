@@ -254,9 +254,9 @@
 #% description: Use the low-memory version of the program
 #%end
 
-import os
-import datetime
 import atexit
+import datetime
+import os
 from multiprocessing import Process
 
 import grass.script as grass

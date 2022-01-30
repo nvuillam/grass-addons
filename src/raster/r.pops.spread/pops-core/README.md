@@ -58,7 +58,7 @@ This section is designed to clarify the branch structure and versioning of this 
 
 ### Branch Structure
 
-1. **master** is the stable version of the model that is used for official releases. 
+1. **master** is the stable version of the model that is used for official releases.
 2. **fix-issuenumber** or **fix-bugdescription** are branched off of master then merged back via a pull request once bug is fixed.
 3. **new_feature** is where new features are developed before they are merged into Master via a pull request. For example, infect and vector are currently being developed and will be merged together prior to being merged to master for an official major version release.
 
@@ -114,8 +114,8 @@ The PoPS Core library can be used directly in a C++ program or through other
 programs. It is used in R package called rpops and a GRASS GIS module
 called r.pops.spread.
 
-* https://github.com/ncsu-landscape-dynamics/r.pops.spread
-* https://github.com/ncsu-landscape-dynamics/rpops
+* <https://github.com/ncsu-landscape-dynamics/r.pops.spread>
+* <https://github.com/ncsu-landscape-dynamics/rpops>
 
 ## Integrating the library into your own project
 

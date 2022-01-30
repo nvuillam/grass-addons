@@ -1,22 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8
 
-from math import sin, cos, atan2, degrees, tan, sqrt
-from datetime import datetime
-from datetime import timedelta
-import shutil
 import importlib
-import time
 import math
-import sys
 import os
+import shutil
+import sys
+import time
+from datetime import datetime, timedelta
+from math import atan2, cos, degrees, sin, sqrt, tan
 from subprocess import PIPE
 
-from pgwrapper import pgwrapper as pg
+import grass.script as grass
 from core.gcmd import RunCommand
 from grass.pygrass.modules import Module
-import grass.script as grass
 from mw_util import *
+from pgwrapper import pgwrapper as pg
 
 timeMes = MeasureTime()
 import logging

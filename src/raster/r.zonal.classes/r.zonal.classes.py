@@ -105,10 +105,11 @@
 #% requires: -l, classes_list
 #%END
 
-import os
+import atexit
 import csv
 import operator
-import atexit
+import os
+
 import grass.script as gscript
 
 
